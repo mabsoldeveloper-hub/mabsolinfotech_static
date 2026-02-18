@@ -125,7 +125,7 @@ export default function FloatingSocialBar() {
         onClick={() => setOpen(!open)}
         className={`bg-blue-600 text-white px-2 py-3 rounded-r-lg shadow-md hover:bg-blue-700 transition-all duration-200`}
         style={{
-          marginLeft: open ? "-2px" : "-60px", // 👈 Ye line button ko thoda screen ke andar laati hai
+          marginLeft: open ? "-2px" : "-60px", // Ye line button ko thoda screen ke andar laati hai
           borderTopLeftRadius: "8px",
           borderBottomLeftRadius: "8px",
         }}

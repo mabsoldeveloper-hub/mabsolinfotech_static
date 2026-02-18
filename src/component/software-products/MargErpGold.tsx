@@ -22,13 +22,14 @@ interface ProductType {
 }
 
 // -------------------- BASIC PRODUCT --------------------
-const SILVER_PRODUCT: ProductType = {
+const GOLD_PRODUCT: ProductType = {
   id: "gold",
   title: "Marg Erp 9+ — Gold",
-  price: 25200,
+  price: 26000,
   tag: "gold",
   bullets: [
-    "Multi-user access on LAN",
+      "18% GST Extra",
+      "Multi-user access on LAN",
       "25 user access",
       "25 companies supported",
       "Included Users: Unlimited Users",
@@ -88,12 +89,12 @@ export default function MargErpBasic() {
       )}
 
       <h1 className="text-4xl md:text-5xl font-bold text-center text-[#0b3a74] mb-12">
-        Buy Marg ERP 9+ — Silver Edition
+        Buy Marg ERP 9+ — Gold Edition
       </h1>
 
       {/* PRODUCT CARD */}
       <ProductCard
-        product={SILVER_PRODUCT}
+        product={GOLD_PRODUCT}
         addToCart={addToCart}
         limits={LIMITS}
       />
@@ -240,33 +241,207 @@ interface CartSummaryProps {
   setCart?: (items: CartItem[]) => void;
 }
 
+// function CartSummary({ cart, setCart }: CartSummaryProps) {
+//   const router = useRouter();
+//   const [open, setOpen] = useState(false);
+
+//   const total = cart.reduce((sum, item) => sum + item.total, 0);
+//   {/* 🔹 Price Calculation */ }
+//   const subtotal = cart.reduce((acc, item) => acc + item.total, 0);
+//   const gst = subtotal * 0.18;
+//   const grandTotal = subtotal + gst;
+//   const onDelete = (index: number) => {
+//     setCart?.(cart.filter((_, i) => i !== index));
+//   };
+
+//   return (
+//     <>
+//       <div className="max-w-[1400px] mx-auto mt-10 bg-white p-6 rounded-xl shadow-md">
+//         <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">Your Cart</h2>
+
+//         {cart.length === 0 ? (
+//           <p className="text-gray-600 text-center py-10">Cart is empty</p>
+//         ) : (
+//           <>
+//             {/* Cart Items */}
+//             {cart.map((item, index) => (
+//               <div key={index} className="flex justify-between border-b py-3">
+//                 <div>
+//                   <div className="font-semibold text-lg">
+//                     {item.product.title}
+//                   </div>
+//                   <div className="text-sm text-gray-500">
+//                     Qty: {item.qty} • Extra Users: {item.extraUsers} • Extra Companies: {item.extraCompanies}
+//                   </div>
+//                 </div>
+
+//                 <div className="flex items-center gap-4">
+//                   <div className="font-bold">
+//                     ₹{item.total.toLocaleString("en-IN")}
+//                   </div>
+//                   <Trash2
+//                     className="text-red-500 cursor-pointer"
+//                     onClick={() => onDelete(index)}
+//                   />
+//                 </div>
+//               </div>
+//             ))}
+
+//             {/* 🔹 Price Calculation */}
+//             {(() => {
+//               const subtotal = cart.reduce((acc, item) => acc + item.total, 0);
+//               const gst = subtotal * 0.18;
+//               const grandTotal = subtotal + gst;
+
+//               return (
+//                 <>
+//                   {/* Order Summary */}
+//                   <div className="mt-2 space-y-3">
+
+//                     <div className="flex justify-between text-lg">
+//                       <span>Sub Total</span>
+//                       <span>₹{subtotal.toLocaleString("en-IN")}</span>
+//                     </div>
+
+//                     <div className="flex justify-between text-lg text-gray-600">
+//                       <span>GST (18%)</span>
+//                       <span>₹{gst.toLocaleString("en-IN")}</span>
+//                     </div>
+
+//                     <div className="flex justify-between text-2xl font-bold border-t pt-3">
+//                       <span>Total</span>
+//                       <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+//                     </div>
+//                   </div>
+
+//                   {/* Buttons */}
+//                   <div className="mt-5 flex justify-end gap-3">
+//                     <Button
+//                       onClick={() => setCart?.([])}
+//                       className="py-4 rounded-lg border"
+//                     >
+//                       Clear
+//                     </Button>
+
+//                     <Button
+//                       onClick={() => setOpen(true)}
+//                       className="bg-[#339933]! text-white! py-4 rounded-lg"
+//                     >
+//                       Checkout
+//                     </Button>
+//                   </div>
+//                 </>
+//               );
+//             })()}
+//           </>
+//         )}
+//       </div>
+
+
+//       {/* Checkout Modal */}
+//       <Modal
+//         title="Checkout Summary"
+//         open={open}
+//         onCancel={() => setOpen(false)}
+//         footer={[
+//           <Button key="cancel" onClick={() => setOpen(false)}>
+//             Cancel
+//           </Button>,
+//           <PaymentGetway
+//             key="pay"
+//             totalPrice={grandTotal} // ✅ GST included amount
+//             user={{
+//               name: "User",
+//               email: "user@example.com",
+//               company: "My Company",
+//             }}
+//           />,
+//         ]}
+//       >
+//         {/* 🔹 Cart Items */}
+//         {cart.map((item, index) => (
+//           <div key={index} className="flex justify-between border-b pb-2 mb-2">
+//             <div>
+//               <div className="font-medium">{item.product.title}</div>
+//               <div className="text-xs text-gray-500">
+//                 Qty: {item.qty}
+//               </div>
+//             </div>
+//             <div className="font-semibold">
+//               ₹{item.total.toLocaleString("en-IN")}
+//             </div>
+//           </div>
+//         ))}
+
+//         {/* 🔹 Pricing Breakdown */}
+//         <div className="mt-2 pt-3 space-y-2">
+
+//           <div className="flex justify-between">
+//             <span>Sub Total</span>
+//             <span>₹{subtotal.toLocaleString("en-IN")}</span>
+//           </div>
+
+//           <div className="flex justify-between text-gray-600">
+//             <span>GST (18%)</span>
+//             <span>₹{gst.toLocaleString("en-IN")}</span>
+//           </div>
+
+//           <div className="flex justify-between text-lg font-bold border-t pt-2">
+//             <span>Total Amount</span>
+//             <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+//           </div>
+
+//         </div>
+//       </Modal>
+
+//     </>
+//   );
+// }
+
 function CartSummary({ cart, setCart }: CartSummaryProps) {
-  const router = useRouter();
-  const [open, setOpen] = useState(false);
+const [open, setOpen] = useState(false);
+// 🔹 Extra Pricing
+const EXTRA_USER_PRICE = 3000;
+const EXTRA_COMPANY_PRICE = 6500;
 
-  const total = cart.reduce((sum, item) => sum + item.total, 0);
+// 🔹 Base Subtotal (Cart Items)
+const subtotal = cart.reduce((acc, item) => acc + item.total, 0);
 
-  const onDelete = (index: number) => {
+// 🔹 Extras (from cart items)
+const totalExtraUsers = cart.reduce((acc, item) => acc + (item.extraUsers || 0), 0);
+const totalExtraCompanies = cart.reduce((acc, item) => acc + (item.extraCompanies || 0), 0);
+
+const extraUserCost = totalExtraUsers * EXTRA_USER_PRICE;
+const extraCompanyCost = totalExtraCompanies * EXTRA_COMPANY_PRICE;
+
+// 🔹 Subtotal Including Extras
+const subTotalWithExtras = subtotal + extraUserCost + extraCompanyCost;
+
+// 🔹 GST + Grand Total
+const gst = subTotalWithExtras * 0.18;
+const grandTotal = subTotalWithExtras + gst;
+const onDelete = (index: number) => {
     setCart?.(cart.filter((_, i) => i !== index));
   };
 
-  return (
-    <>
-      <div className="mt-10 max-w-[1400px] mx-auto bg-white p-6 rounded-xl shadow-md">
-        <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">Your Cart</h2>
+return (
+  <>
+    <div className="max-w-[1400px] mx-auto mt-10 bg-white p-6 rounded-xl shadow-md">
+      <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">Your Cart</h2>
 
-        {cart.length === 0 ? (
-          <p className="text-gray-600 text-center py-10">Cart is empty</p>
-        ) : (
-          cart.map((item, index) => (
+      {cart.length === 0 ? (
+        <p className="text-gray-600 text-center py-10">Cart is empty</p>
+      ) : (
+        <>
+          {/* Cart Items */}
+          {cart.map((item, index) => (
             <div key={index} className="flex justify-between border-b py-3">
               <div>
                 <div className="font-semibold text-lg">
                   {item.product.title}
                 </div>
                 <div className="text-sm text-gray-500">
-                  Qty: {item.qty} • Extra Users: {item.extraUsers} • Extra
-                  Companies: {item.extraCompanies}
+                  Qty: {item.qty} • Extra Users: {item.extraUsers} • Extra Companies: {item.extraCompanies}
                 </div>
               </div>
 
@@ -280,16 +455,42 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
                 />
               </div>
             </div>
-          ))
-        )}
+          ))}
 
-        {cart.length > 0 && (
-          <div className="mt-4 flex justify-between pt-4">
-            <div className="text-2xl font-bold">Total: ₹{total.toLocaleString("en-IN")}</div>
+          {/* 🔹 Order Summary */}
+          <div className="mt-4 space-y-2">
+
+            <div className="flex justify-between">
+              <span>Sub Total</span>
+              <span>₹{subtotal.toLocaleString("en-IN")}</span>
+            </div>
+
+            {totalExtraUsers > 0 && (
+              <div className="flex justify-between text-gray-600">
+                <span>Extra Users ({totalExtraUsers})</span>
+                <span>₹{extraUserCost.toLocaleString("en-IN")}</span>
+              </div>
+            )}
+
+            {totalExtraCompanies > 0 && (
+              <div className="flex justify-between text-gray-600">
+                <span>Extra Companies ({totalExtraCompanies})</span>
+                <span>₹{extraCompanyCost.toLocaleString("en-IN")}</span>
+              </div>
+            )}
+
+            <div className="flex justify-between">
+              <span>GST (18%)</span>
+              <span>₹{gst.toLocaleString("en-IN")}</span>
+            </div>
+
+            <div className="flex justify-between text-xl font-bold border-t pt-3">
+              <span>Total</span>
+              <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+            </div>
           </div>
-        )}
 
-        {cart.length > 0 && (
+          {/* Buttons */}
           <div className="mt-5 flex justify-end gap-3">
             <Button
               onClick={() => setCart?.([])}
@@ -305,42 +506,79 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
               Checkout
             </Button>
           </div>
-        )}
-      </div>
+        </>
+      )}
+    </div>
 
-      {/* Checkout Modal */}
-      <Modal
-        title="Checkout Summary"
-        open={open}
-        onCancel={() => setOpen(false)}
-        footer={[
-          <Button key="cancel" onClick={() => setOpen(false)}>
-            Cancel
-          </Button>,
-          <PaymentGetway key="pay" totalPrice={total} 
-           user={{
+    {/* 🔹 Checkout Modal */}
+    <Modal
+      title="Checkout Summary"
+      open={open}
+      onCancel={() => setOpen(false)}
+      footer={[
+        <Button key="cancel" onClick={() => setOpen(false)}>
+          Cancel
+        </Button>,
+        <PaymentGetway
+          key="pay"
+          totalPrice={grandTotal}
+          user={{
             name: "User",
             email: "user@example.com",
-            company: "My Company"
-          }} />,
-        ]}
-      >
-        <div className="text-lg font-bold mb-4">
-          Total Amount: ₹{total.toLocaleString("en-IN")}
-        </div>
-
-        {cart.map((item, index) => (
-          <div key={index} className="flex justify-between border-b pb-2">
-            <div>
-              <div className="font-medium">{item.product.title}</div>
-              <div className="text-xs text-gray-500">Qty: {item.qty}</div>
-            </div>
-            <div className="font-semibold">
-              ₹{item.total.toLocaleString("en-IN")}
+            company: "My Company",
+          }}
+        />,
+      ]}
+    >
+      {cart.map((item, index) => (
+        <div key={index} className="flex justify-between border-b pb-2 mb-2">
+          <div>
+            <div className="font-medium">{item.product.title}</div>
+            <div className="text-xs text-gray-500">
+              Qty: {item.qty}
             </div>
           </div>
-        ))}
-      </Modal>
-    </>
-  );
+          <div className="font-semibold">
+            ₹{item.total.toLocaleString("en-IN")}
+          </div>
+        </div>
+      ))}
+
+      <div className="mt-3 pt-3 space-y-2">
+
+        <div className="flex justify-between">
+          <span>Sub Total</span>
+          <span>₹{subtotal.toLocaleString("en-IN")}</span>
+        </div>
+
+        {totalExtraUsers > 0 && (
+          <div className="flex justify-between text-gray-600">
+            <span>Extra Users ({totalExtraUsers})</span>
+            <span>₹{extraUserCost.toLocaleString("en-IN")}</span>
+          </div>
+        )}
+
+        {totalExtraCompanies > 0 && (
+          <div className="flex justify-between text-gray-600">
+            <span>Extra Companies ({totalExtraCompanies})</span>
+            <span>₹{extraCompanyCost.toLocaleString("en-IN")}</span>
+          </div>
+        )}
+
+        <div className="flex justify-between">
+          <span>GST (18%)</span>
+          <span>₹{gst.toLocaleString("en-IN")}</span>
+        </div>
+
+        <div className="flex justify-between text-lg font-bold border-t pt-2">
+          <span>Total Amount</span>
+          <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+        </div>
+
+      </div>
+    </Modal>
+  </>
+);
+
 }
+

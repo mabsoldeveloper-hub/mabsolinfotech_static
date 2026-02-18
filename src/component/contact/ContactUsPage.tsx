@@ -79,8 +79,8 @@ export default function ContactUsPage() {
     }
   };
   return (
-    <div className="w-full bg-white pb-32 px-6 ">
-      <h1 className="py-20 text-center text-6xl font-bold">
+    <div className="w-full bg-gray-50 pb-32 px-6">
+      <h1 className="py-20 text-center text-4xl font-bold">
         Contact <span className="text-orange-500!">Us</span>{" "}
       </h1>
 
@@ -89,7 +89,7 @@ export default function ContactUsPage() {
         <div>
           <h2 className="text-3xl font-bold mb-3">
             We'd love to <span className="text-orange-500!">hear from you</span>
-            {/* {""} */}
+           {/* {""} */}
           </h2>
           <p className="text-gray-600 mb-8">
             Contact Mabsol Infotech today for reliable IT and ERP support. Our
@@ -220,18 +220,13 @@ export default function ContactUsPage() {
             </Form.Item>
 
             <Form.Item>
-              <Button
-                size="large"
-                htmlType="submit"
-                block
-                className="!text-white !bg-[#185a9e] hover:!bg-[#124a82]"
-              >
+              <Button size="large" type="primary" htmlType="submit" block>
                 Submit
               </Button>
             </Form.Item>
           </Form>
         </div>
       </div>
-    </div >
+    </div>
   );
 }

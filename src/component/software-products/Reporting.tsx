@@ -264,8 +264,8 @@ export default function MRReportingPage() {
       </section>
 
       {/* PRODUCTS SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-
+      <section className="w-full bg-[#f6f9ff]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-10">
         {/* HEADING */}
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center text-[#0b3a74] mb-8 sm:mb-12">
           Buy MR Reporting Software - <span className="text-orange-600">Cloud Edition</span>  
@@ -279,11 +279,11 @@ export default function MRReportingPage() {
             >
 
               {/* IMAGE */}
-              <div className="md:w-1/2 bg-blue-50 flex justify-center items-center p-4 sm:p-6">
+              <div className="md:w-1/2 bg-white flex justify-center items-center p-4 sm:p-6">
                 <img
                   src={p.image}
                   alt={p.title}
-                  className="w-full max-h-56 sm:max-h-full object-contain"
+                  className="w-full max-h-36 sm:max-h-96 object-contain"
                 />
               </div>
 
@@ -330,13 +330,13 @@ export default function MRReportingPage() {
                 <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Button
                     onClick={() => addToCart(Number(p.id))}
-                    className="!bg-[#185e9a] !text-white px-4 py-3 rounded-lg flex items-center justify-center gap-2 text-sm"
+                    className="!bg-[#185e9a] !text-white px-4 py-4 rounded-lg flex items-center justify-center gap-2 !text-lg"
                   >
                     <ShoppingCart className="w-4 h-4" />
                     Add to cart
                   </Button>
 
-                  <Button className="px-4 py-3 rounded-lg border text-sm">
+                  <Button className="px-4 py-4 rounded-lg border text-lg">
                     Buy now
                   </Button>
                 </div>
@@ -349,11 +349,8 @@ export default function MRReportingPage() {
             </div>
           ))}
         </div>
-      </section>
-
-
-      {/* CART SUMMARY */}
-      <div className="w-full max-w-7xl mt-10 sm:mt-20 bg-white rounded-2xl p-4 sm:p-6 shadow-md">
+              {/* CART SUMMARY */}
+      <div className="w-full max-w-7xl mt-5 sm:mt-8 bg-white rounded-2xl p-4 sm:p-6 shadow-md">
 
         {/* HEADER */}
         <div className="flex justify-between items-center">
@@ -434,6 +431,12 @@ export default function MRReportingPage() {
         </div>
 
       </div>
+      
+      </div>
+      </section>
+
+
+
 
       {/* IMAGE BELOW */}
       <div className="hidden sm:flex w-full min-h-screen sm:min-h-[80vh] justify-center items-center bg-gradient-to-b from-[#f8fbff] to-white px-4">

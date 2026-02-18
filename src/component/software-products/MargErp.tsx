@@ -9,19 +9,22 @@ import {
   FileText,
   Trash2,
 } from "lucide-react";
-import { Button  } from "antd";
+import { Button } from "antd";
 
 const products = [
   {
     id: "basic",
     title: "Marg Erp 9+ — Basic",
-    price: 9999,
+    price: 10300,
     tag: "Basic",
     bullets: [
+      "18% GST Extra",
       "Single-user access",
-      "Included Users: 1",
-      "Extra User Cost: ₹2500 per user",
-      "Multi-company support",
+      "1 User Full Rights",
+      "Extra User Cost: ₹3000 per user",
+      "Maximum 2 users",
+      "₹ 6500/- per extra Company",
+      "Maximum 2 companies",
     ],
     image: "/images/marg-basic.png",
     route: "/margErp/margErp-Basic",
@@ -29,9 +32,10 @@ const products = [
   {
     id: "silver",
     title: "Marg Erp 9+ — Silver",
-    price: 13500,
+    price: 13900,
     tag: "Silver",
     bullets: [
+      "18% GST Extra",
       "Single-user access on LAN",
       "Included Users: 1 Full + 1 View-Only",
       "Extra User Cost: ₹3000 (Max 25)",
@@ -44,12 +48,14 @@ const products = [
   {
     id: "gold",
     title: "Marg Erp 9+ — Gold",
-    price: 21000,
+    price: 26000,
     tag: "Gold",
     bullets: [
+      "18% GST Extra",
       "Multi-user with maximum features",
+      "Unlimited Users",
+      "Unlimited Extra Companies",
       "Advanced reports & analytics",
-      "Extra users supported",
       "Best for growing businesses",
     ],
     image: "/images/marg-gold.webp",
@@ -58,10 +64,10 @@ const products = [
 ];
 
 export default function MargErp() {
- 
+
   const [toastMsg, setToastMsg] = useState("");
 
- 
+
 
   const basicDetails = [
     "Core accounting & invoicing",
@@ -114,10 +120,10 @@ export default function MargErp() {
   return (
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 gap-8 items-center">
-        <div className="space-y-4">
+      <section className="max-w-7xl mx-auto px-6 py-10 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="space-y-4 text-justify">
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#0b3a74] leading-tight">
-            Marg ERP 9+ — <span className="text-orange-600">Find the perfect edition tailored for your business</span>
+            Marg ERP 9+ — <span className="text-orange-600 ">Find the perfect edition tailored for your business</span>
           </h1>
           <p className="text-gray-700 max-w-2xl">
             Marg ERP 9+ is built on the belief that technology should simplify
@@ -132,7 +138,7 @@ export default function MargErp() {
               Contact Sales
             </button>
             <button className="px-5 py-3 border rounded-lg">
-              Compare Editions
+              Comparison Editions
             </button>
           </div>
 
@@ -177,9 +183,9 @@ export default function MargErp() {
         >
           <div className="p-2">
             <img
-              src="/images/Margbackbone.png"
+              src="/images/marg-logo.webp"
               alt="Marg mock"
-              className="w-full h-80 object-contain"
+              className="w-full h-90 object-contain"
             />
           </div>
         </motion.div>
@@ -188,7 +194,7 @@ export default function MargErp() {
       {/* Comparison Section */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <h2 className="text-6xl md:text-5xl font-bold text-center text-[#0b3a74] mb-12">
-          Compare Marg ERP 9+ Editions
+          Comparison Marg ERP 9+ Editions
         </h2>
 
         <div className="grid md:grid-cols-3 gap-10">
@@ -203,7 +209,7 @@ export default function MargErp() {
             <div className="relative bg-gradient-to-br from-blue-200 via-white to-blue-300 rounded-2xl p-8 h-full">
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src="/images/Margbackbone.png"
+                  src="/images/marg-logo.webp"
                   alt="Marg Basic"
                   className="w-16 h-12 shadow-md"
                 />
@@ -247,7 +253,7 @@ export default function MargErp() {
             <div className="relative bg-gradient-to-br from-gray-200 via-white to-gray-300 rounded-2xl p-8 h-full">
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src="/images/Margbackbone.png"
+                  src="/images/marg-logo.webp"
                   alt="Marg Silver"
                   className="w-16 h-12 shadow-md"
                 />
@@ -291,7 +297,7 @@ export default function MargErp() {
             <div className="relative bg-gradient-to-br from-yellow-100 via-yellow-50 to-amber-200 rounded-2xl p-8 h-full">
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src="/images/Margbackbone.png"
+                  src="/images/marg-logo.webp"
                   alt="Marg Gold"
                   className="w-16 h-12 shadow-md"
                 />
@@ -347,132 +353,132 @@ export default function MargErp() {
 
         {/* FULL-WIDTH FLEX DISPLAY */}
         <div className="w-full max-w-7xl mx-auto p-6 md:p-12 space-y-12">
-      {products.map((p) => (
-        <div
-          key={p.id}
-          className="bg-gray-50 hover:border-blue-800 transition shadow-md rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center"
-        >
-          {/* LEFT IMAGE */}
-          <div className="w-full md:w-1/2">
-            <img
-              src={p.image}
-              alt={p.title}
-              className="w-full h-64 object-contain"
-            />
-          </div>
-
-          {/* RIGHT CONTENT */}
-          <div className="w-full md:w-1/2 space-y-4">
-            <h2 className="text-3xl font-bold text-[#0b3a74]">{p.title}</h2>
-            <p className="text-2xl font-semibold text-gray-700">₹{p.price}</p>
-
-            <ul className="space-y-2 text-gray-600">
-              {p.bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span>✔️</span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-
-            {/* BUY NOW BUTTON */}
-            <Link
-              href={`${p.route}`}
-              className="inline-block mt-6 bg-[#0b3a74] hover:bg-[#082c56] text-white font-semibold px-6 py-3 rounded-xl transition-all"
+          {products.map((p) => (
+            <div
+              key={p.id}
+              className="bg-gray-50 hover:border-blue-800 transition shadow-md rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center"
             >
-              Buy Now
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
+              {/* LEFT IMAGE */}
+              <div className="w-full md:w-1/2">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-64 object-contain"
+                />
+              </div>
 
-       
+              {/* RIGHT CONTENT */}
+              <div className="w-full md:w-1/2 space-y-4">
+                <h2 className="text-3xl font-bold text-[#0b3a74]">{p.title}</h2>
+                <p className="text-2xl font-semibold text-gray-700">₹{p.price}</p>
+
+                <ul className="space-y-2 text-gray-600">
+                  {p.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span>✔️</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* BUY NOW BUTTON */}
+                <Link
+                  href={`${p.route}`}
+                  className="inline-block mt-6 bg-[#0b3a74] hover:bg-[#082c56] text-white font-semibold px-6 py-3 rounded-xl transition-all"
+                >
+                  Buy Now
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+
+
       </div>
 
-     
-<div className="hidden sm:flex w-full min-h-screen sm:min-h-[80vh] justify-center items-center bg-gradient-to-b from-[#f8fbff] to-white px-4">
-  <img
-    src="/images/Marg-infographics.jpg"
-    alt="Marg Infographics"
-    className="
+
+      <div className="hidden sm:flex w-full min-h-screen sm:min-h-[80vh] justify-center items-center bg-gradient-to-b from-[#f8fbff] to-white px-4">
+        <img
+          src="/images/Marg-infographics.jpg"
+          alt="Marg Infographics"
+          className="
       w-full 
       max-w-md 
       sm:max-w-2xl 
       md:max-w-4xl 
       object-contain
     "
-  />
-</div>
+        />
+      </div>
 
 
       {/* WHAT IS MARG ERP */}
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
-  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-[#0b3a74] mb-10">
-    What Exactly is Marg ERP 9+?
-  </h2>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-[#0b3a74] mb-10">
+          What Exactly is Marg ERP 9+?
+        </h2>
 
-  {/* TOP CARDS */}
-  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-10">
-    {/* CARD 1 */}
-    <div className="bg-white shadow-md rounded-2xl p-5 border border-gray-100 hover:shadow-xl transition">
-      <h3 className="text-lg sm:text-xl font-semibold text-[#0b3a74] mb-2">
-        Powerful Billing & GST
-      </h3>
-      <p className="text-gray-600 text-sm leading-relaxed">
-        Generate GST-compliant invoices, e-way bills, automate tax
-        calculations, and track all financial transactions effortlessly.
-      </p>
-    </div>
+        {/* TOP CARDS */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-10">
+          {/* CARD 1 */}
+          <div className="bg-white shadow-md rounded-2xl p-5 border border-gray-100 hover:shadow-xl transition">
+            <h3 className="text-lg sm:text-xl font-semibold text-[#0b3a74] mb-2">
+              Powerful Billing & GST
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Generate GST-compliant invoices, e-way bills, automate tax
+              calculations, and track all financial transactions effortlessly.
+            </p>
+          </div>
 
-    {/* CARD 2 */}
-    <div className="bg-white shadow-md rounded-2xl p-5 border border-gray-100 hover:shadow-xl transition">
-      <h3 className="text-lg sm:text-xl font-semibold text-[#0b3a74] mb-2">
-        Smart Inventory Control
-      </h3>
-      <p className="text-gray-600 text-sm leading-relaxed">
-        Manage stock levels, expiry, batch, reorder points, transfers, and
-        multi-warehouse operations with accuracy.
-      </p>
-    </div>
+          {/* CARD 2 */}
+          <div className="bg-white shadow-md rounded-2xl p-5 border border-gray-100 hover:shadow-xl transition">
+            <h3 className="text-lg sm:text-xl font-semibold text-[#0b3a74] mb-2">
+              Smart Inventory Control
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Manage stock levels, expiry, batch, reorder points, transfers, and
+              multi-warehouse operations with accuracy.
+            </p>
+          </div>
 
-    {/* CARD 3 */}
-    <div className="bg-white shadow-md rounded-2xl p-5 border border-gray-100 hover:shadow-xl transition col-span-2 md:col-span-1">
-      <h3 className="text-lg sm:text-xl font-semibold text-[#0b3a74] mb-2">
-        Industry-Ready Features
-      </h3>
-      <p className="text-gray-600 text-sm leading-relaxed">
-        Equipped for pharma, FMCG, retail, manufacturing, POS, loyalty,
-        barcode, schemes & offers, and custom business workflows.
-      </p>
-    </div>
-  </div>
+          {/* CARD 3 */}
+          <div className="bg-white shadow-md rounded-2xl p-5 border border-gray-100 hover:shadow-xl transition col-span-2 md:col-span-1">
+            <h3 className="text-lg sm:text-xl font-semibold text-[#0b3a74] mb-2">
+              Industry-Ready Features
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Equipped for pharma, FMCG, retail, manufacturing, POS, loyalty,
+              barcode, schemes & offers, and custom business workflows.
+            </p>
+          </div>
+        </div>
 
-  {/* BOTTOM SECTION */}
-  <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
-    <div className="bg-[#f3f7ff] p-6 sm:p-8 rounded-2xl shadow">
-      <h4 className="text-xl sm:text-2xl font-bold text-[#0b3a74] mb-3">
-        Integrated Mobile Apps
-      </h4>
-      <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-        Marg offers mobile apps for retailers, field staff, and business
-        owners— allowing order entry, tracking, performance analysis, and
-        real-time data access.
-      </p>
-    </div>
+        {/* BOTTOM SECTION */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="bg-[#f3f7ff] p-6 sm:p-8 rounded-2xl shadow">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#0b3a74] mb-3">
+              Integrated Mobile Apps
+            </h4>
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+              Marg offers mobile apps for retailers, field staff, and business
+              owners— allowing order entry, tracking, performance analysis, and
+              real-time data access.
+            </p>
+          </div>
 
-    <div className="bg-[#f3f7ff] p-6 sm:p-8 rounded-2xl shadow">
-      <h4 className="text-xl sm:text-2xl font-bold text-[#0b3a74] mb-3">
-        Advanced Business Tools
-      </h4>
-      <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-        Generate MIS reports, manage pricing & discount policies, track
-        invoices, handle multi-branch operations, and secure data with
-        user-permission layers.
-      </p>
-    </div>
-  </div>
-</section>
+          <div className="bg-[#f3f7ff] p-6 sm:p-8 rounded-2xl shadow">
+            <h4 className="text-xl sm:text-2xl font-bold text-[#0b3a74] mb-3">
+              Advanced Business Tools
+            </h4>
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+              Generate MIS reports, manage pricing & discount policies, track
+              invoices, handle multi-branch operations, and secure data with
+              user-permission layers.
+            </p>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

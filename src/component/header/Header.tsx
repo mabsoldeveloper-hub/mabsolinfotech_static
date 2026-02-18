@@ -91,7 +91,7 @@ const Header = () => {
           href="/margErp"
           className="!text-blue-300 hover:!text-[#fff]  select-none"
         >
-          MArg ERP 9+
+          Marg ERP 9+
         </a>
         <a
           href="/reporting"
@@ -541,6 +541,15 @@ const Header = () => {
           Wallet Recharge
         </a>
       </div>
+            <div className="text-sm font-bold flex flex-col gap-3 font-serif">
+        <span>All Products Demo</span>
+        <a
+          href="https://demo.mabsolinfotech.com"
+          className="!text-blue-300 select-none"
+        >
+          All Products Demo
+        </a>
+      </div>
     </div>
   );
 
@@ -612,15 +621,15 @@ const Header = () => {
               <Link href="/">
                 <Button
                   type="link"
-                  className="text-lg !font-extrabold !text-green-600"
+                  className="text-lg !font-extrabold !text-white"
                   style={{ fontFamily: "Roboto,sans-serif" }}
                 >
                   Home
                 </Button>
               </Link>
-              <div className="w-full">
+              {/* <div className="w-full">
                 <hr className="border-t-4 border-green-600" />
-              </div>
+              </div> */}
             </div>
 
             <Popover
@@ -715,7 +724,8 @@ const Header = () => {
             >
               <Button
                 onClick={handleSupportClick}
-                className="!bg-green-700 !text-white !py-6 !px-5 !rounded-none"
+                className="!bg-orange-500 hover:!bg-orange-600 !text-white !text-md !font-semibold !px-8 !h-12 !rounded-lg !shadow-md hover:!shadow-lg transition-all duration-300"
+
               >
                 Raise a Support Ticket
               </Button>
@@ -728,7 +738,7 @@ const Header = () => {
             >
               <Button
                 onClick={handleCRMClick}
-                className=" !text-white !rounded-none !py-6 !bg-[#34396e]"
+                className="!bg-[#34396e] hover:!bg-blue-600 !text-white !text-md !font-semibold !px-8 !h-12 !rounded-lg !shadow-md hover:!shadow-lg transition-all duration-300"
               >
                 Contact Us
               </Button>

@@ -9,19 +9,19 @@ const productData = [
   },
   {
     title: "Tally",
-    price: "₹22,500.00 – ₹64,000.00",
+    price: "₹22,500.00 – ₹67,500.00",
     img: "images/Tally.webp",
   },
   {
     title: "MARG ERP 9+",
-    price: "₹1,000.00 – ₹25,200.00",
+    price: "₹10,300.00 – ₹26,000.00",
     img: "Bannner.webp",
   },
 ];
 
 const OurProduct = () => {
   return (
-    <div className="py-10 lg:py-20 lg:px-20 px-6 bg-white">
+    <div className="py-5 lg:py-10 lg:px-20 px-6 bg-white">
       <h1
         data-aos="fade-down"
         data-aos-easing="linear"
@@ -53,14 +53,14 @@ const OurProduct = () => {
                 <a className="!text-[#185e9a] text-xl font-bold font-serif">
                   {product.title}
                 </a>
-                <h1 className="py-1">{product.title}</h1>
-                <p className="text-green-700">{product.price}</p>
+                {/* <h1 className="py-1 text-lg">{product.title}</h1> */}
+                <p className="text-orange-600 text-lg font-bold">{product.price}</p>
                 <div className="mt-auto">
                   <Button
                     type="primary"
-                    className="!rounded-none !bg-[#185e9a] !px-10 !py-5 mt-4"
+                    className="!rounded-none !bg-[#185e9a] !px-10 !py-5 mt-4 !text-white  !text-md"
                   >
-                    Select options
+                    Buy Now
                   </Button>
                 </div>
               </div>

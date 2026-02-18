@@ -21,6 +21,7 @@ export default function TallyPage() {
       price: 22500,
       tag: "Silver",
       bullets: [
+        "18% GST Extra",
         "Core accounting & invoicing",
         "GST & compliance-ready",
         "Simple reports & browser access",
@@ -31,9 +32,10 @@ export default function TallyPage() {
     {
       id: "gold",
       title: "TallyPrime — Gold",
-      price: 64000,
+      price: 67500,
       tag: "Gold",
       bullets: [
+        "18% GST Extra",
         "All Silver features",
         "Customisable & savable reports",
         "TallyVault encryption + priority support",
@@ -50,6 +52,7 @@ export default function TallyPage() {
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [open, setOpen] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState<boolean>(true);
+
 
   const addToCart = (id: string) => {
     const exists = cart.find((c) => c.id === id);
@@ -69,6 +72,12 @@ export default function TallyPage() {
     const p = products.find((x) => x.id === i.id)!;
     return s + p.price * i.qty;
   }, 0);
+
+  const GST_RATE = 0.18;
+
+  const subtotal = totalPrice;
+  const gstAmount = +(subtotal * GST_RATE).toFixed(2);
+  const grandTotal = +(subtotal + gstAmount).toFixed(2);
 
   const showLoading = () => {
     setOpen(true);
@@ -132,7 +141,7 @@ export default function TallyPage() {
               Contact Sales
             </button>
             <button className="px-5 py-3 border rounded-lg">
-              Compare Editions
+              Comparison Editions
             </button>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-700">
@@ -185,12 +194,10 @@ export default function TallyPage() {
         </motion.div>
       </section>
 
-      {/* card details */}
-
       {/* Comparison Section */}
       <section className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-6xl md:text-6xl font-bold text-center text-[#0b3a74] mb-12">
-          Compare Tally Prime Silver & Gold
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-[#0b3a74] mb-8 sm:mb-10 px-4 leading-tight">
+          Comparison Tally Prime Silver & Gold
         </h2>
 
         <div className="grid md:grid-cols-2 gap-10">
@@ -309,7 +316,7 @@ export default function TallyPage() {
 
       {/* PRODUCTS SIDE-BY-SIDE */}
       <section className="max-w-7xl mx-auto px-6 py-6">
-        <h2 className="text-6xl md:text-6xl font-bold text-center text-[#0b3a74] mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-[#0b3a74] mb-8 sm:mb-10 px-4 leading-tight">
           Buy Your Tally Prime Silver & Gold
         </h2>
         <div className="flex flex-col gap-16">
@@ -329,7 +336,6 @@ export default function TallyPage() {
               </div>
 
               {/* DETAILS SIDE */}
-              {/* DETAILS */}
               <div className="w-full md:w-1/2 p-8">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -365,49 +371,84 @@ export default function TallyPage() {
                   </ul>
                 </div>
 
-                <div className="mt-6 flex items-center gap-3">
-                  <Button
-                    onClick={() => addToCart(p.id)}
-                    className="flex-1 bg-[#185e9a]! text-white! py-4! lg:py-4!"
-                  >
-                    <ShoppingCart className="w-4 h-4" /> Add to cart
-                  </Button>
-                  <Button className="px-5 py-4! lg:py-4! rounded-lg border">
-                    Buy now
-                  </Button>
-                </div>
+<div className="mt-6 flex flex-col sm:flex-row gap-3">
+
+  {/* Add to Cart */}
+  <Button
+    onClick={() => addToCart(p.id)}
+    className="w-full sm:flex-1 bg-[#185e9a]! text-white! 
+               h-11 sm:h-12 rounded-lg 
+               flex items-center justify-center gap-2 
+               text-sm sm:text-base font-medium"
+  >
+    <ShoppingCart className="w-4 h-4" />
+    Add to Cart
+  </Button>
+
+  {/* Buy Now */}
+  <Button
+    onClick={() => addToCart(p.id)}
+    className="w-full sm:w-auto 
+               h-11 sm:h-12 
+               px-6 rounded-lg border 
+               text-sm sm:text-base font-medium"
+  >
+    Buy Now
+  </Button>
+
+</div>
 
                 <div className="mt-4 text-xs text-gray-500">
                   SKU: {p.id.toUpperCase()} • Support: 1 year
+                  <ul className="text-gray-500 text-sm mt-2 space-y-1">
+                    <li>* Customization, additional features, or local modifications will be charged separately.</li>
+                    <li>* GST will be charged extra as per applicable tax laws.</li>
+                  </ul>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
       </section>
 
+
       {/* CART SUMMARY */}
-      <div className="mt-20 max-w-7xl mx-auto justify-center bg-white rounded-2xl p-4 py-10 shadow-md">
-        <div className="flex items-center justify-between">
-          <div className="text-sm text-gray-700 font-medium">Cart Summary</div>
-          <div className="text-sm font-semibold">{totalItems} item(s)</div>
+      <div className="mt-8 max-w-7xl mx-auto bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100">
+
+        {/* HEADER */}
+        <div className="flex items-center justify-between pb-4 border-b">
+          <h2 className="text-xl sm:text-xl font-semibold text-gray-800">
+            Cart Summary
+          </h2>
+          <span className="text-md sm:text-base font-medium text-gray-600">
+            {totalItems} item(s)
+          </span>
         </div>
 
-        <div className="mt-4 space-y-3 text-sm">
+        {/* CART ITEMS */}
+        <div className="mt-5 space-y-4 text-sm sm:text-base">
           {cart.length === 0 ? (
-            <div className="text-gray-500 text-center py-2">
+            <div className="text-gray-400 text-center py-6">
               Your cart is empty.
             </div>
           ) : (
             cart.map((c) => {
               const prod = products.find((x) => x.id === c.id)!;
               return (
-                <div key={c.id} className="flex justify-between pb-2">
+                <div
+                  key={c.id}
+                  className="flex justify-between items-center"
+                >
                   <div>
-                    <div className="font-medium">{prod.title}</div>
-                    <div className="text-xs text-gray-500">Qty: {c.qty}</div>
+                    <div className="font-medium text-gray-800">
+                      {prod.title}
+                    </div>
+                    <div className="text-md text-gray-500 mt-1">
+                      Qty: {c.qty}
+                    </div>
                   </div>
-                  <div className="font-semibold">
+                  <div className="font-semibold text-gray-700">
                     ₹{(prod.price * c.qty).toLocaleString("en-IN")}
                   </div>
                 </div>
@@ -416,36 +457,58 @@ export default function TallyPage() {
           )}
         </div>
 
-        <div className="mt-4 flex justify-between border-t pt-4">
-          <div className="text-sm text-gray-600">Total</div>
-          <div className="text-lg font-bold">
-            ₹{totalPrice.toLocaleString("en-IN")}
+        {/* BILLING BREAKDOWN */}
+        <div className="mt-6 pt-4 border-t space-y-3 text-sm sm:text-base">
+
+          <div className="flex justify-between text-gray-600">
+            <span>Subtotal</span>
+            <span>₹{subtotal.toLocaleString("en-IN")}</span>
           </div>
+
+          <div className="flex justify-between text-gray-600">
+            <span>GST (18%)</span>
+            <span>₹{gstAmount.toLocaleString("en-IN")}</span>
+          </div>
+
+          {/* Highlighted Total */}
+          <div className="flex justify-between items-center bg-gray-50 p-4 rounded-lg mt-3">
+            <span className="text-base sm:text-lg font-semibold text-gray-800">
+              Total Payable
+            </span>
+            <span className="text-lg sm:text-xl font-bold text-[#185e9a]">
+              ₹{grandTotal.toLocaleString("en-IN")}
+            </span>
+          </div>
+
         </div>
 
-        <div className="mt-5 flex flex-col sm:flex-row gap-3 justify-end sm:ml-auto w-full sm:w-1/2">
+        {/* BUTTONS */}
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-end">
 
           <Button
             onClick={() => {
               setCart([]);
               setSelected(null);
             }}
-            className="flex-[0.1] px-4 py-4!"
+            className="px-6 py-2 rounded-lg"
           >
             Clear
           </Button>
+
           <Button
             disabled={cart.length === 0}
-            className={`flex-[1] px-4 py-4! rounded-lg ${cart.length === 0
-                ? "bg-gray-200 text-gray-400"
-                : "bg-[#185e9a]! text-white!"
+            className={`px-8 py-2 rounded-lg text-base font-medium ${cart.length === 0
+              ? "bg-gray-200 text-gray-400"
+              : "bg-[#185e9a]! text-white! hover:!bg-[#144a82]"
               }`}
             onClick={showLoading}
           >
             Checkout
           </Button>
         </div>
+
       </div>
+
 
       {/* FEATURES & DESCRIPTION */}
       <section className="max-w-7xl mx-auto px-6 py-32">
@@ -586,8 +649,8 @@ export default function TallyPage() {
                   <button
                     disabled={cart.length === 0}
                     className={`w-full mt-5 py-3 rounded-lg text-white font-medium ${cart.length === 0
-                        ? "bg-gray-300 cursor-not-allowed"
-                        : "bg-green-600 hover:bg-green-700"
+                      ? "bg-gray-300 cursor-not-allowed"
+                      : "bg-green-600 hover:bg-green-700"
                       }`}
                   >
                     Proceed to Payment
@@ -610,31 +673,57 @@ export default function TallyPage() {
         footer={
           <>
             <Button onClick={() => setOpen(false)}>Cancel</Button>
-            {/* PaymentGetway ke handler ko call karenge */}
-            <PaymentGetway totalPrice={totalPrice} user={user} />
+
+            {/* Final amount gateway ko bhejna chahiye */}
+            <PaymentGetway totalPrice={grandTotal} user={user} />
           </>
         }
         open={open}
         onCancel={() => setOpen(false)}
       >
-        <div className="text-lg font-bold mb-4">
-          Total Amount: ₹{totalPrice.toLocaleString("en-IN")}
+        {/* ITEM LIST */}
+        <div className="space-y-3 mb-2">
+          {cart.map((c) => {
+            const prod = products.find((x) => x.id === c.id)!;
+            return (
+              <div key={c.id} className="flex justify-between pb-2 text-md">
+                <div>
+                  <div className="font-medium">{prod.title}</div>
+                  <div className="text-md text-gray-500">
+                    Qty: {c.qty}
+                  </div>
+                </div>
+                <div className="font-semibold">
+                  ₹{(prod.price * c.qty).toLocaleString("en-IN")}
+                </div>
+              </div>
+            );
+          })}
         </div>
-        {cart.map((c) => {
-          const prod = products.find((x) => x.id === c.id)!;
-          return (
-            <div key={c.id} className="flex justify-between border-b pb-2">
-              <div>
-                <div className="font-medium">{prod.title}</div>
-                <div className="text-xs text-gray-500">Qty: {c.qty}</div>
-              </div>
-              <div className="font-semibold">
-                ₹{(prod.price * c.qty).toLocaleString("en-IN")}
-              </div>
-            </div>
-          );
-        })}
+
+        {/* BILLING BREAKDOWN */}
+        <div className="pt-4 border-t space-y-2 text-md">
+
+          <div className="flex justify-between">
+            <span className="text-gray-600">Subtotal</span>
+            <span>₹{subtotal.toLocaleString("en-IN")}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span className="text-gray-600">GST (18%)</span>
+            <span>₹{gstAmount.toLocaleString("en-IN")}</span>
+          </div>
+
+          <div className="flex justify-between text-lg font-bold border-t pt-3 mt-2">
+            <span>Total Payable</span>
+            <span className="text-[#185e9a]">
+              ₹{grandTotal.toLocaleString("en-IN")}
+            </span>
+          </div>
+
+        </div>
       </Modal>
+
     </div>
   );
 }

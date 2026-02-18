@@ -6,33 +6,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FcEditImage, FcElectronics, FcGlobe, FcPlanner } from "react-icons/fc";
 
-// const image = [
-//   {
-//     image: "/1.webp",
-//   },
-//   {
-//     image: "/2.webp",
-//   },
-//   {
-//     image: "/3.webp",
-//   },
-//   {
-//     image: "/4.png",
-//   },
-//   {
-//     image: "/5.jpg",
-//   },
-//   {
-//     image: "/1.webp",
-//   },
-//   {
-//     image: "/1.webp",
-//   },
-//   {
-//     image: "/1.webp",
-//   },
-// ];
-
 const HomePage = () => {
   const images = [
     "images/background.jpg",
@@ -49,7 +22,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative bg-white w-full overflow-hidden">
       <div className="relative w-full min-h-[80vh]">
         <div
           style={{
@@ -58,8 +31,6 @@ const HomePage = () => {
           }}
           className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
         ></div>
-
-        {/* <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div> */}
 
         <div className="relative z-10 flex flex-col h-[80vh] justify-center items-center gap-6 px-4 text-center bg-black/50 text-white">
           <h1 className="text-3xl lg:text-5xl text-center font-bold max-w-[700px] pt-6">
@@ -132,15 +103,6 @@ const HomePage = () => {
         </Card>
         <Card
           data-aos="fade-left"
-          // styles={{
-          //   body: {
-          //     display: "flex",
-          //     flexDirection: "column",
-          //     gap: "10px",
-          //     alignItems: "center",
-          //     textAlign: "center",
-          //   },
-          // }}
           styles={{
             body: { padding: "24px" },
           }}
