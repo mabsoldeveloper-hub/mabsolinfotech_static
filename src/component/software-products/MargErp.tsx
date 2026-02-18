@@ -384,7 +384,7 @@ export default function MargErp() {
                 {/* BUY NOW BUTTON */}
                 <Link
                   href={`${p.route}`}
-                  className="inline-block mt-6 bg-[#0b3a74] hover:bg-[#082c56] text-white font-semibold px-6 py-3 rounded-xl transition-all"
+                  className="inline-block mt-6 bg-[#0b3a74] hover:bg-[#082c56] text-white font-semibold px-6 py-3 rounded-none transition-all"
                 >
                   Buy Now
                 </Link>
