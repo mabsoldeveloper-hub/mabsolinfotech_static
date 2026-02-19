@@ -395,7 +395,7 @@ const Header = () => {
           Wallet Recharge
         </a>
       </div>
-            <div className="text-sm font-bold flex flex-col gap-3 font-serif">
+      <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span>All Products Demo</span>
         <a
           href="https://demo.mabsolinfotech.com"
@@ -1068,37 +1068,26 @@ const Header = () => {
                     </div>
                   </a>
 
-                  {/* <a
-                    href="https://demo.mabsolinfotech.com/hr/admin/index"
-                    className="block hover:border-b hover:border-gray-300 p-2 !text-white"
-                  >
-                    <div className="flex justify-start items-center gap-1">
-                      <IoBagHandleOutline />
-                      HR Admin
-                    </div>
-                  </a>
-                  <a
-                    href="https://demo.mabsolinfotech.com/crm/admin/admin_login.php"
-                    className="block hover:border-b hover:border-gray-300 p-2 !text-white"
-                  >
-                    <div className="flex justify-start items-center gap-1">
-                      <SiCivicrm />
-                      CRM Admin
-                    </div>
-                  </a>
-                  <a
-                    href="https://demo.mabsolinfotech.com/institute/admin/"
-                    className="block hover:border-b hover:border-gray-300 p-2 !text-white"
-                  >
-                    <div className="flex justify-start items-center gap-1">
-                      <IoSchool />
-                      Institute Admin
-                    </div>
-                  </a> */}
-
                   {/* *******************************************sub menu******************************************** */}
 
                   <div className=" w-full">
+                    {/* all product demo */}
+                    <a
+                      href="https://demo.mabsolinfotech.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer font-medium !text-white"
+                    >
+                      <div className="pt-4 py-2 text-[16px] font-medium flex justify-between items-center hover:text-white transition">
+
+                        <div className="flex justify-start items-center gap-1">
+                          <FcComboChart />
+                          All Products Demo
+                        </div>
+
+                      </div>
+                    </a>
+
                     {/* Trigger */}
                     <div
                       onClick={toggleDcrDemoSubmenu}
@@ -1686,7 +1675,7 @@ const Header = () => {
               data-aos-easing="linear"
               data-aos-duration="700"
             >
-              <Button className="!text-white !bg-green-600 !rounded-none !py-6 !px-5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+              <Button className="!text-white !bg-orange-500 !rounded-none !py-6 !px-5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 Raise a Support Ticket
               </Button>
             </div>
@@ -1700,7 +1689,7 @@ const Header = () => {
             >
               <Button
                 type="primary"
-                className="!text-white !py-6 !rounded-none border border-white hover:!bg-white hover:!text-blue-950 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+                className="!text-white !bg-blue-900 !py-6 !rounded-none border border-white hover:!bg-white hover:!text-blue-950 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
                 Contact Us
               </Button>

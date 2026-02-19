@@ -15,7 +15,7 @@ const OurCustomer = () => {
                 <div className="pt-4 w-full flex justify-center items-center">
                     <hr className="w-[20%] border-t-4 border-blue-800" />
                 </div>
-                <p className='italic pt-10 max-w-[1200px] text-center mx-auto text-black'>
+                <p className='italic pt-10 max-w-[1200px] text-center mx-auto text-black text-justify'>
                     At Mabsol Infotech, our commitment to excellence is reflected in the success
                     stories of our clients. We invite you to explore our collection of video testimonials,
                     where real customers share their firsthand experiences with our software solutions,

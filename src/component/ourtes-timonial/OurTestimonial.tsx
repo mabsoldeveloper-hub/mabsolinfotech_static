@@ -137,16 +137,7 @@ const OurTestimonial = () => {
                                 <h1 className="pt-10 text-2xl font-semibold text-gray-800">{item.name}</h1>
 
                                 <p
-                                    className="py-4 px-4 text-gray-600 overflow-hidden text-ellipsis max-w-[400px]"
-                                    // style={{
-                                    //     display: "-webkit-box",
-                                    //     WebkitBoxOrient: "vertical",
-                                    //     WebkitLineClamp: 4,
-                                    //     // overflow: "hidden",
-                                    //     textOverflow: "ellipsis",
-                                    //     maxHeight: "4em",
-                                    //     lineHeight: "1.5em",
-                                    // }}
+                                    className="py-4 px-4 text-gray-600 overflow-hidden text-ellipsis max-w-[400px] text-justify"
                                 >
                                     {item.description}
                                 </p>

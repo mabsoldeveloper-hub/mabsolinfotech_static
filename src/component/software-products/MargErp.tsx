@@ -134,12 +134,14 @@ export default function MargErp() {
           </p>
 
           <div className="mt-6 flex gap-3">
+            <Link href="/contact">
             <button className="px-5 py-3 bg-[#0b3a74] text-white rounded-lg font-medium">
               Contact Sales
-            </button>
+            </button></Link>
+            <Link href="/features-comparison">
             <button className="px-5 py-3 border rounded-lg">
               Comparison Editions
-            </button>
+            </button></Link>
           </div>
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-700">

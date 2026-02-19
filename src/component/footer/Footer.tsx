@@ -91,7 +91,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="/margErp" className="hover:text-white transition">
-                MARG ERP 9+
+                Marg ERP 9+
               </a>
             </li>
             <li>

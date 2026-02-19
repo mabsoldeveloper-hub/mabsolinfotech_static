@@ -1,6 +1,7 @@
 import { SnippetsFilled } from "@ant-design/icons";
 import { Button } from "antd";
 import React from "react";
+import Link from "next/link";
 
 const Technoogy = () => {
   return (
@@ -18,9 +19,11 @@ const Technoogy = () => {
           <p className="text-4xl text-gray-700 font-bold font-serif max-w-[500px] py-2">
             Where Technology Transforms Business
           </p>
+          <Link href="https://demo.mabsolinfotech.com">
           <Button className="!text-[#185e9a] !bg-transparent !rounded-none !py-6 !px-12 hover:!text-white hover:!bg-[#185e9a] !mt-6 !text-xl !border-[#185e9a]">
             Project <SnippetsFilled />
           </Button>
+          </Link>
         </div>
         <div data-aos="zoom-in-left">
           <h1 className="text-3xl font-bold text-[#185e9a]">

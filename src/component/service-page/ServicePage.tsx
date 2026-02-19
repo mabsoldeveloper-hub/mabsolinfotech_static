@@ -58,10 +58,7 @@ export default function ServicesPage() {
                 {/* Content */}
                 <div className="relative z-10 max-w-4xl px-4 sm:px-6">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                        Mabsol Infotech{" "}
-                        <span className="text-orange-500 block sm:inline">
-                            IT Services
-                        </span>
+                        Mabsol Infotech IT Services
                     </h1>
 
                     <p className="text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed mb-5 sm:mb-6">
@@ -70,12 +67,6 @@ export default function ServicesPage() {
                         and SFA Software. Our solutions are customized to meet the unique
                         needs of businesses in various industries…
                     </p>
-
-                    <Link href="/" className="inline-flex justify-center">
-                        <Button ghost size="large" className="w-full sm:w-auto">
-                            <RightOutlined /> Home
-                        </Button>
-                    </Link>
                 </div>
             </section>
 
@@ -118,6 +109,11 @@ export default function ServicesPage() {
 
                                     {service.desc}
                                 </p>
+                                <Link href={service.path}
+                                    className="text-[#185e9a] font-medium underline mt-3 inline-block"
+                                >
+                                    Read More
+                                </Link>
                             </div>
                         </div>
                     ))}

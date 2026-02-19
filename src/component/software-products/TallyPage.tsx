@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ShoppingCart, ShieldCheck, Cloud, FileText } from "lucide-react";
 import { Button, Modal } from "antd";
@@ -108,9 +109,10 @@ export default function TallyPage() {
           </div>
 
           <div className="flex items-center gap-4">
+            <Link href="/contact">
             <button className="hidden md:inline text-sm px-4 py-2 rounded-lg border">
               Support
-            </button>
+            </button></Link>
             {/* CART BUTTON WITH MODAL OPEN */}
             <button
               onClick={() => setIsCartOpen(true)}
@@ -137,12 +139,16 @@ export default function TallyPage() {
           </p>
 
           <div className="mt-6 flex gap-3">
+            <Link href="/contact">
             <button className="px-5 py-3 bg-[#0b3a74] text-white rounded-lg font-medium">
               Contact Sales
             </button>
+            </Link>
+            {/* <Link href="/tally-comparison">
             <button className="px-5 py-3 border rounded-lg">
               Comparison Editions
             </button>
+            </Link> */}
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-700">
             {/* 1️⃣ Access Anywhere */}
@@ -248,11 +254,11 @@ export default function TallyPage() {
                 </li>
               </ul>
 
-              <div className="mt-6 flex justify-center">
-                <button className="bg-[#0b3a74] text-white px-6 py-2 rounded-lg hover:bg-[#0d4891] transition">
+              {/* <div className="mt-6 flex justify-center">
+                <button  className="bg-[#0b3a74] text-white px-6 py-2 rounded-lg hover:bg-[#0d4891] transition">
                   Choose Silver
                 </button>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 
@@ -304,11 +310,11 @@ export default function TallyPage() {
                 </li>
               </ul>
 
-              <div className="mt-6 flex justify-center">
+              {/* <div className="mt-6 flex justify-center">
                 <button className="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 transition">
                   Choose Gold
                 </button>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>
@@ -371,32 +377,32 @@ export default function TallyPage() {
                   </ul>
                 </div>
 
-<div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
 
-  {/* Add to Cart */}
-  <Button
-    onClick={() => addToCart(p.id)}
-    className="w-full sm:flex-1 bg-[#185e9a]! text-white! 
+                  {/* Add to Cart */}
+                  <Button
+                    onClick={() => addToCart(p.id)}
+                    className="w-full sm:flex-1 bg-[#185e9a]! text-white! 
                h-11 sm:h-12 rounded-lg 
                flex items-center justify-center gap-2 
                text-sm sm:text-base font-medium"
-  >
-    <ShoppingCart className="w-4 h-4" />
-    Add to Cart
-  </Button>
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                    Add to Cart
+                  </Button>
 
-  {/* Buy Now */}
-  <Button
-    onClick={() => addToCart(p.id)}
-    className="w-full sm:w-auto 
+                  {/* Buy Now */}
+                  <Button
+                    onClick={() => addToCart(p.id)}
+                    className="w-full sm:w-auto 
                h-11 sm:h-12 
                px-6 rounded-lg border 
                text-sm sm:text-base font-medium"
-  >
-    Buy Now
-  </Button>
+                  >
+                    Buy Now
+                  </Button>
 
-</div>
+                </div>
 
                 <div className="mt-4 text-xs text-gray-500">
                   SKU: {p.id.toUpperCase()} • Support: 1 year

@@ -74,9 +74,11 @@ const HomePage = () => {
             Simplify financial management with tools like Tally, Marg, and Busy
             for invoicing, GST, and reporting.
           </p>
+          <Link href="/accounting-software">
           <Button className="!bg-[#185e9a] !py-5 !px-8 !rounded-none !text-white">
             View
           </Button>
+          </Link>
         </Card>
 
         <Card
@@ -97,9 +99,11 @@ const HomePage = () => {
             We design responsive, user-friendly websites to enhance your online
             presence and drive engagement.
           </p>
+          <Link href="/website-development">
           <Button className="!bg-[#185e9a] !py-5 !rounded-none !px-8 !text-white">
             View
           </Button>
+          </Link>
         </Card>
         <Card
           data-aos="fade-left"
@@ -119,9 +123,11 @@ const HomePage = () => {
             Optimize business operations with ERP solutions that integrate
             inventory, resource planning, and more.
           </p>
+          <Link href="/erp-software">
           <Button className="!bg-[#185e9a] !py-5 !px-8 !rounded-none !text-white">
             View
           </Button>
+          </Link>
         </Card>
         <Card
           data-aos="fade-left"
@@ -141,9 +147,11 @@ const HomePage = () => {
             Automate payroll and compliance with reliable tools like greytHR,
             saving time and ensuring accuracy.
           </p>
+          <Link href="/payroll-software">
           <Button className="!bg-[#185e9a] !rounded-none !py-5 !px-8 !text-white">
             View
           </Button>
+          </Link>
         </Card>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Button, Card } from "antd";
+import Link from "next/link";
 import React from "react";
 
 const productData = [
@@ -6,16 +7,19 @@ const productData = [
     title: "M R Reporting",
     price: "₹1,500.00",
     img: "product1.webp",
+    link: "/reporting",
   },
   {
     title: "Tally",
     price: "₹22,500.00 – ₹67,500.00",
     img: "images/Tally.webp",
+    link: "/tallys",
   },
   {
     title: "MARG ERP 9+",
     price: "₹10,300.00 – ₹26,000.00",
     img: "Bannner.webp",
+    link: "/margErp",
   },
 ];
 
@@ -56,12 +60,14 @@ const OurProduct = () => {
                 {/* <h1 className="py-1 text-lg">{product.title}</h1> */}
                 <p className="text-orange-600 text-lg font-bold">{product.price}</p>
                 <div className="mt-auto">
+                  <Link href={product.link}>
                   <Button
                     type="primary"
                     className="!rounded-none !bg-[#185e9a] !px-10 !py-5 mt-4 !text-white  !text-md"
                   >
                     Buy Now
                   </Button>
+                  </Link>
                 </div>
               </div>
             </div>
