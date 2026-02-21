@@ -215,14 +215,14 @@ const PrivacyPolicyPage = () => {
                         Privacy <span className="text-orange-500 block sm:inline">Policy</span>
                     </Title>
 
-                    <div className="mt-10">
+                    {/* <div className="mt-10">
                         <Link
                             href="/"
                             className="bg-white/20 text-white px-6 py-2 lg:px-10 lg:py-4 font-semibold shadow hover:bg-[#185e9a] transition"
                         >
                             Home
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </header>
             <div className="w-full mx-auto  max-w-7xl 

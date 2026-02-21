@@ -135,11 +135,11 @@ export default function MargErp() {
 
           <div className="mt-6 flex gap-3">
             <Link href="/contact">
-            <button className="px-5 py-3 bg-[#0b3a74] text-white rounded-lg font-medium">
+            <button className="px-5 py-3 bg-[#0b3a74] text-white rounded-lg font-medium cursor-pointer hover:bg-blue-700 transition">
               Contact Sales
             </button></Link>
             <Link href="/features-comparison">
-            <button className="px-5 py-3 border rounded-lg">
+            <button className="px-5 py-3 border rounded-lg cursor-pointer">
               Comparison Editions
             </button></Link>
           </div>
@@ -236,7 +236,7 @@ export default function MargErp() {
 
               <div className="mt-6 flex justify-center">
                 <Link href="/margErp/margErp-Basic">
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
+                  <button className="bg-[#0b3a74] text-white  px-6 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
                     Choose Basic
                   </button>
                 </Link>
@@ -280,7 +280,7 @@ export default function MargErp() {
 
               <div className="mt-6 flex justify-center">
                 <Link href="/margErp/margErp-Silver">
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
+                  <button className="bg-[#0b3a74] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
                     Choose Silver
                   </button>
                 </Link>
@@ -324,7 +324,7 @@ export default function MargErp() {
 
               <div className="mt-6 flex justify-center">
                 <Link href="/margErp/margErp-Gold">
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
+                  <button className="bg-[#0b3a74] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer">
                     Choose Gold
                   </button>
                 </Link>
@@ -342,14 +342,14 @@ export default function MargErp() {
       </Link>
 
       {/* PRODUCTS SIDE-BY-SIDE */}
-      <div className="min-h-screen w-full max-w-7xl bg-gray-50 p-6 mt-6 md:p-14">
+      <div className="min-h-screen w-full max-w-7xl p-6 mt-6 md:p-14">
         {/* Toast */}
         {toastMsg && (
           <div className="fixed top-5 right-5 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg animate-slide-in">
             {toastMsg}
           </div>
         )}
-        <h2 className="text-4xl font-bold text-center text-[#0b3a74] mb-12">
+        <h2 className="text-5xl font-bold text-center text-[#0b3a74] mb-2">
           Buy Your Marg ERP 9+ Basic, Silver & Gold
         </h2>
 
@@ -358,7 +358,7 @@ export default function MargErp() {
           {products.map((p) => (
             <div
               key={p.id}
-              className="bg-gray-50 hover:border-blue-800 transition shadow-md rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center"
+              className="bg-white transition shadow-md rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center"
             >
               {/* LEFT IMAGE */}
               <div className="w-full md:w-1/2">
@@ -398,8 +398,8 @@ export default function MargErp() {
 
       </div>
 
-
-      <div className="hidden sm:flex w-full min-h-screen sm:min-h-[80vh] justify-center items-center bg-gradient-to-b from-[#f8fbff] to-white px-4">
+      {/* images */}
+      <div className="hidden sm:flex w-full min-h-screen sm:min-h-[80vh] justify-center items-center bg-white">
         <img
           src="/images/Marg-infographics.jpg"
           alt="Marg Infographics"

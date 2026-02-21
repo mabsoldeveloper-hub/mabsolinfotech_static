@@ -5,6 +5,7 @@ import { Button, Modal } from "antd";
 import { Trash2 } from "lucide-react";
 import PaymentGetway from "../payment-getway/PaymentGetway";
 import Link from "next/link";
+import { Info } from "lucide-react";
 
 // -------------------- CONSTANTS --------------------
 const EXTRA_USER_PRICE = 3000;
@@ -20,19 +21,32 @@ interface ProductType {
   accent: string;
   image: string;
 }
+const SILVER_INFO = (
+  <div className="space-y-3">
+    <p className="font-semibold text-blue-900">
+      Silver Plan Access Details
+    </p>
 
+    <ul className="list-disc pl-5 space-y-1 text-blue-800">
+      <li>Total Access: 25 Users & 25 Companies</li>
+      <li>Included: 1 User & 1 Company</li>
+      <li>24 Additional Users (₹3000 each)</li>
+      <li>24 Additional Companies (₹6500 each)</li>
+    </ul>
+  </div>
+);
 // -------------------- BASIC PRODUCT --------------------
 const SILVER_PRODUCT: ProductType = {
   id: "silver",
   title: "Marg Erp 9+ — Silver",
-  price: 13500,
+  price: 13900,
   tag: "silver",
   bullets: [
     "18% GST Extra",
     "Single-user access on LAN",
     "Included Users: 1 Full-Rights User + 1 View-Only User",
-    `Extra User Cost: ₹${EXTRA_USER_PRICE} per extra user (Max 25 Users)`,
-    `Extra Company Cost: ₹${EXTRA_COMPANY_PRICE} per company (Max 25 Companies)`,
+    `Extra User Cost: ₹${EXTRA_USER_PRICE} per extra user`,
+    `Extra Company Cost: ₹${EXTRA_COMPANY_PRICE} per company`,
     "Multi-company support",
   ],
   accent: "bg-blue-200",
@@ -50,12 +64,13 @@ interface CartItem {
 }
 
 // LIMITS FOR BASIC
-const LIMITS = { user: 25, company: 25 };
+const LIMITS = { user: 24, company: 24 };
+const BASE_PRICE = 13900;
 
 // ----------------------------------------------------
 // MAIN PAGE
 // ----------------------------------------------------
-export default function MargErpBasic() {
+export default function MargErpSilver() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [toastMsg, setToastMsg] = useState("");
 
@@ -65,14 +80,21 @@ export default function MargErpBasic() {
     extraUsers: number,
     extraCompanies: number
   ) => {
+
     const total =
-      product.price * qty +
-      extraUsers * EXTRA_USER_PRICE +
-      extraCompanies * EXTRA_COMPANY_PRICE;
+      BASE_PRICE * qty +
+      extraUsers * EXTRA_USER_PRICE * qty +
+      extraCompanies * EXTRA_COMPANY_PRICE * qty;
 
     setCart((prev) => [
       ...prev,
-      { product, qty, extraUsers, extraCompanies, total },
+      {
+        product,
+        qty,
+        extraUsers,      // 0–24
+        extraCompanies,  // 0–24
+        total,
+      },
     ]);
 
     setToastMsg(`${product.title} added to cart!`);
@@ -86,21 +108,21 @@ export default function MargErpBasic() {
           {toastMsg}
         </div>
       )}
-            {/* Buttons Section */}
-            <div className="flex gap-3 mb-5">
-              <Link href="/margErp/margErp-Basic">
-                <button className="px-4 py-2 text-sm rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm">
-                  Buy Basic
-                </button>
-              </Link>
+      {/* Buttons Section */}
+      <div className="flex gap-3 mb-5">
+        <Link href="/margErp/margErp-Basic">
+          <button className="px-4 py-2 text-sm rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm">
+            Buy Basic
+          </button>
+        </Link>
 
-              <Link href="/margErp/margErp-Gold">
-                <button className="px-4 py-2 text-sm rounded-lg bg-yellow-500 text-white font-medium hover:bg-yellow-600 transition shadow-sm">
-                  Buy Gold
-                </button>
-              </Link>
+        <Link href="/margErp/margErp-Gold">
+          <button className="px-4 py-2 text-sm rounded-lg bg-yellow-500 text-white font-medium hover:bg-yellow-600 transition shadow-sm">
+            Buy Gold
+          </button>
+        </Link>
 
-            </div>
+      </div>
 
       <h1 className="text-4xl md:text-5xl font-bold text-center text-[#0b3a74] mb-12">
         Buy Marg ERP 9+ — Silver Edition
@@ -136,8 +158,8 @@ interface CardProps {
 
 function ProductCard({ product, addToCart, limits }: CardProps) {
   const [qty, setQty] = useState(1);
-  const [extraUsers, setExtraUsers] = useState(1);
-  const [extraCompanies, setExtraCompanies] = useState(1);
+  const [extraUsers, setExtraUsers] = useState(0);
+  const [extraCompanies, setExtraCompanies] = useState(0);
 
   const handleAdd = () => {
     addToCart(product, qty, extraUsers, extraCompanies);
@@ -145,7 +167,7 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
 
   return (
     <div className="bg-white max-w-[1400px] mx-auto text-[#0b3a74] w-full rounded-lg shadow-md border overflow-hidden">
-      <div className="grid md:grid-cols-2 gap-2 p-4">
+      <div className="grid md:grid-cols-[35%_65%] gap-4 p-4">
 
         {/* LEFT IMAGE */}
         <div className="flex w-full items-center p-4 justify-center">
@@ -157,9 +179,9 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="w-full p-2">
+        <div className="w-full px-10 py-5 flex flex-col gap-2">
           {/* Title & Price */}
-          <div className="flex justify-between">
+          <div className="flex justify-between items-start pb-2">
             <div>
               <h3 className="text-3xl font-bold">{product.title}</h3>
               <p className="text-gray-500">{product.tag} Edition</p>
@@ -167,21 +189,34 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
 
             <div className="text-right">
               <h3 className="text-3xl font-bold">₹{product.price}</h3>
-              <p className="text-gray-500 text-sm">One-time</p>
+              <p className="text-gray-500 text-md">One-time</p>
             </div>
           </div>
-
           {/* Bullets */}
-          <ul className="mt-5 border rounded-xl p-5 space-y-3 text-gray-700">
+          <ul className="border rounded-xl p-4 space-y-3 text-gray-700 bg-gray-50">
             {product.bullets.map((b, i) => (
-              <li key={i} className="flex gap-2">
-                <span className="text-green-600">✓</span> {b}
+              <li key={i} className="flex items-start gap-2 relative group">
+                <span className="text-green-600">✓</span>
+
+                <span>{b}</span>
+
+                {(b.includes("Extra User") || b.includes("Extra Company")) && (
+                  <div className="relative cursor-pointer">
+                    <Info size={16} className="text-gray-500 mt-1" />
+
+                    <div className="absolute left-5 top-6 hidden group-hover:block w-80 p-4 bg-white shadow-xl rounded-xl border text-sm text-gray-700 z-50">
+                      {SILVER_INFO}
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
 
           {/* Inputs */}
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+
+            {/* Quantity */}
             <InputField
               label="Quantity"
               value={qty}
@@ -189,19 +224,39 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
               onChange={setQty}
             />
 
+            {/* User (Already Included) */}
+            <div className="flex flex-col">
+              <label className="mb-1 font-medium text-[#0b3a74]">
+                User (Already Included)
+              </label>
+              <div className="w-full border rounded-sm px-4 py-2">
+                1
+              </div>
+            </div>
+
+            {/* Company (Already Included) */}
+            <div className="flex flex-col">
+              <label className="mb-1 font-medium text-[#0b3a74]">
+                Company (Already Included)
+              </label>
+              <div className="w-full border rounded-sm px-4 py-2">
+                1
+              </div>
+            </div>
+
             {/* Add Users */}
             <div className="flex flex-col">
               <label className="mb-1 font-medium">
-                Add Users (Max: {limits.user})
+                Add Users (Max: 24)
               </label>
               <select
                 value={extraUsers}
                 onChange={(e) => setExtraUsers(Number(e.target.value))}
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full border rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
               >
-                {Array.from({ length: limits.user + 1 }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
+                {Array.from({ length: 25 }, (_, i) => (
+                  <option key={i} value={i}>
+                    {i}
                   </option>
                 ))}
               </select>
@@ -210,49 +265,77 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
             {/* Add Companies */}
             <div className="flex flex-col">
               <label className="mb-1 font-medium">
-                Add Companies (Max: {limits.company})
+                Add Companies (Max: 24)
               </label>
               <select
                 value={extraCompanies}
                 onChange={(e) => setExtraCompanies(Number(e.target.value))}
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full border rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
               >
-                {Array.from({ length: limits.company + 1 }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
+                {Array.from({ length: 25 }, (_, i) => (
+                  <option key={i} value={i}>
+                    {i}
                   </option>
                 ))}
               </select>
             </div>
-          </div>
 
+          </div>
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-6">
-            <Button
-              onClick={handleAdd}
-              className="flex-1 bg-[#185e9a]! text-white! py-4!"
-            >
-              Add to Cart
-            </Button>
+          <div className="pt-8 space-y-4">
 
-            <Button onClick={handleAdd} className="px-6 py-4! rounded-xl border font-semibold">
-              Buy Now
-            </Button>
+            <div className="flex gap-6">
+
+              {/* Add to Cart */}
+              <button
+                onClick={handleAdd}
+                className="
+        flex-1 h-16 
+        bg-green-600 hover:bg-green-700
+        text-white text-lg font-semibold
+        rounded-sm
+        shadow-lg hover:shadow-xl
+        transition-all duration-300
+        hover:-translate-y-1
+      "
+              >
+                🛒 Add to Cart
+              </button>
+
+              {/* Buy Now */}
+              <button
+                onClick={handleAdd}
+                className="
+        flex-1 h-16
+        bg-blue-600 hover:bg-blue-700
+        text-white text-lg font-semibold
+        rounded-sm
+        shadow-lg hover:shadow-xl
+        transition-all duration-300
+        hover:-translate-y-1
+      "
+              >
+                ⚡ Buy Now
+              </button>
+
+            </div>
+
           </div>
-
-          <p className="text-gray-500 text-sm mt-3">
-            SKU: 27686 • Support: 1 year • +18% GST. (Only For Trading).
-          </p>
+          {/* imp note */}
+          <ul className="text-gray-700 text-sm mt-5">
+            <li> SKU: 27686 • Support: 1 year • +18% GST. (Only For Trading).</li>
+            <li>* Customization, additional features, or local modifications will be charged separately.</li>
+            <li>* GST will be charged extra as per applicable tax laws.</li>
+            <li>* For any changes or special requirements, please contact us.</li>
+          </ul>
         </div>
       </div>
-
-      <div className="h-5 w-full bg-blue-100"></div>
     </div>
   );
 }
 
-//
+
 // ----------------------------------------------------
 // InputField Component
 // ----------------------------------------------------
@@ -284,35 +367,33 @@ interface CartSummaryProps {
 function CartSummary({ cart, setCart }: CartSummaryProps) {
   const [open, setOpen] = useState(false);
   // 🔹 Extra Pricing
+  const BASE_PRICE = 13900;
   const EXTRA_USER_PRICE = 3000;
   const EXTRA_COMPANY_PRICE = 6500;
-
-  // 🔹 Base Subtotal (Cart Items)
-  // 🔹 Base Subtotal (Only Product Price × Qty)
+  // 🔹 Base Subtotal
   const subtotal = cart.reduce(
-    (acc, item) => acc + item.product.price * item.qty,
+    (acc, item) => acc + BASE_PRICE * item.qty,
     0
   );
-  // 🔹 Extras (1 User + 1 Company Included Free Per Product)
-  const totalExtraUsers = cart.reduce((acc, item) => {
-    const chargeableUsers = Math.max(0, (item.extraUsers || 1) - 1);
-    return acc + chargeableUsers * item.qty;
-  }, 0);
 
-  const totalExtraCompanies = cart.reduce((acc, item) => {
-    const chargeableCompanies = Math.max(0, (item.extraCompanies || 1) - 1);
-    return acc + chargeableCompanies * item.qty;
-  }, 0);
+  // 🔹 Total Extras
+  const totalExtraUsers = cart.reduce(
+    (acc, item) => acc + (item.extraUsers || 0) * item.qty,
+    0
+  );
+
+  const totalExtraCompanies = cart.reduce(
+    (acc, item) => acc + (item.extraCompanies || 0) * item.qty,
+    0
+  );
 
   const extraUserCost = totalExtraUsers * EXTRA_USER_PRICE;
   const extraCompanyCost = totalExtraCompanies * EXTRA_COMPANY_PRICE;
 
-  // 🔹 Subtotal Including Extras
   const subTotalWithExtras = subtotal + extraUserCost + extraCompanyCost;
 
-  // 🔹 GST + Grand Total
   const gst = subTotalWithExtras * 0.18;
-  const grandTotal = subTotalWithExtras + gst;
+  const grandTotal = subTotalWithExtras + gst;;
   const onDelete = (index: number) => {
     setCart?.(cart.filter((_, i) => i !== index));
   };
@@ -320,32 +401,34 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
   return (
     <>
       <div className="max-w-[1400px] mx-auto mt-10 bg-white p-6 rounded-xl shadow-md">
-        <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">Your Cart</h2>
+        <h2 className="text-3xl font-bold text-[#0b3a74] mb-5 px-5">🛒 Your Cart</h2>
 
         {cart.length === 0 ? (
-          <p className="text-gray-600 text-center py-10">Cart is empty</p>
+          <p className="text-gray-600 text-center py-10">Cart is empty !</p>
         ) : (
           <>
             {/* Cart Items */}
             {cart.map((item, index) => (
-              <div key={index} className="flex justify-between border-b py-3">
+              <div key={index} className="flex justify-between border-b py-3 px-5">
                 <div>
-                  <div className="font-semibold text-lg">
+                  <div className="font-semibold text-xl text-[#0b3a74]">
                     {item.product.title}
                   </div>
-                  <div className="text-sm text-gray-500">
-                    Qty: {item.qty} • Users: {item.extraUsers} • Companies: {item.extraCompanies}
+                  <div className="text-md text-gray-700">
+                    Qty: {item.qty} •
+                    Users: {1 + (item.extraUsers || 0)} •
+                    Companies: {1 + (item.extraCompanies || 0)}
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="font-bold">
+                  {/* <div className="font-bold">
                     ₹{(
                       item.product.price * item.qty +
                       Math.max(0, (item.extraUsers - 1)) * 3000 * item.qty +
                       Math.max(0, (item.extraCompanies - 1)) * 6500 * item.qty
                     ).toLocaleString("en-IN")}
-                  </div>
+                  </div> */}
                   <Trash2
                     className="text-red-500 cursor-pointer"
                     onClick={() => onDelete(index)}
@@ -355,36 +438,56 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
             ))}
 
             {/* 🔹 Order Summary */}
-            <div className="mt-4 space-y-2">
+            <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
 
-              <div className="flex justify-between">
-                <span>Sub Total</span>
-                <span>₹{subtotal.toLocaleString("en-IN")}</span>
+              {/* Base Price */}
+              <div className="flex justify-between text-base">
+                <span className="font-medium">Base Subtotal (1 User + 1 Company)</span>
+                <span className="font-semibold">
+                  ₹{subtotal.toLocaleString("en-IN")}
+                </span>
               </div>
 
+              {/* Extra Users */}
               {totalExtraUsers > 0 && (
-                <div className="flex justify-between text-gray-600">
-                  <span>Extra Users ({totalExtraUsers})</span>
-                  <span>₹{extraUserCost.toLocaleString("en-IN")}</span>
+                <div className="flex justify-between text-base text-gray-700">
+                  <span>Extra Users ({totalExtraUsers} × ₹3000)</span>
+                  <span className="font-semibold">
+                    ₹{extraUserCost.toLocaleString("en-IN")}
+                  </span>
                 </div>
               )}
 
+              {/* Extra Companies */}
               {totalExtraCompanies > 0 && (
-                <div className="flex justify-between text-gray-600">
-                  <span>Extra Companies ({totalExtraCompanies})</span>
-                  <span>₹{extraCompanyCost.toLocaleString("en-IN")}</span>
+                <div className="flex justify-between text-base text-gray-700">
+                  <span>Extra Companies ({totalExtraCompanies} × ₹6500)</span>
+                  <span className="font-semibold">
+                    ₹{extraCompanyCost.toLocaleString("en-IN")}
+                  </span>
                 </div>
               )}
 
-              <div className="flex justify-between">
-                <span>GST (18%)</span>
-                <span>₹{gst.toLocaleString("en-IN")}</span>
+              {/* Divider */}
+              <div className="border-t pt-3 flex justify-between text-lg font-semibold">
+                <span>Subtotal (Before GST)</span>
+                <span>₹{subTotalWithExtras.toLocaleString("en-IN")}</span>
               </div>
 
-              <div className="flex justify-between text-xl font-bold border-t pt-3">
-                <span>Total</span>
+              {/* GST */}
+              <div className="flex justify-between text-base text-gray-700">
+                <span>GST (18%)</span>
+                <span className="font-semibold">
+                  ₹{gst.toLocaleString("en-IN")}
+                </span>
+              </div>
+
+              {/* Grand Total */}
+              <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
+                <span>Grand Total</span>
                 <span>₹{grandTotal.toLocaleString("en-IN")}</span>
               </div>
+
             </div>
 
             {/* Buttons */}
@@ -408,76 +511,115 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
       </div>
 
       {/* 🔹 Checkout Modal */}
-      <Modal
-        title="Checkout Summary"
-        open={open}
-        onCancel={() => setOpen(false)}
-        footer={[
-          <Button key="cancel" onClick={() => setOpen(false)}>
-            Cancel
-          </Button>,
-          <PaymentGetway
-            key="pay"
-            totalPrice={grandTotal}
-            user={{
-              name: "User",
-              email: "user@example.com",
-              company: "My Company",
-            }}
-          />,
-        ]}
-      >
-        {cart.map((item, index) => (
-          <div key={index} className="flex justify-between border-b pb-2 mb-2">
-            <div>
-              <div className="font-medium">{item.product.title}</div>
-              <div className="text-xs text-gray-500">
-                Qty: {item.qty}
-              </div>
-            </div>
-            <div className="font-semibold">
-              ₹{(
-                item.product.price * item.qty +
-                Math.max(0, (item.extraUsers - 1)) * 3000 * item.qty +
-                Math.max(0, (item.extraCompanies - 1)) * 6500 * item.qty
-              ).toLocaleString("en-IN")}
-            </div>
+<Modal
+  title={null}
+  open={open}
+  onCancel={() => setOpen(false)}
+  footer={null}
+  width={800}
+>
+  <div className="bg-white p-4 rounded-xl">
+
+    <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">
+      🧾 Checkout Summary
+    </h2>
+
+    {/* Cart Items */}
+    {cart.map((item, index) => (
+      <div key={index} className="flex justify-between border-b py-3">
+        
+        <div>
+          <div className="font-semibold text-xl text-[#0b3a74]">
+            {item.product.title}
           </div>
-        ))}
-
-        <div className="mt-3 pt-3 space-y-2">
-
-          <div className="flex justify-between">
-            <span>Sub Total</span>
-            <span>₹{subtotal.toLocaleString("en-IN")}</span>
+          <div className="text-md text-gray-700">
+            Qty: {item.qty} •
+            Users: {1 + (item.extraUsers || 0)} •
+            Companies: {1 + (item.extraCompanies || 0)}
           </div>
-
-          {totalExtraUsers > 0 && (
-            <div className="flex justify-between text-gray-600">
-              <span>Users ({totalExtraUsers})</span>
-              <span>₹{extraUserCost.toLocaleString("en-IN")}</span>
-            </div>
-          )}
-
-          {totalExtraCompanies > 0 && (
-            <div className="flex justify-between text-gray-600">
-              <span>Companies ({totalExtraCompanies})</span>
-              <span>₹{extraCompanyCost.toLocaleString("en-IN")}</span>
-            </div>
-          )}
-
-          <div className="flex justify-between">
-            <span>GST (18%)</span>
-            <span>₹{gst.toLocaleString("en-IN")}</span>
-          </div>
-
-          <div className="flex justify-between text-lg font-bold border-t pt-2">
-            <span>Total Amount</span>
-            <span>₹{grandTotal.toLocaleString("en-IN")}</span>
-          </div>
-
         </div>
-      </Modal>
+
+        <div className="flex items-center gap-4">
+
+          <Trash2
+            className="text-red-500 cursor-pointer"
+            onClick={() => onDelete(index)}
+          />
+        </div>
+
+      </div>
+    ))}
+
+    {/* 🔹 Order Summary */}
+    <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
+
+      <div className="flex justify-between text-base">
+        <span className="font-medium">
+          Base Subtotal (1 User + 1 Company)
+        </span>
+        <span className="font-semibold">
+          ₹{subtotal.toLocaleString("en-IN")}
+        </span>
+      </div>
+
+      {totalExtraUsers > 0 && (
+        <div className="flex justify-between text-base text-gray-700">
+          <span>Extra Users ({totalExtraUsers} × ₹3000)</span>
+          <span className="font-semibold">
+            ₹{extraUserCost.toLocaleString("en-IN")}
+          </span>
+        </div>
+      )}
+
+      {totalExtraCompanies > 0 && (
+        <div className="flex justify-between text-base text-gray-700">
+          <span>Extra Companies ({totalExtraCompanies} × ₹6500)</span>
+          <span className="font-semibold">
+            ₹{extraCompanyCost.toLocaleString("en-IN")}
+          </span>
+        </div>
+      )}
+
+      <div className="border-t pt-3 flex justify-between text-lg font-semibold">
+        <span>Subtotal (Before GST)</span>
+        <span>₹{subTotalWithExtras.toLocaleString("en-IN")}</span>
+      </div>
+
+      <div className="flex justify-between text-base text-gray-700">
+        <span>GST (18%)</span>
+        <span className="font-semibold">
+          ₹{gst.toLocaleString("en-IN")}
+        </span>
+      </div>
+
+      <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
+        <span>Grand Total</span>
+        <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+      </div>
+
+    </div>
+
+    {/* Buttons */}
+    <div className="mt-6 flex justify-end gap-3">
+      <Button
+        onClick={() => setOpen(false)}
+        className="py-4 rounded-lg border"
+      >
+        Cancel
+      </Button>
+
+      <PaymentGetway
+        totalPrice={grandTotal}
+        user={{
+          name: "User",
+          email: "user@example.com",
+          company: "My Company",
+        }}
+      />
+    </div>
+
+  </div>
+</Modal>
     </>
   );
 

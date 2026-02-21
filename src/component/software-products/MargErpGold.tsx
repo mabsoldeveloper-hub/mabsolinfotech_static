@@ -27,7 +27,7 @@ const GOLD_PRODUCT: ProductType = {
   id: "gold",
   title: "Marg Erp 9+ — Gold",
   price: 26000,
-  tag: "gold",
+  tag: "Gold",
   bullets: [
     "18% GST Extra",
     "Multi-user access on LAN",
@@ -93,13 +93,13 @@ export default function MargErpBasic() {
       <div className="flex gap-3 mb-5">
 
         <Link href="/margErp/margErp-Basic">
-          <button className="px-4 py-2 text-sm rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm">
+          <button className="px-4 py-2 text-sm rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm">
             Buy Basic
           </button>
         </Link>
 
         <Link href="/margErp/margErp-Silver">
-          <button className="px-4 py-2 text-sm rounded-lg bg-gray-500 text-white font-medium hover:bg-gray-600 transition shadow-sm">
+          <button className="px-4 py-2 text-sm rounded-md bg-gray-500 text-white font-medium hover:bg-gray-600 transition shadow-sm">
             Buy Silver
           </button>
         </Link>
@@ -150,8 +150,8 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
   };
 
   return (
-    <div className="bg-white text-[#0b3a74] max-w-[1400px] mx-auto w-full rounded-lg shadow-md border overflow-hidden">
-      <div className="grid md:grid-cols-2 gap-2 p-4">
+    <div className="bg-white max-w-[1400px] mx-auto text-[#0b3a74] items-center rounded-lg shadow-md border overflow-hidden">
+      <div className="grid md:grid-cols-[35%_65%] gap-4 p-4">
 
         {/* LEFT IMAGE */}
         <div className="flex w-full items-center p-4 justify-center">
@@ -163,7 +163,7 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="w-full p-2">
+        <div className="w-full px-10 py-5 flex flex-col gap-2">
           {/* Title & Price */}
           <div className="flex justify-between">
             <div>
@@ -173,12 +173,12 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
 
             <div className="text-right">
               <h3 className="text-3xl font-bold">₹{product.price}</h3>
-              <p className="text-gray-500 text-sm">One-time</p>
+              <p className="text-gray-500 text-md">One-time</p>
             </div>
           </div>
 
           {/* Bullets */}
-          <ul className="mt-5 border rounded-xl p-5 space-y-3 text-gray-700">
+          <ul className="mt-2 border rounded-xl p-3 space-y-3 text-gray-700">
             {product.bullets.map((b, i) => (
               <li key={i} className="flex gap-2">
                 <span className="text-green-600">✓</span> {b}
@@ -194,65 +194,56 @@ function ProductCard({ product, addToCart, limits }: CardProps) {
               min={1}
               onChange={setQty}
             />
-
-            {/* Add Users */}
-            <div className="flex flex-col">
-              <label className="mb-1 font-medium">
-                Add Users (Max: {limits.user})
-              </label>
-              <select
-                value={extraUsers}
-                onChange={(e) => setExtraUsers(Number(e.target.value))}
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              >
-                {Array.from({ length: limits.user + 1 }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Add Companies */}
-            <div className="flex flex-col">
-              <label className="mb-1 font-medium">
-                Add Companies (Max: {limits.company})
-              </label>
-              <select
-                value={extraCompanies}
-                onChange={(e) => setExtraCompanies(Number(e.target.value))}
-                className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              >
-                {Array.from({ length: limits.company + 1 }, (_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
-            </div>
           </div>
 
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-6">
-            <Button
-              onClick={handleAdd}
-              className="flex-1 bg-[#185e9a]! text-white! py-4!"
-            >
-              Add to Cart
-            </Button>
+          <div className="pt-8 space-y-4">
 
-            <Button className="px-6 py-4! rounded-xl border font-semibold">
-              Buy Now
-            </Button>
+            <div className="flex gap-6">
+
+              {/* Add to Cart */}
+              <button
+                onClick={handleAdd}
+                className="
+        flex-1 h-16 
+        bg-green-600 hover:bg-green-700
+        text-white text-lg font-semibold
+        rounded-sm
+        shadow-lg hover:shadow-xl
+        transition-all duration-300
+        hover:-translate-y-1
+      "
+              >
+                🛒 Add to Cart
+              </button>
+
+              {/* Buy Now */}
+              <button
+                onClick={handleAdd}
+                className="
+        flex-1 h-16
+        bg-blue-600 hover:bg-blue-700
+        text-white text-lg font-semibold
+        rounded-sm
+        shadow-lg hover:shadow-xl
+        transition-all duration-300
+        hover:-translate-y-1
+      "
+              >
+                ⚡ Buy Now
+              </button>
+
+            </div>
+
           </div>
 
-          <p className="text-gray-500 text-sm mt-3">
-            SKU: 27686 • Support: 1 year • +18% GST. (Only For Trading).
-          </p>
-          <ul className="text-gray-500 text-sm mt-2 space-y-1">
+          {/* imp note */}
+          <ul className="text-gray-700 text-sm mt-5">
+            <li> SKU: 27686 • Support: 1 year • +18% GST. (Only For Trading).</li>
             <li>* Customization, additional features, or local modifications will be charged separately.</li>
             <li>* GST will be charged extra as per applicable tax laws.</li>
+            <li>* For any changes or special requirements, please contact us.</li>
           </ul>
         </div>
       </div>
@@ -292,37 +283,281 @@ interface CartSummaryProps {
 }
 
 
+// function CartSummary({ cart, setCart }: CartSummaryProps) {
+//   const [open, setOpen] = useState(false);
+//   // 🔹 Extra Pricing
+//   const BASE_PRICE = 26000;
+//   const EXTRA_USER_PRICE = 3000;
+//   const EXTRA_COMPANY_PRICE = 6500;
+//   // 🔹 Base Subtotal
+//   const subtotal = cart.reduce(
+//     (acc, item) => acc + BASE_PRICE * item.qty,
+//     0
+//   );
+
+//   // 🔹 Total Extras
+//   const totalExtraUsers = cart.reduce(
+//     (acc, item) => acc + (item.extraUsers || 0) * item.qty,
+//     0
+//   );
+
+//   const totalExtraCompanies = cart.reduce(
+//     (acc, item) => acc + (item.extraCompanies || 0) * item.qty,
+//     0
+//   );
+
+//   const extraUserCost = totalExtraUsers * EXTRA_USER_PRICE;
+//   const extraCompanyCost = totalExtraCompanies * EXTRA_COMPANY_PRICE;
+
+//   const subTotalWithExtras = subtotal + extraUserCost + extraCompanyCost;
+
+//   const gst = subTotalWithExtras * 0.18;
+//   const grandTotal = subTotalWithExtras + gst;;
+//   const onDelete = (index: number) => {
+//     setCart?.(cart.filter((_, i) => i !== index));
+//   };
+
+//   return (
+//     <>
+//       <div className="max-w-[1400px] mx-auto mt-10 bg-white p-6 rounded-xl shadow-md">
+//         <h2 className="text-3xl font-bold text-[#0b3a74] mb-5 px-5">🛒 Your Cart</h2>
+
+//         {cart.length === 0 ? (
+//           <p className="text-gray-600 text-center py-10">Cart is empty !</p>
+//         ) : (
+//           <>
+//             {/* Cart Items */}
+//             {cart.map((item, index) => (
+//               <div key={index} className="flex justify-between border-b py-3 px-5">
+//                 <div>
+//                   <div className="font-semibold text-xl text-[#0b3a74]">
+//                     {item.product.title}
+//                   </div>
+//                   <div className="text-md text-gray-700">
+//                     Qty: {item.qty} •
+//                     Users: {1 + (item.extraUsers || 0)} •
+//                     Companies: {1 + (item.extraCompanies || 0)}
+//                   </div>
+//                 </div>
+
+//                 <div className="flex items-center gap-4">
+//                   {/* <div className="font-bold">
+//                     ₹{(
+//                       item.product.price * item.qty +
+//                       Math.max(0, (item.extraUsers - 1)) * 3000 * item.qty +
+//                       Math.max(0, (item.extraCompanies - 1)) * 6500 * item.qty
+//                     ).toLocaleString("en-IN")}
+//                   </div> */}
+//                   <Trash2
+//                     className="text-red-500 cursor-pointer"
+//                     onClick={() => onDelete(index)}
+//                   />
+//                 </div>
+//               </div>
+//             ))}
+
+//             {/* 🔹 Order Summary */}
+//             <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
+
+//               {/* Base Price */}
+//               <div className="flex justify-between text-base">
+//                 <span className="font-medium">Base Subtotal (1 User + 1 Company)</span>
+//                 <span className="font-semibold">
+//                   ₹{subtotal.toLocaleString("en-IN")}
+//                 </span>
+//               </div>
+
+//               {/* Extra Users */}
+//               {totalExtraUsers > 0 && (
+//                 <div className="flex justify-between text-base text-gray-700">
+//                   <span>Extra Users ({totalExtraUsers} × ₹3000)</span>
+//                   <span className="font-semibold">
+//                     ₹{extraUserCost.toLocaleString("en-IN")}
+//                   </span>
+//                 </div>
+//               )}
+
+//               {/* Extra Companies */}
+//               {totalExtraCompanies > 0 && (
+//                 <div className="flex justify-between text-base text-gray-700">
+//                   <span>Extra Companies ({totalExtraCompanies} × ₹6500)</span>
+//                   <span className="font-semibold">
+//                     ₹{extraCompanyCost.toLocaleString("en-IN")}
+//                   </span>
+//                 </div>
+//               )}
+
+//               {/* Divider */}
+//               <div className="border-t pt-3 flex justify-between text-lg font-semibold">
+//                 <span>Subtotal (Before GST)</span>
+//                 <span>₹{subTotalWithExtras.toLocaleString("en-IN")}</span>
+//               </div>
+
+//               {/* GST */}
+//               <div className="flex justify-between text-base text-gray-700">
+//                 <span>GST (18%)</span>
+//                 <span className="font-semibold">
+//                   ₹{gst.toLocaleString("en-IN")}
+//                 </span>
+//               </div>
+
+//               {/* Grand Total */}
+//               <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
+//                 <span>Grand Total</span>
+//                 <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+//               </div>
+
+//             </div>
+
+//             {/* Buttons */}
+//             <div className="mt-5 flex justify-end gap-3">
+//               <Button
+//                 onClick={() => setCart?.([])}
+//                 className="py-4 rounded-lg border"
+//               >
+//                 Clear
+//               </Button>
+
+//               <Button
+//                 onClick={() => setOpen(true)}
+//                 className="bg-[#339933]! text-white! py-4 rounded-lg"
+//               >
+//                 Checkout
+//               </Button>
+//             </div>
+//           </>
+//         )}
+//       </div>
+
+//       {/* 🔹 Checkout Modal */}
+//       <Modal
+//         title={null}
+//         open={open}
+//         onCancel={() => setOpen(false)}
+//         footer={null}
+//         width={800}
+//       >
+//         <div className="bg-white p-4 rounded-xl">
+
+//           <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">
+//             🧾 Checkout Summary
+//           </h2>
+
+//           {/* Cart Items */}
+//           {cart.map((item, index) => (
+//             <div key={index} className="flex justify-between border-b py-3">
+
+//               <div>
+//                 <div className="font-semibold text-xl text-[#0b3a74]">
+//                   {item.product.title}
+//                 </div>
+//                 <div className="text-md text-gray-700">
+//                   Qty: {item.qty} •
+//                   Users: {1 + (item.extraUsers || 0)} •
+//                   Companies: {1 + (item.extraCompanies || 0)}
+//                 </div>
+//               </div>
+
+//               <div className="flex items-center gap-4">
+
+//                 <Trash2
+//                   className="text-red-500 cursor-pointer"
+//                   onClick={() => onDelete(index)}
+//                 />
+//               </div>
+
+//             </div>
+//           ))}
+
+//           {/* 🔹 Order Summary */}
+//           <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
+
+//             <div className="flex justify-between text-base">
+//               <span className="font-medium">
+//                 Base Subtotal (1 User + 1 Company)
+//               </span>
+//               <span className="font-semibold">
+//                 ₹{subtotal.toLocaleString("en-IN")}
+//               </span>
+//             </div>
+
+//             {totalExtraUsers > 0 && (
+//               <div className="flex justify-between text-base text-gray-700">
+//                 <span>Extra Users ({totalExtraUsers} × ₹3000)</span>
+//                 <span className="font-semibold">
+//                   ₹{extraUserCost.toLocaleString("en-IN")}
+//                 </span>
+//               </div>
+//             )}
+
+//             {totalExtraCompanies > 0 && (
+//               <div className="flex justify-between text-base text-gray-700">
+//                 <span>Extra Companies ({totalExtraCompanies} × ₹6500)</span>
+//                 <span className="font-semibold">
+//                   ₹{extraCompanyCost.toLocaleString("en-IN")}
+//                 </span>
+//               </div>
+//             )}
+
+//             <div className="border-t pt-3 flex justify-between text-lg font-semibold">
+//               <span>Subtotal (Before GST)</span>
+//               <span>₹{subTotalWithExtras.toLocaleString("en-IN")}</span>
+//             </div>
+
+//             <div className="flex justify-between text-base text-gray-700">
+//               <span>GST (18%)</span>
+//               <span className="font-semibold">
+//                 ₹{gst.toLocaleString("en-IN")}
+//               </span>
+//             </div>
+
+//             <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
+//               <span>Grand Total</span>
+//               <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+//             </div>
+
+//           </div>
+
+//           {/* Buttons */}
+//           <div className="mt-6 flex justify-end gap-3">
+//             <Button
+//               onClick={() => setOpen(false)}
+//               className="py-4 rounded-lg border"
+//             >
+//               Cancel
+//             </Button>
+
+//             <PaymentGetway
+//               totalPrice={grandTotal}
+//               user={{
+//                 name: "User",
+//                 email: "user@example.com",
+//                 company: "My Company",
+//               }}
+//             />
+//           </div>
+
+//         </div>
+//       </Modal>
+//     </>
+//   );
+
+// }
 function CartSummary({ cart, setCart }: CartSummaryProps) {
   const [open, setOpen] = useState(false);
-  // 🔹 Extra Pricing
-  const EXTRA_USER_PRICE = 3000;
-  const EXTRA_COMPANY_PRICE = 6500;
 
-  // 🔹 Base Subtotal (Only Product Price × Qty)
+  // 🔹 Base Pricing
+  const BASE_PRICE = 26000;
+
+  // 🔹 Base Subtotal
   const subtotal = cart.reduce(
-    (acc, item) => acc + item.product.price * item.qty,
+    (acc, item) => acc + BASE_PRICE * item.qty,
     0
   );
-  // 🔹 Extras (1 User + 1 Company Included Free Per Product)
-  const totalExtraUsers = cart.reduce((acc, item) => {
-    const chargeableUsers = Math.max(0, (item.extraUsers || 1) - 1);
-    return acc + chargeableUsers * item.qty;
-  }, 0);
 
-  const totalExtraCompanies = cart.reduce((acc, item) => {
-    const chargeableCompanies = Math.max(0, (item.extraCompanies || 1) - 1);
-    return acc + chargeableCompanies * item.qty;
-  }, 0);
+  const gst = subtotal * 0.18;
+  const grandTotal = subtotal + gst;
 
-  const extraUserCost = totalExtraUsers * EXTRA_USER_PRICE;
-  const extraCompanyCost = totalExtraCompanies * EXTRA_COMPANY_PRICE;
-
-  // 🔹 Subtotal Including Extras
-  const subTotalWithExtras = subtotal + extraUserCost + extraCompanyCost;
-
-  // 🔹 GST + Grand Total
-  const gst = subTotalWithExtras * 0.18;
-  const grandTotal = subTotalWithExtras + gst;
   const onDelete = (index: number) => {
     setCart?.(cart.filter((_, i) => i !== index));
   };
@@ -330,32 +565,32 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
   return (
     <>
       <div className="max-w-[1400px] mx-auto mt-10 bg-white p-6 rounded-xl shadow-md">
-        <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">Your Cart</h2>
+        <h2 className="text-3xl font-bold text-[#0b3a74] mb-5 px-5">
+          🛒 Your Cart
+        </h2>
 
         {cart.length === 0 ? (
-          <p className="text-gray-600 text-center py-10">Cart is empty</p>
+          <p className="text-gray-600 text-center py-10">
+            Cart is empty !
+          </p>
         ) : (
           <>
             {/* Cart Items */}
             {cart.map((item, index) => (
-              <div key={index} className="flex justify-between border-b py-3">
+              <div
+                key={index}
+                className="flex justify-between border-b py-3 px-5"
+              >
                 <div>
-                  <div className="font-semibold text-lg">
+                  <div className="font-semibold text-xl text-[#0b3a74]">
                     {item.product.title}
                   </div>
-                  <div className="text-sm text-gray-500">
-                    Qty: {item.qty} • Users: {item.extraUsers} • Companies: {item.extraCompanies}
+                  <div className="text-md text-gray-700">
+                    Qty: {item.qty}
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="font-bold">
-                    ₹{(
-                      item.product.price * item.qty +
-                      Math.max(0, (item.extraUsers - 1)) * 3000 * item.qty +
-                      Math.max(0, (item.extraCompanies - 1)) * 6500 * item.qty
-                    ).toLocaleString("en-IN")}
-                  </div>
                   <Trash2
                     className="text-red-500 cursor-pointer"
                     onClick={() => onDelete(index)}
@@ -365,36 +600,32 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
             ))}
 
             {/* 🔹 Order Summary */}
-            <div className="mt-4 space-y-2">
+            <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
 
-              <div className="flex justify-between">
-                <span>Sub Total</span>
-                <span>₹{subtotal.toLocaleString("en-IN")}</span>
+              {/* Subtotal */}
+              <div className="flex justify-between text-lg font-semibold">
+                <span>Subtotal (Before GST)</span>
+                <span>
+                  ₹{subtotal.toLocaleString("en-IN")}
+                </span>
               </div>
 
-              {totalExtraUsers > 0 && (
-                <div className="flex justify-between text-gray-600">
-                  <span>Extra Users ({totalExtraUsers})</span>
-                  <span>₹{extraUserCost.toLocaleString("en-IN")}</span>
-                </div>
-              )}
-
-              {totalExtraCompanies > 0 && (
-                <div className="flex justify-between text-gray-600">
-                  <span>Extra Companies ({totalExtraCompanies})</span>
-                  <span>₹{extraCompanyCost.toLocaleString("en-IN")}</span>
-                </div>
-              )}
-
-              <div className="flex justify-between">
+              {/* GST */}
+              <div className="flex justify-between text-base text-gray-700">
                 <span>GST (18%)</span>
-                <span>₹{gst.toLocaleString("en-IN")}</span>
+                <span className="font-semibold">
+                  ₹{gst.toLocaleString("en-IN")}
+                </span>
               </div>
 
-              <div className="flex justify-between text-xl font-bold border-t pt-3">
-                <span>Total</span>
-                <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+              {/* Grand Total */}
+              <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
+                <span>Grand Total</span>
+                <span>
+                  ₹{grandTotal.toLocaleString("en-IN")}
+                </span>
               </div>
+
             </div>
 
             {/* Buttons */}
@@ -419,77 +650,84 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
 
       {/* 🔹 Checkout Modal */}
       <Modal
-        title="Checkout Summary"
+        title={null}
         open={open}
         onCancel={() => setOpen(false)}
-        footer={[
-          <Button key="cancel" onClick={() => setOpen(false)}>
-            Cancel
-          </Button>,
-          <PaymentGetway
-            key="pay"
-            totalPrice={grandTotal}
-            user={{
-              name: "User",
-              email: "user@example.com",
-              company: "My Company",
-            }}
-          />,
-        ]}
+        footer={null}
+        width={800}
       >
-        {cart.map((item, index) => (
-          <div key={index} className="flex justify-between border-b pb-2 mb-2">
-            <div>
-              <div className="font-medium">{item.product.title}</div>
-              <div className="text-xs text-gray-500">
-                Qty: {item.qty}
+        <div className="bg-white p-4 rounded-xl">
+
+          <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">
+            🧾 Checkout Summary
+          </h2>
+
+          {cart.map((item, index) => (
+            <div key={index} className="flex justify-between border-b py-3">
+              <div>
+                <div className="font-semibold text-xl text-[#0b3a74]">
+                  {item.product.title}
+                </div>
+                <div className="text-md text-gray-700">
+                  Qty: {item.qty}
+                </div>
               </div>
+
+              <Trash2
+                className="text-red-500 cursor-pointer"
+                onClick={() => onDelete(index)}
+              />
             </div>
-            <div className="font-semibold">
-              ₹{(
-                item.product.price * item.qty +
-                Math.max(0, (item.extraUsers - 1)) * 3000 * item.qty +
-                Math.max(0, (item.extraCompanies - 1)) * 6500 * item.qty
-              ).toLocaleString("en-IN")}
+          ))}
+
+          {/* Order Summary */}
+          <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
+
+            <div className="flex justify-between text-lg font-semibold">
+              <span>Subtotal (Before GST)</span>
+              <span>
+                ₹{subtotal.toLocaleString("en-IN")}
+              </span>
             </div>
-          </div>
-        ))}
 
-        <div className="mt-3 pt-3 space-y-2">
-
-          <div className="flex justify-between">
-            <span>Sub Total</span>
-            <span>₹{subtotal.toLocaleString("en-IN")}</span>
-          </div>
-
-          {totalExtraUsers > 0 && (
-            <div className="flex justify-between text-gray-600">
-              <span>Users ({totalExtraUsers})</span>
-              <span>₹{extraUserCost.toLocaleString("en-IN")}</span>
+            <div className="flex justify-between text-base text-gray-700">
+              <span>GST (18%)</span>
+              <span className="font-semibold">
+                ₹{gst.toLocaleString("en-IN")}
+              </span>
             </div>
-          )}
 
-          {totalExtraCompanies > 0 && (
-            <div className="flex justify-between text-gray-600">
-              <span>Companies ({totalExtraCompanies})</span>
-              <span>₹{extraCompanyCost.toLocaleString("en-IN")}</span>
+            <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
+              <span>Grand Total</span>
+              <span>
+                ₹{grandTotal.toLocaleString("en-IN")}
+              </span>
             </div>
-          )}
 
-          <div className="flex justify-between">
-            <span>GST (18%)</span>
-            <span>₹{gst.toLocaleString("en-IN")}</span>
           </div>
 
-          <div className="flex justify-between text-lg font-bold border-t pt-2">
-            <span>Total Amount</span>
-            <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+          {/* Buttons */}
+          <div className="mt-6 flex justify-end gap-3">
+            <Button
+              onClick={() => setOpen(false)}
+              className="py-4 rounded-lg border"
+            >
+              Cancel
+            </Button>
+
+            <PaymentGetway
+              totalPrice={grandTotal}
+              user={{
+                name: "User",
+                email: "user@example.com",
+                company: "My Company",
+              }}
+            />
           </div>
 
         </div>
       </Modal>
     </>
   );
-
 }
 
