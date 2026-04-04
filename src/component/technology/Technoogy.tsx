@@ -34,7 +34,7 @@ const Technoogy = () => {
             Busy, MR Reporting, and GreyHR—drives efficiency, compliance, and
             growth for businesses across sectors. Discover how our tools
             simplify operations, improve productivity, and support smarter
-            decision-making.
+            decision-making.Join us to experience the future of business technology with our innovative software solutions. 
           </p>
         </div>
       </div>
