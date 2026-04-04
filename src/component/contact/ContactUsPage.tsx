@@ -80,14 +80,14 @@ export default function ContactUsPage() {
   };
   return (
     <div className="w-full bg-gray-50 pb-32 px-6">
-      <h1 className="py-20 text-center text-4xl font-bold">
+      <h1 className="py-20 text-center text-4xl text-[#185e9a]  font-bold">
         Contact <span className="text-orange-500!">Us</span>{" "}
       </h1>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
         {/* LEFT SIDE CONTACT DETAILS */}
         <div>
-          <h2 className="text-3xl font-bold mb-3">
+          <h2 className="text-3xl text-[#185e9a]  font-bold mb-3">
             We'd love to <span className="text-orange-500!">hear from you</span>
            {/* {""} */}
           </h2>
@@ -97,7 +97,7 @@ export default function ContactUsPage() {
             Marg, Tally, Busy, and greytHR.
           </p>
 
-          <h3 className="text-xl font-semibold mb-4">Reach us through</h3>
+          <h3 className="text-xl text-[#185e9a]  font-semibold mb-4">Reach us through</h3>
 
           <div className="space-y-4 text-gray-700">
             <p>
@@ -139,7 +139,7 @@ export default function ContactUsPage() {
 
         {/* RIGHT SIDE – ANTD FORM */}
         <div className="bg-white shadow-md rounded-xl p-8">
-          <h3 className="text-2xl font-semibold mb-6">Contact Us</h3>
+          <h3 className="text-2xl text-[#185e9a]  font-semibold mb-6">Contact Us</h3>
 
           <Form layout="vertical" form={form} onFinish={handleFormSubmit}>
             <Form.Item
@@ -170,7 +170,7 @@ export default function ContactUsPage() {
             <div className="">
               {!otpSent && (
                 <Button
-                  className="!bg-orange-400 !text-gray-600 "
+                  className="!bg-orange-400 !text-white "
                   onClick={handleSendOtp}
                 >
                   Send OTP

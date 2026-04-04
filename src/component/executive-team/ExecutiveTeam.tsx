@@ -1,4 +1,6 @@
-import { FacebookFilled, LinkedinOutlined, TwitterOutlined } from '@ant-design/icons';
+
+import { FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
+import { FaFacebookSquare } from "react-icons/fa";
 import { Card } from 'antd';
 import React from 'react';
 
@@ -73,9 +75,9 @@ const ExecutiveTeam = () => {
 
                 {/* Social Icons */}
                 <div className="flex gap-4 text-xl mt-4">
-                  <a href="https://www.facebook.com/people/Mabsol-Infotech-Pvt-Ltd-Haryana/61578120662281/" className='!text-[#185e9a]'><FacebookFilled /></a>
-                  <a href="https://www.linkedin.com/in/mabsol-infotech-pvt-ltd/" className='!text-[#185e9a]'><LinkedinOutlined /></a>
-                  <a href="https://x.com/mabsol_infotech" className='!text-[#185e9a]'><TwitterOutlined /></a>
+                  <a href="https://www.facebook.com/people/Mabsol-Infotech-Pvt-Ltd-Haryana/61578120662281/" className='!text-[#185e9a]'><FaFacebookSquare /></a>
+                  <a href="https://www.linkedin.com/in/mabsol-infotech-pvt-ltd/" className='!text-[#185e9a]'><FaLinkedin /></a>
+                  <a href="https://x.com/mabsol_infotech" className='!text-[#185e9a]'><FaSquareXTwitter /></a>
                 </div>
               </div>
             </div>

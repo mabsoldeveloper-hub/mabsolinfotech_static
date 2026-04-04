@@ -57,51 +57,70 @@ export default function AdminDashboard() {
     fetchJobs();
   }, []);
 
-  const onFinish = async (values: any) => {
-    const payload = {
-      ...values,
-      responsibilities: values.responsibilities.split(","),
-      requiredSkills: values.requiredSkills.split(","),
-      preferredSkills: values.preferredSkills
-        ? values.preferredSkills.split(",")
-        : [],
-      positions: Number(values.positions),
-      expireAt: values.expireAt ? values.expireAt.toISOString() : null,
+const onFinish = async (values: any) => {
+  const payload = {
+    ...values,
 
-    };
-    console.log(values.expireAt);
+    responsibilities: values.responsibilities
+      ? values.responsibilities.split(",").map((item: string) => item.trim())
+      : [],
 
-    try {
-      let res;
-      if (editingJob) {
-        res = await fetch(`/api/jobs/${editingJob._id}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      } else {
-        res = await fetch("/api/jobs", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      }
+    requiredSkills: values.requiredSkills
+      ? values.requiredSkills.split(",").map((item: string) => item.trim())
+      : [],
 
-      const data = await res.json();
+    preferredSkills: values.preferredSkills
+      ? values.preferredSkills.split(",").map((item: string) => item.trim())
+      : [],
 
-    if (!res.ok || !data.success) throw new Error(data?.message || "Something went wrong");
+    whatWeOffer: values.whatWeOffer
+      ? values.whatWeOffer.split(",").map((item: string) => item.trim())
+      : [],
 
-    toast.success(editingJob ? "Job updated successfully!" : "Job created successfully!");
+    positions: values.positions ? Number(values.positions) : 0,
+
+    expireAt: values.expireAt
+      ? values.expireAt.toISOString()
+      : null,
+  };
+
+  try {
+    let res;
+
+    if (editingJob) {
+      res = await fetch(`/api/jobs/${editingJob._id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } else {
+      res = await fetch("/api/jobs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    }
+
+    const data = await res.json();
+
+    if (!res.ok || !data.success)
+      throw new Error(data?.message || "Something went wrong");
+
+    toast.success(
+      editingJob
+        ? "Job updated successfully!"
+        : "Job created successfully!"
+    );
 
     form.resetFields();
     setShowForm(false);
     setEditingJob(null);
-    fetchJobs(); // refresh the list
+    fetchJobs();
+
   } catch (error: any) {
     toast.error(error.message || "Something went wrong!");
   }
-
-  };
+};
 
   // DELETE JOB
   const deleteJob = async (id: string) => {
@@ -205,14 +224,14 @@ export default function AdminDashboard() {
 
                 {/* Company */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="Company" name="company" initialValue="Mabsol Infotech">
+                  <Form.Item label="Company" name="company" initialValue="Mabsol Infotech Pvt.Ltd. ">
                     <Input size="large" placeholder="Company" />
                   </Form.Item>
                 </Col>
 
                 {/* Location */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="Location" name="location" initialValue="Panchkula">
+                  <Form.Item label="Location" name="location" initialValue="Panchkula, Haryana ">
                     <Input size="large" placeholder="Location" />
                   </Form.Item>
                 </Col>
@@ -226,56 +245,56 @@ export default function AdminDashboard() {
 
                 {/* Positions */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="Positions" name="positions" rules={[{ required: true }]}>
+                  <Form.Item label="Positions" name="positions" rules={[{ required: false }]}>
                     <Input size="large" type="number" min={0} placeholder="No. of positions" />
                   </Form.Item>
                 </Col>
 
                 {/* Qualification */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="Qualification" name="qualification" rules={[{ required: true }]}>
+                  <Form.Item label="Qualification" name="qualification" rules={[{ required: false }]}>
                     <Input size="large" placeholder="Qualification" />
                   </Form.Item>
                 </Col>
 
                 {/* Job Type */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="Job Type" name="jobType" rules={[{ required: true }]}>
+                  <Form.Item label="Job Type" name="jobType" rules={[{ required: false }]}>
                     <Input size="large" placeholder="Full-time / Internship" />
                   </Form.Item>
                 </Col>
 
                 {/* Timings */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="Office Timings" name="timings" rules={[{ required: true }]}>
+                  <Form.Item label="Office Timings" name="timings" rules={[{ required: false }]}>
                     <Input size="large" placeholder="10 AM - 6 PM" />
                   </Form.Item>
                 </Col>
 
                 {/* About Us */}
                 <Col xs={24}>
-                  <Form.Item label="About Us" name="aboutUs" rules={[{ required: true }]}>
+                  <Form.Item label="About Us" name="aboutUs" rules={[{ required: false }]}>
                     <TextArea rows={3} placeholder="About your company..." />
                   </Form.Item>
                 </Col>
 
                 {/* Position Overview */}
                 <Col xs={24}>
-                  <Form.Item label="Position Overview" name="positionOverview" rules={[{ required: true }]}>
+                  <Form.Item label="Position Overview" name="positionOverview" rules={[{ required: false }]}>
                     <TextArea rows={3} placeholder="Describe the position..." />
                   </Form.Item>
                 </Col>
 
                 {/* Responsibilities */}
                 <Col xs={24}>
-                  <Form.Item label="Key Responsibilities" name="responsibilities" rules={[{ required: true }]}>
+                  <Form.Item label="Key Responsibilities" name="responsibilities" rules={[{ required: false }]}>
                     <Input size="large" placeholder="e.g. Manage team, Write reports" />
                   </Form.Item>
                 </Col>
 
                 {/* Skills */}
                 <Col xs={24}>
-                  <Form.Item label="Required Skills" name="requiredSkills" rules={[{ required: true }]}>
+                  <Form.Item label="Required Skills" name="requiredSkills" rules={[{ required: false }]}>
                     <Input size="large" placeholder="e.g. HTML, CSS, React" />
                   </Form.Item>
                 </Col>
@@ -288,14 +307,14 @@ export default function AdminDashboard() {
 
                 {/* What we offer */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="What You Offer" name="whatWeOffer" rules={[{ required: true }]}>
+                  <Form.Item label="What You Offer" name="whatWeOffer" rules={[{ required: false }]}>
                     <Input size="large" placeholder="Write your offer" />
                   </Form.Item>
                 </Col>
 
                 {/* How to apply */}
                 <Col xs={24} md={12}>
-                  <Form.Item label="How to Apply" name="howToApply" rules={[{ required: true }]}>
+                  <Form.Item label="How to Apply" name="howToApply" rules={[{ required: false }]}>
                     <Input size="large" placeholder="Email / Website / Phone" />
                   </Form.Item>
                 </Col>

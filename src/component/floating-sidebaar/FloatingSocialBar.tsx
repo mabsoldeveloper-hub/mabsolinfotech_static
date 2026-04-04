@@ -5,9 +5,9 @@ import {
   YoutubeFilled,
   InstagramFilled,
   LinkedinFilled,
-  TwitterSquareFilled,
   WhatsAppOutlined,
 } from "@ant-design/icons";
+import { FaSquareXTwitter } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 
 export default function FloatingSocialBar() {
@@ -83,7 +83,7 @@ export default function FloatingSocialBar() {
           className="bg-blue-400 text-white p-2.5 rounded-lg shadow-md hover:bg-blue-500 transition-all duration-200"
           title="Twitter"
         >
-          <TwitterSquareFilled className="text-xl" />
+          <FaSquareXTwitter className="text-xl" />
         </a>
 
         {/* YouTube */}

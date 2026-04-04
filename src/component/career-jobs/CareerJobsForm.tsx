@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, } from "next/navigation";
 import { Form, Input, Button, Upload, message, Checkbox, Spin } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
-import { div } from "framer-motion/client";
 import { Modal } from "antd";
 
 
@@ -36,10 +35,18 @@ export default function CareerJobsForm() {
     const { id } = useParams();
     const [job, setJob] = useState<Job | null>(null);
     const [openForm, setOpenForm] = useState(false);
-    const expireDate = job?.expireAt ? new Date(job.expireAt) : new Date();
+    // const expireDate = job?.expireAt ? new Date(job.expireAt) : new Date();
+    const expireDate = job?.expireAt
+        ? new Date(job.expireAt)
+        : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
     const router = useRouter();
     const [successModalOpen, setSuccessModalOpen] = useState(false);
 
+    const [form] = Form.useForm();
+    const [otpSent, setOtpSent] = useState(false);
+    const [emailVerified, setEmailVerified] = useState(false);
+    const [otp, setOtp] = useState("");
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (!id) return;
@@ -97,35 +104,100 @@ export default function CareerJobsForm() {
     //         toast.error("Server error, try again later.");
     //     }
     // };
-    const onFinish = async (values: any) => {
-        const formData = new FormData();
-        formData.append("fullName", values.fullName);
-        formData.append("email", values.email);
-        formData.append("phone", values.phone);
-        formData.append("coverLetter", values.coverLetter || "");
+    const handleSendOtp = async () => {
+        const email = form.getFieldValue("email");
+        if (!email) return message.error("Please enter your email");
 
-        if (values.resume && values.resume[0]) {
-            formData.append("resume", values.resume[0].originFileObj);
+        try {
+            setLoading(true);
+
+            const res = await fetch("/api/auth/send-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+            });
+
+            if (res.ok) {
+                message.success("OTP sent to your email");
+                setOtpSent(true);
+            } else {
+                message.error("Failed to send OTP");
+            }
+        } catch (error) {
+            message.error("Something went wrong");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleVerifyOtp = async () => {
+        const email = form.getFieldValue("email");
+
+        if (!email || !otp)
+            return message.error("Please enter email and OTP");
+
+        try {
+            setLoading(true);
+
+            const res = await fetch("/api/auth/verify-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, otp }),
+            });
+
+            if (res.ok) {
+                message.success("Email Verified Successfully!");
+                setEmailVerified(true);
+            } else {
+                message.error("Invalid OTP");
+            }
+        } catch (error) {
+            message.error("Verification failed");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const onFinish = async (values: any) => {
+        if (!emailVerified) {
+            return message.warning("Please verify your email first");
+        }
+
+        if (!values.resume || !values.resume[0]) {
+            return message.error("Please upload your resume");
         }
 
         try {
+            setLoading(true);
+
+            const formData = new FormData();
+            formData.append("fullName", values.fullName);
+            formData.append("phone", values.phone);
+            formData.append("email", values.email);
+            formData.append("jobId", id as string);
+            formData.append("resume", values.resume[0].originFileObj);
+
             const res = await fetch("/api/apply", {
                 method: "POST",
                 body: formData,
             });
 
-            const data = await res.json();
-
             if (res.ok) {
-                setSuccessModalOpen(true); // OPEN MODAL
+                setSuccessModalOpen(true);
+
+                form.resetFields();
+                setOtpSent(false);
+                setEmailVerified(false);
+                setOtp("");
             } else {
-                toast.error(data.message || "Failed to submit");
+                message.error("Submission failed");
             }
-        } catch (err) {
-            toast.error("Server error, try again later.");
+        } catch (error) {
+            message.error("Something went wrong");
+        } finally {
+            setLoading(false);
         }
     };
-
 
     const handleApply = (id: string) => {
         router.push(`/jobsApply/${id}`);
@@ -257,25 +329,28 @@ export default function CareerJobsForm() {
 
                 {openForm && (
                     <div className="mt-8 bg-white p-6 md:p-10 rounded-xl shadow-lg border animate__animated animate__fadeIn">
+
                         <h2 className="text-2xl font-semibold text-[#185e9a] mb-6">
                             Apply for this Job
                         </h2>
 
                         <Form
+                            form={form}
                             layout="vertical"
                             className="grid grid-cols-1 gap-6"
                             onFinish={onFinish}
                         >
+
+                            {/* Full Name */}
                             <Form.Item
                                 label="Full Name"
                                 name="fullName"
-                                rules={[
-                                    { required: true, message: "Please enter your full name" },
-                                ]}
+                                rules={[{ required: true, message: "Please enter your full name" }]}
                             >
                                 <Input placeholder="Enter your full name" size="large" />
                             </Form.Item>
 
+                            {/* Phone */}
                             <Form.Item
                                 label="Phone Number"
                                 name="phone"
@@ -287,41 +362,93 @@ export default function CareerJobsForm() {
                                 <Input placeholder="Enter phone number" size="large" />
                             </Form.Item>
 
-                            <Form.Item
-                                label="Email Address"
-                                name="email"
-                                rules={[
-                                    { required: true, message: "Please enter your email" },
-                                    { type: "email", message: "Enter a valid email!" },
-                                ]}
-                            >
-                                <Input placeholder="Enter email address" size="large" />
+                            {/* Email + Send OTP */}
+                            <Form.Item label="Email Address" required>
+                                <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+
+                                    {/* Email Input */}
+                                    <Form.Item
+                                        name="email"
+                                        noStyle
+                                        rules={[
+                                            { required: true, message: "Please enter your email" },
+                                            { type: "email", message: "Enter a valid email!" },
+                                        ]}
+                                    >
+                                        <Input
+                                            placeholder="Enter email address"
+                                            size="large"
+                                            disabled={emailVerified}
+                                            className="flex-1"
+                                            onChange={() => {
+                                                setEmailVerified(false);
+                                                setOtpSent(false);
+                                                setOtp("");
+                                            }}
+                                        />
+                                    </Form.Item>
+
+                                    {/* Verified Badge */}
+                                    {emailVerified && (
+                                        <span className="flex items-center gap-1 text-green-600 font-medium">
+                                            ✅ Verified
+                                        </span>
+                                    )}
+
+                                    {/* Send OTP Button */}
+                                    {!emailVerified && (
+                                        <Button
+                                            size="large"
+                                            className="!bg-orange-400 !text-gray-700"
+                                            loading={loading}
+                                            onClick={handleSendOtp}
+                                        >
+                                            Send OTP
+                                        </Button>
+                                    )}
+                                </div>
                             </Form.Item>
 
-                            <Form.Item label="Cover Letter" name="coverLetter">
-                                <Input.TextArea
-                                    placeholder="Write your cover letter here..."
-                                    size="large"
-                                    rows={5}
-                                />
-                            </Form.Item>
+                            {/* OTP Section */}
+                            {otpSent && !emailVerified && (
+                                <div className="mt-3 flex flex-col gap-2">
 
+                                    <Input
+                                        size="large"
+                                        placeholder="Enter OTP"
+                                        value={otp}
+                                        onChange={(e) => setOtp(e.target.value)}
+                                    />
+
+                                    <Button
+                                        size="large"
+                                        type="primary"
+                                        className="!bg-green-600 !text-white"
+                                        loading={loading}
+                                        onClick={handleVerifyOtp}
+                                    >
+                                        Verify OTP
+                                    </Button>
+
+                                </div>
+                            )}
+
+                            {/* Upload Resume */}
                             <Form.Item
                                 label="Upload Resume / Documents"
                                 name="resume"
                                 valuePropName="fileList"
                                 getValueFromEvent={(e) => e.fileList}
-                                rules={[
-                                    { required: true, message: "Please upload your resume" },
-                                ]}
+                                rules={[{ required: true, message: "Please upload your resume" }]}
                             >
                                 <Upload beforeUpload={() => false}>
-                                    <Button icon={<UploadOutlined />} size="large">
+                                    <Button size="large">
                                         Choose File
                                     </Button>
                                 </Upload>
                             </Form.Item>
 
+                            {/* Agree Checkbox */}
                             <Form.Item
                                 name="agree"
                                 valuePropName="checked"
@@ -336,21 +463,25 @@ export default function CareerJobsForm() {
                             >
                                 <Checkbox>
                                     <span className="text-sm text-gray-600">
-                                        I agree with the storage and handling of my data by this
-                                        website. *
+                                        I agree with the storage and handling of my data by this website. *
                                     </span>
                                 </Checkbox>
                             </Form.Item>
 
-                            <div className="flex gap-4 mt-4">
+                            {/* Buttons */}
+                            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+
                                 <Button
                                     type="primary"
                                     htmlType="submit"
                                     size="large"
+                                    loading={loading}
+                                    disabled={!emailVerified}
                                     className="bg-[#185e9a] hover:bg-blue-500 px-8 py-5 rounded-full"
                                 >
                                     Submit Application
                                 </Button>
+
                                 <Button
                                     size="large"
                                     className="px-8 py-5 rounded-full border"
@@ -358,7 +489,9 @@ export default function CareerJobsForm() {
                                 >
                                     Cancel
                                 </Button>
+
                             </div>
+
                         </Form>
                     </div>
                 )}
