@@ -21,9 +21,9 @@ const CompanyProformance = () => {
     }, []);
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2 lg:px-20 px-6 bg-white mt-20 py-10 gap-6'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 lg:px-10 px-4 bg-white mt-20 py-4 gap-6'>
             <div  data-aos="fade-right" className='text-justify'>
-                <h1 className='text-4xl font-bold text-[#185e9a] py-6'>
+                <h1 className='text-4xl font-bold text-[#185e9a] py-2'>
                     Results For The Last 4 Years
                 </h1>
                 <p className='text-lg italic text-black'>

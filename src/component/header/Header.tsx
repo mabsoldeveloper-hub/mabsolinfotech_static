@@ -8,7 +8,8 @@ import {
   MenuFoldOutlined,
   UpOutlined,
 } from "@ant-design/icons";
-import { Button, Drawer, Dropdown, MenuProps, Popover, Space } from "antd";
+import { MdOutlineArrowDropDown } from "react-icons/md";
+import { Button, Drawer, Popover } from "antd";
 import Aos from "aos";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -17,15 +18,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import {
   AiFillSafetyCertificate,
-  AiOutlineAim,
   AiOutlineSolution,
   AiOutlineSync,
   AiOutlineTeam,
   AiOutlineUser,
 } from "react-icons/ai";
-import { IoBagHandleOutline, IoSchool } from "react-icons/io5";
 import {
-  SiCivicrm,
   SiLinuxprofessionalinstitute,
   SiSimplelogin,
 } from "react-icons/si";
@@ -53,7 +51,7 @@ const Header = () => {
   };
 
   const Content = () => (
-    <div className="bg-[#185e9a] text-white flex flex-col gap-4 p-8 ">
+    <div className="bg-blue-900 text-white flex flex-col gap-4 p-8 ">
       <div className="text-sm font-bold flex flex-col gap-4 font-serif">
         <a
           href="/tallys"
@@ -105,7 +103,7 @@ const Header = () => {
   );
 
   const Mega = () => (
-    <div className="bg-[#185e9a] text-white flex flex-col gap-0 p-8 ">
+    <div className="bg-blue-900 text-white flex flex-col gap-0 p-8 ">
       <div className="text-sm font-bold flex flex-col gap-4 font-serif">
         <a
           href="/website-development"
@@ -142,7 +140,7 @@ const Header = () => {
   );
 
   const MegaMenu = () => (
-    <div className="bg-[#185e9a] text-white grid grid-cols-2 gap-0 p-14 ">
+    <div className="bg-blue-900 text-white grid grid-cols-2 gap-0 p-14 ">
       <div className="text-sm font-bold flex flex-col gap-4 font-serif">
         <span className="">Gallery</span>
         <a href="/gallery" className="!text-blue-300 hover:!text-[#fff]">
@@ -181,8 +179,8 @@ const Header = () => {
 
   const MegaMenuContent = () => (
     <div
-      className=" text-white grid grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 2xl:gap-10 p-14"
-      style={{ backgroundColor: "#185e9a" }}
+      className="bg-blue-900 text-white grid grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 2xl:gap-10 p-14"
+
     >
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span className="">Employee</span>
@@ -454,8 +452,8 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-[#185e9a] sticky top-0 w-full z-50 shadow-sm">
-      <div className="flex items-center justify-between gap-6 px-4 sm:px-6 lg:px-10 py-3">
+    <div className="bg-blue-800 sticky top-0 w-full z-50 shadow-sm">
+      <div className="flex items-center justify-between gap-6 px-4 sm:px-6 lg:px-10 py-2">
         <div>
           <img
             src={img}
@@ -471,19 +469,16 @@ const Header = () => {
             style={{ fontFamily: "Roboto,sans-serif" }}
           >
             <div>
-              {/* <a href="" className='text-lg font-extrabold text-green-600 font-serif'>Home</a> */}
               <Link href="/">
                 <Button
                   type="link"
-                  className="text-lg !font-extrabold !text-white"
+                  className="!text-md !font-extrabold !text-white"
                   style={{ fontFamily: "Roboto,sans-serif" }}
                 >
                   Home
                 </Button>
               </Link>
-              {/* <div className="w-full">
-                <hr className="border-t-4 border-green-600" />
-              </div> */}
+
             </div>
 
             <Popover
@@ -495,7 +490,7 @@ const Header = () => {
               <Button
                 type="text"
                 onClick={() => router.push("/about_us")}
-                className="!text-[#E3ECFF] !text-sm !font-extrabold"
+                className="!text-[#E3ECFF] !text-md !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -503,7 +498,7 @@ const Header = () => {
                 }}
               >
                 About Us
-                <DownOutlined />
+                 <MdOutlineArrowDropDown />
               </Button>
             </Popover>
 
@@ -516,7 +511,7 @@ const Header = () => {
               <Button
                 type="text"
                 onClick={() => router.push("/service-page")}
-                className="!text-white !text-sm !font-extrabold "
+                className="!text-white !text-md !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -524,11 +519,11 @@ const Header = () => {
                 }}
               >
                 Service
-                <DownOutlined />
+               <MdOutlineArrowDropDown />
               </Button>
             </Popover>
 
-            {/* <a href="">Service <DownOutlined /></a> */}
+            {/* <a href="">Service  <MdOutlineArrowDropDown /></a> */}
             <Popover
               content={Content()}
               trigger="hover"
@@ -538,7 +533,7 @@ const Header = () => {
               <Button
                 type="text"
                 onClick={() => router.push("/software_product")}
-                className="!text-white !text-sm !font-extrabold"
+                className="!text-white !text-md !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -546,7 +541,7 @@ const Header = () => {
                 }}
               >
                 Software Products
-                <DownOutlined />
+                 <MdOutlineArrowDropDown />
               </Button>
             </Popover>
 
@@ -558,7 +553,7 @@ const Header = () => {
             >
               <Button
                 type="text"
-                className="!text-white !text-sm !font-extrabold"
+                className="!text-white !text-md !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -566,7 +561,7 @@ const Header = () => {
                 }}
               >
                 Mabsol Portal
-                <DownOutlined />
+                 <MdOutlineArrowDropDown />
               </Button>
             </Popover>
           </nav>
@@ -894,11 +889,6 @@ const Header = () => {
             </AnimatePresence>
           </div>
 
-          {/* <Popover content={click} title="Software Product" trigger="click" placement="topRight">
-            <div className="cursor-pointer font-semibold text-sm text-blue-600">
-              Software Product<DownOutlined />
-            </div>
-          </Popover> */}
           <div className="relative w-full">
             {/* Inline Dropdown Menu */}
             <div
@@ -1010,25 +1000,7 @@ const Header = () => {
               )}
             </AnimatePresence>
           </div>
-          {/* <a href="">Mabsol Portal</a> */}
-          {/* <Popover
-            content={contents}
-            title="Mabsol Portal"
-            trigger="click"
-            placement="topRight"
-          >
-            <div className="cursor-pointer font-semibold text-sm text-white">
-              Mabsol Portal <DownOutlined />
-            </div>
-          </Popover> */}
-          {/* <Dropdown menu={{ items }} trigger={['click']}>
-            <a onClick={(e) => e.preventDefault()}>
-              <Space className="cursor-pointer font-semibold text-sm text-white w-full">
-                Mabsol Portal 
-                <DownOutlined />
-              </Space>
-            </a>
-          </Dropdown> */}
+        
 
           <div className="relative w-full">
             {/* Trigger */}
@@ -1228,15 +1200,7 @@ const Header = () => {
                               Employee Login
                             </div>
                           </a>
-                          {/* <a
-                            href="https://mabsolinfotech.com/crmtest/demo_contact_dcr.php"
-                            className="block hover:border-b hover:border-gray-300 p-2 !text-white"
-                          >
-                            <div className="flex justify-start items-center gap-1">
-                              <ExperimentOutlined />
-                              Get Demo
-                            </div>
-                          </a> */}
+
                         </motion.div>
                       )}
                       {/* </motion.div> */}

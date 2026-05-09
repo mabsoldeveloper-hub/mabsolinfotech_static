@@ -1,126 +1,128 @@
 "use client";
-import { Button } from "antd";
-import React, { useEffect, useState } from "react";
-import Marquee from "react-fast-marquee";
+import React from "react";
 import Link from "next/link";
+import { BsGlobe, BsLaptop, BsBarChart, BsBoxSeam, BsGraphUp, BsSearch } from "react-icons/bs";
 
-
-const service = [
+const services = [
   {
-    image: "images/our.webp",
+    icon: <BsGlobe />,
     title: "Website Development",
-    Descriptions:
-      "Website Development Services to Build Your Digital Identity Our expert website development  services are designed to help businesses establish a...",
+    desc: "We are a leading web development team delivering user-friendly and high-performance websites that elevate your online presence. We specialize in modern technologies like React.js, Node.js, PHP, and WordPress.",
     link: "/website-development",
-
+    color: "bg-green-500",
   },
   {
-    image: "images/our2.webp",
+    icon: <BsLaptop />,
     title: "Accounting Software",
-    Descriptions:
-      "Accounting Software Solutions to Streamline Your Financial Operations Our accounting software solutions provide seamless business accounting, automated accounting, and payroll...",
+    desc: "We provide smart accounting solutions with Tally, Marg ERP, installation, setup, and dedicated customer support services to simplify billing, inventory, finance management, and business operations. ",
     link: "/accounting-software",
-
+    color: "bg-blue-500",
   },
   {
-    image: "images/our3.webp",
+    icon: <BsGraphUp />,
+    title: "Digital Marketing",
+    desc: "We are digital marketing experts offering innovative strategies that elevate your brand's online presence and drive tangible results through engaging content and impactful platform based Ad & Social Media campaigns.",
+    link: "/digital-marketing",
+    color: "bg-red-500",
+  },
+  {
+    icon: <BsBarChart />,
     title: "Payroll Software",
-    Descriptions:
-      "Advanced Payroll Software for Efficient Salary and HR Management Our advanced payroll software is designed to simplify and automate every...",
+    desc: "We provide advanced payroll software solutions to automate salary processing, attendance tracking, employee management, and HR operations efficiently. We specialize in secure and user-friendly systems.",
     link: "/payroll-software",
-
+    color: "bg-yellow-500",
   },
   {
-    image: "images/our4.webp",
-    title: "ERP Software",
-    Descriptions:
-      "Smart ERP Software for Complete Business Management Our powerful ERP software provides everything you need to manage your business efficiently....",
-    link: "/erp-software",
+    icon: <BsBoxSeam />,
+    title: "Brand Identity Design",
+    desc: "Craft captivating and memorable brand identities with our talented team of designers and strategists, ensuring your brand stands out and fosters customer loyalty in a crowded marketplace and user-friendly systems.",
+    link: "/brand-identity-design",
+    color: "bg-purple-500",
   },
   {
-    image: "images/our5.webp",
-    title: "SFA Software",
-    Descriptions:
-      "Powerful SFA Software to Automate and Optimize Sales Operations Our robust SFA software is designed to automate and streamline your...",
-    link: "/sfa-software",
+    icon: <BsSearch />,
+    title: "Mobile App Development",
+    desc: "Embrace the mobile revolution with our mobile application development team that captivate users across the digital landscape. Invest wisely in sharing your vision with the world, and we'll bring it to life with creativity.",
+    link: "/mobile-app-development",
+    color: "bg-cyan-500",
   },
 ];
 
 const OurService = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsPlaying((prev) => !prev);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="relative w-full py-20 overflow-hidden">
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-10"
-        // style={{ backgroundImage: `url(/bg.avif)` }}
-        style={{ backgroundImage: "url('/base-1.png')" }}
-      ></div>
+    <div className="py-10 px-6 lg:px-20 bg-gray-50 ">
 
-      <div className="relative z-10 opacity-100 px-6 lg:px-20">
-        <div>
-          <h1 className="text-center text-[#185e9a] text-4xl font-bold underline">
-            Our Services
-          </h1>
-          {/* <div className="flex justify-center items-center gap-4 pt-4">
-            <Button className="!bg-gray-100 !py-5 !px-4 !border-none">
-              All Posts
-            </Button>
-            <Button className="!bg-gray-100 !py-5 !px-4 !border-none">
-              Services
-            </Button>
-          </div> */}
-        </div>
+      {/* Heading */}
+      <div className="text-center mb-14">
 
-        <div className="pt-10">
-          <Marquee
-            speed={100}
-            pauseOnHover={true}
-            gradient={false}
-            play={isPlaying}
+        <h1 className="text-orange-500 text-2xl font-semibold mb-3">
+          Our Services
+        </h1>
+
+        <h2 className="text-3xl sm:text-5xl font-bold text-[#1f4e79] leading-tight">
+          Explore Our Premium Services
+        </h2>
+
+        <p className="text-gray-500 mt-4 text-sm sm:text-base max-w-xl mx-auto">
+          Powerful software services to manage your business efficiently
+        </p>
+
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
+
+        {services.map((item, index) => (
+          <div
+            key={index}
+            className="p-4 sm:p-6 border border-gray-200 rounded-lg bg-white hover:shadow-md hover:border-[#1f4e79] transition-all duration-300 group text-center"
           >
-            {service.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center rounded-2xl mx-6 w-[600px] h-[250px] overflow-hidden group border border-transparent hover:border-2 hover:border-blue-300 transition-all duration-300 "
-              >
-                {/* Image */}
-                <div className="w-1/2 h-full overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition duration-300 ease-in-out group-hover:scale-110"
-                  />
-                </div>
 
-                {/* Text */}
-                <div className="w-1/2 p-4 flex flex-col justify-center ">
-                  <h2 className="text-xl font-bold text-[#185e9a] mb-2">
-                    {item.title}
-                  </h2>
-                  <p className="text-sm text-gray-600 line-clamp-3">
-                    {item.Descriptions}
-                  </p>
-                  <Link href={item.link}
-                    className="text-[#185e9a] font-medium underline mt-3 inline-block"
-                  >
-                    Read More
-                  </Link>
+            {/* Icon */}
+            <div className="flex justify-center mb-4 sm:mb-5">
 
+              <div className="relative">
+
+                {/* Outer Glow */}
+                <div className="w-[70px] h-[70px] sm:w-[85px] sm:h-[85px] rounded-full bg-blue-100 flex items-center justify-center">
+
+                  {/* Border Circle */}
+                  <div className="w-[58px] h-[58px] sm:w-[72px] sm:h-[72px] rounded-full border-[3px] border-[#1f4e79] flex items-center justify-center shadow-md">
+
+                    {/* Inner Circle */}
+                    <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] rounded-full bg-[#1f4e79] text-white text-lg sm:text-2xl flex items-center justify-center group-hover:scale-110 transition duration-300">
+                      {item.icon}
+                    </div>
+
+                  </div>
 
                 </div>
+
               </div>
-            ))}
-          </Marquee>
-        </div>
+
+            </div>
+
+            {/* Text */}
+            <div>
+              <h2 className="text-sm sm:text-lg font-semibold text-[#1f4e79] group-hover:text-[#185e9a] transition">
+                {item.title}
+              </h2>
+
+              <p className="text-[11px] sm:text-sm text-gray-500 mt-2 sm:mt-3 leading-relaxed text-center text-justify">
+                {item.desc}
+              </p>
+
+              <Link
+                href={item.link}
+                className="text-[11px] sm:text-sm text-orange-500 mt-3 sm:mt-4 inline-block font-medium hover:underline"
+              >
+                Learn More →
+              </Link>
+            </div>
+
+          </div>
+        ))}
+
       </div>
     </div>
   );

@@ -21,13 +21,13 @@ const Footer = () => {
   };
 
   return (
-    <div className="relative bg-[#185e9a] text-white pt-16 pb-8 px-4 sm:px-8 lg:px-16">
+    <div className="relative bg-blue-800 text-white pt-16 pb-8 px-4 sm:px-8 lg:px-16">
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-60"
         style={{ backgroundImage: `url(/footer.png)` }}
       ></div>
 
-      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 opacity-100 z-20">
+      <div className="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 opacity-100 z-20">
         <div>
           <div className="h-[80px] w-[200px]">
             <img src="/footerlogo.webp" alt="" className="h-[100%] w-[100%]" />

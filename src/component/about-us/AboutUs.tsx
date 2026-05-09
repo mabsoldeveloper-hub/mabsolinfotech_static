@@ -1,170 +1,147 @@
 "use client";
 
-import { CheckOutlined } from "@ant-design/icons";
-import { Card } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+
+type CounterProps = {
+  end: number;
+  duration?: number;
+  suffix?: string;
+};
+
+// 🔢 Counter Component
+const Counter = ({
+  end,
+  duration = 2000,
+  suffix = "",
+}: CounterProps) => {
+  const [count, setCount] = useState(0);
+
+  // 👀 View detect
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  useEffect(() => {
+    if (!inView) return;
+
+    let start = 0;
+    const increment = end / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [end, duration, inView]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
+};
 
 const AboutUs = () => {
   return (
-    <div
-      id="about"
-      className="bg-cover bg-center bg-no-repeat min-h-screen lg:py-20 py-14 px-4 sm:px-6 lg:px-20"
-      style={{ backgroundImage: "url('/base-1.png')" }}
-    >
-      {/* Title + Description */}
+    <section className="grid grid-cols-2 items-center gap-4 sm:gap-8 lg:gap-10 px-3 sm:px-8 lg:px-16 py-6 lg:py-10 bg-white overflow-hidden">
+
+      {/* LEFT IMAGE */}
+      <div className="flex justify-center">
+        <div className="relative w-full max-w-[550px]">
+
+          {/* BACKGROUND GLOW */}
+          <div className="absolute inset-0 bg-orange-100 blur-3xl opacity-30 rounded-full"></div>
+
+          <img
+            src="/images/about-part.png"
+            alt="about"
+            className="relative z-10 w-full h-auto object-contain"
+          />
+        </div>
+      </div>
+
+      {/* RIGHT TEXT */}
       <div>
-        <h1 className="text-3xl sm:text-4xl font-bold underline text-[#185e9a] text-center">
+
+        {/* TOP TAG */}
+        <h1 className="text-orange-500 text-[10px] sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2">
           About Us
         </h1>
-        <p className="text-base sm:text-lg italic py-4 text-justify">
-          At Mabsol Infotech, we are committed to delivering innovative software
-          solutions that empower businesses to thrive in a competitive world.
-          Specializing in Web Development, Accounting Software, ERP Software,
-          and Payroll Software, we offer tailored services to streamline your
-          operations and drive growth. With a focus on quality and customer
-          satisfaction, we ensure seamless experiences and lasting partnerships.
+
+        {/* HEADING */}
+        <h2 className="text-sm sm:text-2xl lg:text-5xl font-bold text-[#1f4e79] leading-tight mb-2 sm:mb-6">
+          Transforming Ideas <br /> Into Reality
+        </h2>
+
+        {/* DESCRIPTION */}
+        <p className="text-gray-700 text-[9px] sm:text-base lg:text-md text-justify leading-relaxed mb-2 sm:mb-4">
+          At Mabsol Infotech, we specialize in delivering modern and innovative
+          software solutions that help businesses simplify operations, improve
+          productivity, and achieve long-term growth in the digital world.
         </p>
+
+        <p className="text-gray-700 text-[9px] sm:text-base lg:text-md text-justify leading-relaxed mb-2 sm:mb-4">
+          From custom Web Development and ERP Systems to Accounting, Payroll,
+          and Business Automation solutions, we create scalable technologies
+          tailored to your business needs.
+        </p>
+
+        <p className="text-gray-700 text-[9px] sm:text-base lg:text-md text-justify leading-relaxed mb-3 sm:mb-8">
+          With a strong focus on quality, performance, and customer
+          satisfaction, our team is committed to building reliable digital
+          experiences that drive success and innovation for every client.
+        </p>
+
+        {/* COUNTERS */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-6 lg:gap-8">
+
+          {/* TEAM */}
+          <div className="bg-orange-50 rounded-xl sm:rounded-2xl p-2 sm:p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+            <h3 className="text-sm sm:text-3xl lg:text-4xl font-extrabold text-orange-500">
+              <Counter end={50} suffix="+" />
+            </h3>
+
+            <p className="text-[8px] sm:text-sm text-gray-600 mt-1 sm:mt-2 font-medium">
+              Team
+            </p>
+          </div>
+
+          {/* CLIENTS */}
+          <div className="bg-blue-50 rounded-xl sm:rounded-2xl p-2 sm:p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+            <h3 className="text-sm sm:text-3xl lg:text-4xl font-extrabold text-[#1f4e79]">
+              <Counter end={2000} suffix="+" />
+            </h3>
+
+            <p className="text-[8px] sm:text-sm text-gray-600 mt-1 sm:mt-2 font-medium">
+              Clients
+            </p>
+          </div>
+
+          {/* SUCCESS */}
+          <div className="bg-green-50 rounded-xl sm:rounded-2xl p-2 sm:p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+            <h3 className="text-sm sm:text-3xl lg:text-4xl font-extrabold text-green-500">
+              <Counter end={99} suffix="%" />
+            </h3>
+
+            <p className="text-[8px] sm:text-sm text-gray-600 mt-1 sm:mt-2 font-medium">
+              Success
+            </p>
+          </div>
+
+        </div>
+
       </div>
-
-      {/* Why Choose Mabsol Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 pt-16 gap-8 lg:gap-14 items-center">
-        <div>
-          <h1 className="text-3xl sm:text-4xl text-[#185e9a] underline font-bold">
-            Why Choose Mabsol Infotech?
-          </h1>
-          <p className="text-base sm:text-lg italic py-4 text-justify">
-            People choose Mabsol Infotech for our expertise, reliability, and
-            commitment to excellence. We deliver customized solutions like
-            Accounting Software, ERP, Payroll, and Web Development, backed by
-            exceptional customer support to ensure your success.
-          </p>
-          <ul className="space-y-3">
-            {[
-              "Tailored Solutions - Customized software and services to fit your business needs.",
-              "Reliable Support - Prompt and responsive customer support for seamless operations.",
-              "Advanced Technology - Leveraging the latest tools to drive innovation and growth.",
-            ].map((text, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <CheckOutlined className="bg-[#185e9a] !text-white p-1 rounded-full text-sm" />
-                <span className="text-base italic text-black">{text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="flex justify-center items-center">
-          <Card
-            data-aos="fade-right"
-            styles={{ body: { padding: 0 } }}
-            variant="outlined"
-            className="rounded-2xl overflow-hidden shadow-2xl border-none w-[600px] max-w-full"
-          >
-            <img
-              src="images/section1.webp"
-              alt=""
-              className="w-full h-60 sm:h-72 md:h-96 object-cover transition duration-300 ease-in-out hover:scale-105"
-            />
-          </Card>
-        </div>
-      </div>
-
-      {/* Mission Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 pt-20 gap-8 lg:gap-14 justify-center items-center">
-        <div className="flex justify-center items-center">
-          <Card
-            data-aos="fade-right"
-            styles={{ body: { padding: 0 } }}
-            variant="outlined"
-            className="rounded-2xl overflow-hidden shadow-2xl border-none w-[600px] max-w-full"
-          >
-            <img
-              src="images/section2.jpeg"
-              alt=""
-              className="w-full h-60 sm:h-72 md:h-96 object-cover transition duration-300 ease-in-out hover:scale-105"
-            />
-          </Card>
-        </div>
-
-        <div>
-          <h1
-            data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1500"
-            className="text-3xl sm:text-4xl text-[#185e9a] underline font-bold"
-          >
-            Our Mission
-          </h1>
-          <p className="text-base sm:text-lg italic py-4 text-justify">
-            Our mission at Mabsol Infotech is to empower businesses with
-            cutting-edge technology solutions that simplify processes, enhance
-            efficiency, and foster growth. We are dedicated to delivering
-            innovative, reliable, and scalable tools that meet the evolving
-            needs of our clients while maintaining a focus on excellence and
-            customer satisfaction.
-          </p>
-          <ul className="space-y-3">
-            {[
-              "Deliver innovative and scalable software solutions.",
-              "Simplify business processes to boost efficiency.",
-              "Focus on customer satisfaction and long-term success.",
-              "Stay committed to quality and technological excellence.",
-            ].map((text, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <CheckOutlined className="bg-[#185e9a] !text-white p-1 rounded-full text-sm" />
-                <span className="text-base italic text-black">{text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Vision Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 pt-20 gap-8 lg:gap-14 items-center">
-        <div data-aos="fade-left">
-          <h1
-            data-aos="fade-up"
-            data-aos-duration="3000"
-            className="text-3xl sm:text-4xl text-[#185e9a] underline font-bold"
-          >
-            Our Vision
-          </h1>
-          <p className="text-base sm:text-lg italic py-4 text-justify">
-            At Mabsol Infotech, we envision a future where businesses of all
-            sizes leverage technology to achieve their full potential. We aim to
-            be a trusted partner in this journey, offering solutions that drive
-            innovation, streamline operations, and build long-term success for
-            our clients.
-          </p>
-          <ul className="space-y-3">
-            {[
-              "Empower businesses through advanced technology.",
-              "Become a trusted partner for growth and success.",
-              "Drive innovation with customer-centric solutions.",
-              "Foster long-term relationships built on trust and excellence.",
-            ].map((text, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <CheckOutlined className="bg-[#185e9a] !text-white p-1 rounded-full text-sm" />
-                <span className="text-base italic text-black">{text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="flex justify-center items-center">
-          <Card
-            data-aos="fade-right"
-            styles={{ body: { padding: 0 } }}
-            variant="outlined"
-            className="rounded-2xl overflow-hidden shadow-2xl border-none w-[600px] max-w-full"
-          >
-            <img
-              src="images/section3.webp"
-              alt=""
-              className="w-full h-60 sm:h-72 md:h-96 object-cover transition duration-300 ease-in-out hover:scale-105"
-            />
-          </Card>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

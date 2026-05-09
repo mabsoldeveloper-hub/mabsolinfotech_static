@@ -1,7 +1,7 @@
 
 "use client"
 
-import { Carousel} from 'antd'
+import { Carousel } from 'antd'
 import React, { useEffect, useRef } from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,153 +10,161 @@ import { CarouselRef } from 'antd/es/carousel';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+type Testimonial = {
+  name: string;
+  role: string;
+  image: string;
+  description: string;
+};
 
+const teamMembers: Testimonial[] = [
+  {
+    name: "K.S Chauhan",
+    role: "  BIOMAX BIOTECHNICS PVT. LTD. ",
+    image: "images/company-profile-1.webp",
+    description: " Mabsol Infotech has truly exceeded our expectations. Their support with Busy and Marg software has not only enhanced our productivity but also simplified complex tasks. The professional approach and in-depth knowledge of their products have made a significant impact on our operations. We couldn’t be more pleased with their service. ",
+  },
+  {
+    name: " Shanky Mittal ",
+    role: " ALCOLABS PVT. LTD.",
+    image: "images/alco.webp",
+    description: " Mabsol Infotech’s software solutions, including Marg, have significantly enhanced our financial management capabilities. Their professionalism and expertise have provided us with a distinct competitive edge. We appreciate their ongoing support and the positive impact their solutions have had on our business.  ",
 
-const teamMembers = [
-    {
-        name: "K.S Chauhan",
-        role: "  BIOMAX BIOTECHNICS PVT. LTD. ",
-        image: "images/company-profile-1.webp",
-        description: " Mabsol Infotech has truly exceeded our expectations. Their support with Busy and Marg software has not only enhanced our productivity but also simplified complex tasks. The professional approach and in-depth knowledge of their products have made a significant impact on our operations. We couldn’t be more pleased with their service. ",
-    },
-    {
-        name: " Shanky Mittal ",
-        role: " ALCOLABS PVT. LTD.",
-        image: "images/alco.webp",
-        description: " Mabsol Infotech’s software solutions, including Marg, have significantly enhanced our financial management capabilities. Their professionalism and expertise have provided us with a distinct competitive edge. We appreciate their ongoing support and the positive impact their solutions have had on our business.  ",
+  },
+  {
+    name: " Ashwani Mehta ",
+    role: " ASTERISK LABORATORIES INDIA PVT. LTD.",
+    image: "images/crousel1.png",
+    description: " The software solutions from Mabsol Infotech, have been a game-changer for us. Their technical expertise and customer-centric approach have been instrumental in optimizing our financial operations. We value their proactive support and their ability to tailor solutions to meet our specific needs. ",
 
-    },
-    {
-        name: " Ashwani Mehta ",
-        role: " ASTERISK LABORATORIES INDIA PVT. LTD.",
-        image: "images/crousel1.png",
-        description: " The software solutions from Mabsol Infotech, have been a game-changer for us. Their technical expertise and customer-centric approach have been instrumental in optimizing our financial operations. We value their proactive support and their ability to tailor solutions to meet our specific needs. ",
+  },
+  {
+    name: " Deepak Pathak ",
+    role: " Satyam Enterprises Zirakpur ",
+    // image: "images/maxresdefault.webp",
+    image: "images/satyam.jpg",
+    description: " Partnering with Mabsol Infotech has revolutionized our approach to managing business operations. Their expertise with software solutions like Tally and Marg has streamlined our financial processes, leading to greater efficiency and accuracy. The team’s commitment to our success and their responsive support make them a  partner. ",
 
-    },
-    {
-        name: " Deepak Pathak ",
-        role: " Satyam Enterprises Zirakpur ",
-        // image: "images/maxresdefault.webp",
-        image: "images/satyam.jpg",
-        description: " Partnering with Mabsol Infotech has revolutionized our approach to managing business operations. Their expertise with software solutions like Tally and Marg has streamlined our financial processes, leading to greater efficiency and accuracy. The team’s commitment to our success and their responsive support make them a  partner. ",
-
-    },
+  },
 ]
 
 
 
 const OurTestimonial = () => {
 
+  const carouselRef = useRef<CarouselRef>(null);
 
+  const prevSlide = () => {
+    carouselRef.current?.prev();
+  };
 
-    const carouselRef = useRef<CarouselRef>(null);
-    const prevSlide = () => {
-        if (carouselRef.current) {
-            carouselRef.current.prev();
-        }
-    };
+  const nextSlide = () => {
+    carouselRef.current?.next();
+  };
 
-    const nextSlide = () => {
-        if (carouselRef.current) {
-            carouselRef.current.next();
-        }
-    };
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      once: false,
+      easing: "ease-in-out",
+    });
+  }, []);
 
-    useEffect(() => {
-        AOS.init({
-            duration: 700,
-            once: false,
-            easing: "ease-in-out",
-        });
-        const handleScroll = () => {
-            AOS.refresh();
-        };
+  return (
+    <div className='py-10 lg:px-20 px-6 bg-white'>
+      <div className="text-center mb-14">
 
-        window.addEventListener("scroll", handleScroll);
+        {/* Small Label */}
+        <h1 className="text-orange-500 text-2xl font-semibold mb-3">
+          Our Testimonial
+        </h1>
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+        {/* Main Heading */}
+        <h2 className="text-3xl sm:text-5xl font-bold text-[#1f4e79] leading-tight">
+          What our clients say?
+        </h2>
 
-    return (
-        <div className='py-20 lg:px-20 px-6 bg-white'>
-            <div className='text-center'>
-                <h1 className='text-[#185e9a] text-2xl font-bold underline'>
-                    # Our Testimonial
-                </h1>
+        {/* Description */}
+        <p className="text-gray-500 mt-4 text-sm sm:text-base max-w-xl mx-auto">
+          Hear directly from our clients about their journey and success with our solutions.
+        </p>
 
-                <p className='text-5xl font-bold font-serif py-6 text-black'>
-                    <span className='text-5xl text-[#185e9a]'>What our</span> clients says?
+      </div>
+
+      {/* Slider */}
+      <div className="relative mt-6 sm:mt-16 w-full">
+
+        {/* Left Button */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-0 sm:left-2 md:left-8 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full shadow-md sm:shadow-lg bg-white hover:bg-gray-100 z-10"
+        >
+          <LeftOutlined className="text-[10px] sm:text-xl md:text-2xl text-gray-700" />
+        </button>
+
+        {/* Carousel */}
+        <Carousel
+          ref={carouselRef}
+          slidesToShow={3}
+          autoplay
+          dots={false}
+          arrows={false}
+          responsive={[
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3, // mobile me bhi 3 cards
+              },
+            },
+          ]}
+        >
+
+          {teamMembers.map((item, index) => (
+            <div key={index} className="px-1 sm:px-3 py-8 sm:py-14">
+
+              <div className="relative bg-white text-center px-2 sm:px-6 pt-8 sm:pt-16 pb-3 sm:pb-8 rounded-lg shadow-md hover:shadow-xl transition group">
+
+                {/* Image */}
+                <div className="absolute -top-5 sm:-top-12 left-1/2 -translate-x-1/2">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-10 h-10 sm:w-24 sm:h-24 rounded-full object-cover border-2 sm:border-4 border-white shadow-md group-hover:scale-105 transition"
+                  />
+                </div>
+
+                {/* Quote */}
+                <p className="text-[#1f4e79] text-[7px] sm:text-sm text-justify leading-3 sm:leading-relaxed mt-2 sm:mt-4 px-1 sm:px-2 line-clamp-4">
+                  {item.description}
                 </p>
 
-                <div className="pt-4 w-full flex justify-center items-center">
-                    <hr className="w-[15%] border-t-4 border-blue-800" />
-                </div>
+                {/* Name */}
+                <h3 className="text-orange-500 font-semibold mt-2 sm:mt-6 text-[8px] sm:text-base">
+                  {item.name}
+                </h3>
+
+                {/* Role */}
+                <p className="text-[6px] sm:text-xs text-[#1f4e79]">
+                  {item.role}
+                </p>
+
+              </div>
+
             </div>
+          ))}
 
-            <div data-aos="zoom-in-up" className="relative mt-16 w-full ">
-                <button
-                    onClick={prevSlide}
-                    className="absolute left-2 md:left-8 top-1/2 transform -translate-y-1/2 p-0 md:p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all z-10"
-                >
-                    <LeftOutlined className="text-2xl text-gray-700" />
-                </button>
+        </Carousel>
 
-                <Carousel
-                    ref={carouselRef}
-                    slidesToShow={4}
-                    slidesToScroll={1}
-                    infinite
-                    autoplay
-                    dots={false}
-                    arrows={false}
-                    className="w-full"
-                    responsive={[
-                        { breakpoint: 3300, settings: { slidesToShow: 6 } },
-                        { breakpoint: 2560, settings: { slidesToShow: 5 } },
-                        { breakpoint: 1920, settings: { slidesToShow: 4 } },
-                        { breakpoint: 1440, settings: { slidesToShow: 3 } },
-                        { breakpoint: 1280, settings: { slidesToShow: 3 } },
-                        { breakpoint: 1024, settings: { slidesToShow: 2 } },
-                        { breakpoint: 768, settings: { slidesToShow: 1 } },
-                        { breakpoint: 480, settings: { slidesToShow: 1 } },
-                        { breakpoint: 330, settings: { slidesToShow: 1 } }
-                    ]}
-                >
-                    {teamMembers.map((item, index) => (
-                        <div key={index} className="px-1 md:px-4 py-8">
-                            <div className="flex flex-col  hover:border-orange-400 items-center text-center shadow-lg rounded-2xl bg-white transition-transform duration-300 hover:scale-105 group">
-                                <div>
-                                    <img
-                                        src={item.image}
-                                        alt={item.name}
-                                        className="h-40 w-40 rounded-full object-cover mt-10 shadow-[0_0_0_4px_#d1d5db] transition-all duration-300 hover:scale-110 group-hover:shadow-orange-500"
-                                    />
-                                </div>
-                                <h1 className="pt-10 text-2xl font-semibold text-gray-800">{item.name}</h1>
+        {/* Right Button */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 sm:right-2 md:right-8 top-1/2 -translate-y-1/2 p-1 sm:p-2 md:p-3 rounded-full shadow-md sm:shadow-lg bg-white hover:bg-gray-100 z-10"
+        >
+          <RightOutlined className="text-[10px] sm:text-xl md:text-2xl text-gray-700" />
+        </button>
 
-                                <p
-                                    className="py-4 px-4 text-gray-600 overflow-hidden text-ellipsis max-w-[400px] text-justify"
-                                >
-                                    {item.description}
-                                </p>
-
-                                <h2 className="text-lg font-semibold text-gray-700 py-6 group-hover:text-orange-500">{item.role}</h2>
-                            </div>
-                        </div>
-                    ))}
-                </Carousel>
-
-                <button
-                    onClick={nextSlide}
-                    className="absolute right-0 md:right-8 top-1/2 transform -translate-y-1/2 bg-white  md:p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all z-10"
-                >
-                    <RightOutlined className="text-2xl text-gray-700" />
-                </button>
-            </div>
-        </div>
-    )
-}
-
+      </div>
+    </div>
+  );
+};
 export default OurTestimonial
