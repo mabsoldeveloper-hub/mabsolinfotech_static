@@ -3,11 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import {
+
   HomeOutlined,
   PhoneFilled,
 } from "@ant-design/icons";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const ContactUs = () => {
   return (
@@ -34,41 +36,83 @@ const ContactUs = () => {
         </div>
 
         {/* Phone */}
-        <div className="bg-white p-2 sm:p-5 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition">
+        <div className="bg-white p-2 sm:p-5 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition overflow-hidden">
 
           <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
 
-            <PhoneFilled className="text-[12px] sm:text-2xl text-green-600" />
+            <FaPhoneAlt className="text-[12px] sm:text-2xl text-green-600" />
 
             <h3 className="font-semibold text-[11px] sm:text-lg text-[#1f4e79]">
               Phone
             </h3>
           </div>
 
-          <div className="text-[8px] sm:text-sm mt-1 sm:mt-2 grid grid-cols-2 gap-x-2 sm:gap-x-6 gap-y-1 text-[#1f4e79] leading-4 sm:leading-6">
+          <div className="text-[8px] sm:text-sm mt-1 sm:mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-3 sm:gap-x-6 gap-y-1 sm:gap-y-2 text-[#1f4e79] leading-4 sm:leading-6">
 
-            <a href="tel:9888914287" className="hover:text-blue-600">
+            <a
+              href="tel:9888914287"
+              className="hover:text-blue-600 break-all"
+            >
               9888914287
             </a>
 
-            <a href="tel:9888914283" className="hover:text-blue-600">
+            <a
+              href="tel:9888914283"
+              className="hover:text-blue-600 break-all"
+            >
               9888914283
             </a>
 
-            <a href="tel:9356042496" className="hover:text-blue-600">
+            <a
+              href="tel:9356042496"
+              className="hover:text-blue-600 break-all"
+            >
               9356042496
             </a>
 
-            <a href="tel:9357815181" className="hover:text-blue-600">
+            <a
+              href="tel:9357815181"
+              className="hover:text-blue-600 break-all"
+            >
               9357815181
             </a>
 
-            <a href="tel:9855605181" className="hover:text-blue-600">
+            <a
+              href="tel:9855605181"
+              className="hover:text-blue-600 break-all"
+            >
               9855605181
             </a>
 
-            <a href="tel:9855145181" className="hover:text-blue-600">
+            <a
+              href="tel:9855145181"
+              className="hover:text-blue-600 break-all"
+            >
               9855145181
+            </a>
+
+          </div>
+        </div>
+
+                {/* Phone */}
+        <div className="bg-white p-2 sm:p-5 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition overflow-hidden">
+
+          <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
+
+            <FaPhoneAlt className="text-[12px] sm:text-2xl text-green-600" />
+
+            <h3 className="font-semibold text-[11px] sm:text-lg text-[#1f4e79]">
+              TelePhone
+            </h3>
+          </div>
+
+          <div className="text-[8px] sm:text-sm mt-1 sm:mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-3 sm:gap-x-6 gap-y-1 sm:gap-y-2 text-[#1f4e79] leading-4 sm:leading-6">
+
+            <a
+              href="tel:01722575181"
+              className="hover:text-blue-600 break-all"
+            >
+              0172 2575181
             </a>
 
           </div>

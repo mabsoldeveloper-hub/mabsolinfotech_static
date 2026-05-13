@@ -613,7 +613,7 @@ const Header = () => {
           setOpen(false);
         }}
         closeIcon={<CloseOutlined style={{ color: "white" }} />}
-        style={{ backgroundColor: "#185e9a", width: "100%" }}
+        style={{ backgroundColor: "#1d4ed8", width: "100%" }}
       >
         <nav
           data-aos="fade-up"

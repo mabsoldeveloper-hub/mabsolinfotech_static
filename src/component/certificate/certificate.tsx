@@ -8,10 +8,10 @@ export default function CertificateSection() {
 
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1f4e79] font-serif">
+          <h2 className="text-2xl sm:text-xl lg:text-5xl font-bold text-[#1f4e79] font-serif">
             Our Business <span className="text-orange-500">Certifications</span>
           </h2>
-          <p className="text-gray-600 mt-3 max-w-3xl mx-auto font-serif text-sm sm:text-base">
+          <p className="text-gray-600 mt-3 max-w-3xl mx-auto font-serif text-sm sm:text-sm">
             Check out our certifications. We are registered and verified, ensuring trust
             and credibility in our business operations.
           </p>

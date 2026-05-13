@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { BsGlobe, BsLaptop, BsBarChart, BsBoxSeam, BsGraphUp, BsSearch } from "react-icons/bs";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const services = [
   {
@@ -20,9 +21,9 @@ const services = [
   },
   {
     icon: <BsGraphUp />,
-    title: "Digital Marketing",
-    desc: "We are digital marketing experts offering innovative strategies that elevate your brand's online presence and drive tangible results through engaging content and impactful platform based Ad & Social Media campaigns.",
-    link: "/digital-marketing",
+    title: "Erp Software",
+    desc: "We are ERP software experts delivering smart business solutions that streamline accounting, inventory, billing, payroll, and business operations through powerful and reliable ERP systems designed to improve efficiency and productivity.",
+    link: "/erp-software",
     color: "bg-red-500",
   },
   {
@@ -53,29 +54,30 @@ const OurService = () => {
     <div className="py-10 px-6 lg:px-20 bg-gray-50 ">
 
       {/* Heading */}
-      <div className="text-center mb-14">
+      <div className="text-center mb-8 sm:mb-14 px-2">
 
-        <h1 className="text-orange-500 text-2xl font-semibold mb-3">
+        <h1 className="text-orange-500 text-lg sm:text-2xl font-semibold mb-2 sm:mb-3">
           Our Services
         </h1>
 
-        <h2 className="text-3xl sm:text-5xl font-bold text-[#1f4e79] leading-tight">
+        <h2 className="text-xl sm:text-xl lg:text-5xl font-bold text-[#1f4e79] leading-snug sm:leading-tight">
           Explore Our Premium Services
         </h2>
 
-        <p className="text-gray-500 mt-4 text-sm sm:text-base max-w-xl mx-auto">
+        <p className="text-gray-500 mt-3 sm:mt-4 text-xs sm:text-base max-w-xs sm:max-w-xl mx-auto leading-relaxed">
           Powerful software services to manage your business efficiently
         </p>
 
       </div>
-
       {/* Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
 
         {services.map((item, index) => (
-          <div
+
+          <SpotlightCard
             key={index}
-            className="p-4 sm:p-6 border border-gray-200 rounded-lg bg-white hover:shadow-md hover:border-[#1f4e79] transition-all duration-300 group text-center"
+           className="rounded-xl border-0 !border-none !bg-white/10  backdrop-blur-xl shadow-[0_8px_32px_rgba(31,78,121,0.15)] p-4 sm:p-6 text-center transition-all duration-300 hover:-translate-y-2" 
+           spotlightColor="rgba(59, 130, 246, 0.18)"
           >
 
             {/* Icon */}
@@ -104,23 +106,17 @@ const OurService = () => {
 
             {/* Text */}
             <div>
-              <h2 className="text-sm sm:text-lg font-semibold text-[#1f4e79] group-hover:text-[#185e9a] transition">
+              <h2 className="text-[12px] xs:text-sm sm:text-lg font-semibold text-orange-500 leading-snug">
                 {item.title}
               </h2>
 
-              <p className="text-[11px] sm:text-sm text-gray-500 mt-2 sm:mt-3 leading-relaxed text-center text-justify">
+              <p className="text-[10px] text-justify xs:text-[11px] sm:text-sm text-gray-500 mt-1 sm:mt-3 leading-relaxed text-center sm:text-justify">
                 {item.desc}
               </p>
-
-              <Link
-                href={item.link}
-                className="text-[11px] sm:text-sm text-orange-500 mt-3 sm:mt-4 inline-block font-medium hover:underline"
-              >
-                Learn More →
-              </Link>
             </div>
 
-          </div>
+          </SpotlightCard>
+
         ))}
 
       </div>
