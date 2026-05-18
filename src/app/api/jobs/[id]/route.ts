@@ -7,12 +7,12 @@ export const dynamic = "force-dynamic";
 // ================= GET =================
 export async function GET(
   request: NextRequest,
-  context: any
+  { params }: any
 ) {
   try {
     await connectDB();
 
-    const id = context.params.id;
+    const id = params.id;
 
     const job = await Job.findById(id);
 
@@ -57,12 +57,12 @@ export async function GET(
 // ================= DELETE =================
 export async function DELETE(
   request: NextRequest,
-  context: any
+  { params }: any
 ) {
   try {
     await connectDB();
 
-    const id = context.params.id;
+    const id = params.id;
 
     const deletedJob = await Job.findByIdAndDelete(id);
 
@@ -95,7 +95,7 @@ export async function DELETE(
 // ================= PATCH =================
 export async function PATCH(
   request: NextRequest,
-  context: any
+  { params }: any
 ) {
   try {
     await connectDB();
@@ -112,7 +112,7 @@ export async function PATCH(
       delete body.expireDays;
     }
 
-    const id = context.params.id;
+    const id = params.id;
 
     const updatedJob = await Job.findByIdAndUpdate(
       id,
