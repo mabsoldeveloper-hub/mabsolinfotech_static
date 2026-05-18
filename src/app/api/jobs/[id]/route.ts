@@ -8,12 +8,12 @@ export const dynamic = "force-dynamic";
 // ================= GET =================
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
 
-    const id = params.id;
+    const { id } = await params;
 
     const job = await Job.findById(id);
 
@@ -25,6 +25,7 @@ export async function GET(
     }
 
     const now = new Date();
+
     if (job.expireAt < now) {
       return NextResponse.json(
         { success: false, message: "Job has expired" },
@@ -32,15 +33,21 @@ export async function GET(
       );
     }
 
-    return NextResponse.json({ success: true, job });
+    return NextResponse.json({
+      success: true,
+      job,
+    });
+
   } catch (err: any) {
     return NextResponse.json(
-      { success: false, error: err.message },
+      {
+        success: false,
+        error: err.message,
+      },
       { status: 500 }
     );
   }
 }
-
 // ================= DELETE =================
 export async function DELETE(
   req: NextRequest,
