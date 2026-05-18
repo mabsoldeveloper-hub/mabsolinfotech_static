@@ -82,9 +82,9 @@ const OurProduct = () => {
             {product.title}
           </h2>
 
-          <p className="text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed line-clamp-3 sm:line-clamp-none">
+          {/* <p className="text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed line-clamp-3 sm:line-clamp-none">
             {product.para}
-          </p>
+          </p> */}
 
           <p className="text-orange-500 font-semibold mt-3 sm:mt-4 text-sm sm:text-base">
             {product.price}

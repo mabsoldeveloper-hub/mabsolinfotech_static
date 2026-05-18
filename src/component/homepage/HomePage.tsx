@@ -75,7 +75,7 @@ export default function HomePage() {
     <SplitText
       text="Empowering Businesses with Smart ERP & Cloud Solutions"
       className="text-lg md:text-2xl font-semibold text-center text-white max-w-3xl"
-      delay={50}
+      delay={10}
       duration={1.25}
       ease="power3.out"
       splitType="chars"
@@ -88,48 +88,8 @@ export default function HomePage() {
         console.log("All letters have animated!");
       }}
     />
-
-    {/* DESCRIPTION */}
-    {/* <p className="text-white/85 max-w-3xl text-lg leading-relaxed">
-      Mabsol Infotech empowers businesses with modern solutions like
-      Marg, Tally, MR Reporting, and greytHR. We streamline operations
-      with automation, accuracy, and next-level support.
-    </p> */}
-
-    {/* BUTTONS */}
-    {/* <div className="flex flex-col sm:flex-row gap-5 pt-3">
-      <Link href="/contact">
-        <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 cursor-pointer text-white rounded-md transition-all duration-300 hover:scale-105">
-          Contact Us
-        </button>
-      </Link>
-
-      <button
-        onClick={() =>
-          window.open("https://mabsolinfotech.in/", "_self")
-        }
-        className="px-6 py-3 bg-orange-500 hover:bg-orange-600 cursor-pointer text-white rounded-md transition-all duration-300 hover:scale-105"
-      >
-        Mabsol Main Portal
-      </button>
-    </div> */}
   </motion.div>
 
-  {/* IMAGE */}
-  {/* <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    className="mt-16 flex justify-center"
-  >
-    <Image
-      src="/images/erp-custom.webp"
-      alt="Hero Illustration"
-      width={700}
-      height={700}
-      className="max-w-[900px] w-full h-auto object-contain"
-    />
-  </motion.div> */}
 </section>
 
   {/* WAVE */}

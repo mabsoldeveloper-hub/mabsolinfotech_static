@@ -94,7 +94,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-                {/* Phone */}
+        {/* telePhone */}
         <div className="bg-white p-2 sm:p-5 rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition overflow-hidden">
 
           <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">

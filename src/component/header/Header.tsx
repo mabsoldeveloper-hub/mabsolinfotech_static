@@ -457,7 +457,7 @@ const Header = () => {
         <div>
           <img
             src={img}
-            alt="imgs"
+            alt="images"
             className="h-[40px] w-[110px] md:h-[50px] md:w-[130px] lg:h-[55px] lg:w-[150px]"
 
           />
@@ -613,7 +613,7 @@ const Header = () => {
           setOpen(false);
         }}
         closeIcon={<CloseOutlined style={{ color: "white" }} />}
-        style={{ backgroundColor: "#1d4ed8", width: "100%" }}
+        style={{ backgroundColor: "#1E40AF", width: "100%" }}
       >
         <nav
           data-aos="fade-up"
