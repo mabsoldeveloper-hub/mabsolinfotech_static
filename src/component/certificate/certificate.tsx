@@ -4,7 +4,7 @@ import { ShieldCheck, Globe, ThumbsUp } from "lucide-react";
 export default function CertificateSection() {
   return (
     <section className="w-full py-10 px-4 bg-gradient-to-r from-blue-200 via-white to-blue-300">
-      <div className="max-w-7xl mx-auto rounded-xl p-6 sm:p-10 bg-white/60 backdrop-blur-md shadow-xl">
+      <div className="max-w-7xl mx-auto rounded-lg p-4 sm:p-10 bg-white/60 backdrop-blur-md shadow-xl">
 
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-12">

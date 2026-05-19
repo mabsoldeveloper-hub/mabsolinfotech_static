@@ -75,13 +75,9 @@ const AboutUs = () => {
               "/logo/jainLogo.jpeg",
               "/logo/SVHPSLogo.jpeg",
               "/logo/SwatikLogo.jpeg",
+              "/images/crousel1.png",
+              "/images/cmmi-level.png",
               
-
-              // duplicate for infinite loop
-              "/logo/saffron.jpg",
-              "/logo/Logo-New-NIFSE.jpg",
-              "/logo/ManchandaLogo.webp",
-              "/logo/saffron.jpg",
 
               // duplicate for infinite loop
               "/logo/Logo-New-NIFSE.jpg",
@@ -91,6 +87,8 @@ const AboutUs = () => {
               "/logo/jainLogo.jpeg",
               "/logo/SVHPSLogo.jpeg",
               "/logo/SwatikLogo.jpeg",
+              "/images/crousel1.png",
+              "/images/cmmi-level.png",
              
             ].map((logo, index) => (
               <img

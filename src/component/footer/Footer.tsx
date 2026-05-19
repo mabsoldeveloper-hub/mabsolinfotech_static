@@ -22,7 +22,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="relative bg-blue-800 text-white pt-12 sm:pt-16 pb-8 px-4 sm:px-8 lg:px-16 overflow-hidden">
+    <div className="relative bg-[#0b1d5b] text-white py-6 px-4 sm:px-6 lg:px-8 overflow-hidden">
 
       {/* Background */}
       <div
@@ -31,7 +31,7 @@ const Footer = () => {
       ></div>
 
       {/* Footer Grid */}
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 z-20">
+      <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-10 z-20">
 
         {/* Logo + About */}
         <div>
@@ -83,26 +83,28 @@ const Footer = () => {
               type="email"
               placeholder="Email Address"
               required
-              className="w-full max-w-full px-4 py-2 text-sm rounded-none border bg-white/10 border-gray-300 focus:outline-none focus:ring-1 focus:ring-white"
+              className="w-3/4 max-w-full px-4 py-2 text-sm rounded-none border bg-white/10 border-gray-300 focus:outline-none focus:ring-1 focus:ring-white"
             />
 
             <button
               type="submit"
-              className="w-full mt-3 text-center bg-[#33386f] hover:bg-[#2b2f5c] transition cursor-pointer rounded-none text-white py-2 text-sm"
+              className="w-1/2 mt-3 text-center bg-[#1a3c96] hover:bg-[#2550c4] transition-all duration-300 cursor-pointer text-white py-2 text-sm"
             >
               Subscribe
             </button>
           </form>
         </div>
 
-        {/* Products & Services */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 gap-8">
+        {/* Products + Services + Quick Links */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+          {/* Products */}
           <div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-4">
+            <h3 className="text-lg font-semibold mb-5 whitespace-nowrap">
               Our Products
             </h3>
 
-            <ul className="space-y-2 text-gray-300 text-xs sm:text-sm">
+            <ul className="space-y-3 text-gray-300 text-sm">
               <li>
                 <a href="/tallys" className="hover:text-white transition">
                   Tally
@@ -127,38 +129,56 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
 
-            <h3 className="text-lg sm:text-xl font-semibold mt-6 mb-4">
+          {/* Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-5 whitespace-nowrap">
               Our Services
             </h3>
 
-            <ul className="space-y-2 text-gray-300 text-xs sm:text-sm">
+            <ul className="space-y-3 text-gray-300 text-sm">
               <li>
-                <a href="/website-development" className="hover:text-white transition">
+                <a
+                  href="/website-development"
+                  className="hover:text-white transition"
+                >
                   Website Development
                 </a>
               </li>
 
               <li>
-                <a href="/accounting-software" className="hover:text-white transition">
+                <a
+                  href="/accounting-software"
+                  className="hover:text-white transition"
+                >
                   Accounting Software
                 </a>
               </li>
 
               <li>
-                <a href="/payroll-software" className="hover:text-white transition">
+                <a
+                  href="/payroll-software"
+                  className="hover:text-white transition"
+                >
                   Payroll Software
                 </a>
               </li>
 
               <li>
-                <a href="/erp-software" className="hover:text-white transition">
+                <a
+                  href="/erp-software"
+                  className="hover:text-white transition"
+                >
                   ERP Software
                 </a>
               </li>
 
               <li>
-                <a href="/sfa-software" className="hover:text-white transition">
+                <a
+                  href="/sfa-software"
+                  className="hover:text-white transition"
+                >
                   SFA Software
                 </a>
               </li>
@@ -167,11 +187,12 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-4">
+            <h3 className="text-lg font-semibold mb-5 whitespace-nowrap">
               Quick Links
             </h3>
 
-            <ul className="space-y-2 text-gray-300 text-xs sm:text-sm">
+            <ul className="space-y-3 text-gray-300 text-sm">
+
               <li>
                 <a
                   href="#"
@@ -179,7 +200,7 @@ const Footer = () => {
                     e.preventDefault();
                     handleScroll("about");
                   }}
-                  className="hover:text-white cursor-pointer"
+                  className="hover:text-white"
                 >
                   About Us
                 </a>
@@ -192,20 +213,20 @@ const Footer = () => {
                     e.preventDefault();
                     handleScroll("contact");
                   }}
-                  className="hover:text-white cursor-pointer"
+                  className="hover:text-white"
                 >
                   Contact
                 </a>
               </li>
 
               <li>
-                <a href="/career" className="hover:text-white cursor-pointer">
+                <a href="/career" className="hover:text-white">
                   Career
                 </a>
               </li>
 
               <li>
-                <Link href="/faq" className="hover:text-white cursor-pointer">
+                <Link href="/faq" className="hover:text-white">
                   FAQ
                 </Link>
               </li>
@@ -217,38 +238,42 @@ const Footer = () => {
                     e.preventDefault();
                     handleScroll("Team");
                   }}
-                  className="hover:text-white cursor-pointer"
+                  className="hover:text-white"
                 >
                   Team
                 </a>
               </li>
 
               <li>
-                <a href="/term-condition" className="hover:text-white cursor-pointer">
-                  Terms and Conditions
+                <a href="/term-condition" className="hover:text-white">
+                  Terms & Conditions
                 </a>
               </li>
 
               <li>
-                <a href="/privacy-policy" className="hover:text-white cursor-pointer">
+                <a href="/privacy-policy" className="hover:text-white">
                   Privacy Policy
                 </a>
               </li>
 
               <li>
-                <Link href="/jobs-create" className="hover:text-white cursor-pointer">
+                <Link href="/jobs-create" className="hover:text-white">
                   Jobs Create
                 </Link>
               </li>
 
               <li>
-                <Link href="/location" className="hover:text-white cursor-pointer">
+                <Link href="/location" className="hover:text-white">
                   User Locator
                 </Link>
               </li>
+
             </ul>
           </div>
-        </div> {/*grid vala div */}
+
+        </div>{/*grid vala div */}
+        {/* Products + Services + Quick Links end here  */}
+
       </div>
       {/* Footer Bottom Section */}
       <div className="relative border-t border-gray-700 mt-10 pt-5 z-20">
@@ -267,6 +292,7 @@ const Footer = () => {
 
       </div>
     </div>
+
   );
 };
 

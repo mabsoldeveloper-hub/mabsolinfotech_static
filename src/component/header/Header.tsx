@@ -51,7 +51,7 @@ const Header = () => {
   };
 
   const Content = () => (
-    <div className="bg-blue-900 text-white flex flex-col gap-4 p-8 ">
+    <div className="bg-[#0b1d5b] text-white flex flex-col gap-4 p-8 ">
       <div className="text-sm font-bold flex flex-col gap-4 font-serif">
         <a
           href="/tallys"
@@ -103,7 +103,7 @@ const Header = () => {
   );
 
   const Mega = () => (
-    <div className="bg-blue-900 text-white flex flex-col gap-0 p-8 ">
+    <div className="bg-[#0b1d5b] text-white flex flex-col gap-0 p-8 ">
       <div className="text-sm font-bold flex flex-col gap-4 font-serif">
         <a
           href="/website-development"
@@ -140,7 +140,7 @@ const Header = () => {
   );
 
   const MegaMenu = () => (
-    <div className="bg-blue-900 text-white grid grid-cols-2 gap-0 p-14 ">
+    <div className="bg-[#0b1d5b] text-white grid grid-cols-2 gap-0 p-14 ">
       <div className="text-sm font-bold flex flex-col gap-4 font-serif">
         <span className="">Gallery</span>
         <a href="/gallery" className="!text-blue-300 hover:!text-[#fff]">
@@ -179,7 +179,7 @@ const Header = () => {
 
   const MegaMenuContent = () => (
     <div
-      className="bg-blue-900 text-white grid grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 2xl:gap-10 p-14"
+      className="bg-[#0b1d5b] text-white grid grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 2xl:gap-10 p-14"
 
     >
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
@@ -452,7 +452,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-blue-800 sticky top-0 w-full z-50 shadow-sm">
+    <div className="bg-[#0b1d5b] sticky top-0 w-full z-50 shadow-sm">
       <div className="flex items-center justify-between gap-6 px-4 sm:px-6 lg:px-10 py-2">
         <div>
           <img
@@ -613,7 +613,7 @@ const Header = () => {
           setOpen(false);
         }}
         closeIcon={<CloseOutlined style={{ color: "white" }} />}
-        style={{ backgroundColor: "#1E40AF", width: "100%" }}
+        style={{ backgroundColor: "#0b1d5b", width: "100%" }}
       >
         <nav
           data-aos="fade-up"
@@ -659,7 +659,7 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="bg-sky-blue-900  border-none rounded pb-4 text-sm"
+                  className="bg-[#0b1d5b]  border-none rounded pb-4 text-sm"
                 >
                   <div className=" w-full">
                     {/* Trigger */}
@@ -691,7 +691,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 700 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <Link
                             href="/gallery"
@@ -740,7 +740,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <Link
                             href="/marg"
@@ -830,7 +830,7 @@ const Header = () => {
                   animate={{ opacity: 1, maxHeight: 700 }}
                   exit={{ opacity: 0, maxHeight: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                  className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                 >
                   <Link
                     href="/website-development"
@@ -917,7 +917,7 @@ const Header = () => {
                   animate={{ opacity: 1, maxHeight: 700 }}
                   exit={{ opacity: 0, maxHeight: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                  className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                 >
                   <Link
                     href="/tallys"
@@ -1028,7 +1028,7 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="bg-sky-blue-900  border-none rounded pb-4 text-sm"
+                  className="bg-[#0b1d5b]  border-none rounded pb-4 text-sm"
                 >
                   <a
                     href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
@@ -1106,7 +1106,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 700 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://demo.mabsolinfotech.com/crm/admin/admin_login.php"
@@ -1180,7 +1180,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://humanresources.mabsolinfotech.com/admin/index.php"
@@ -1240,7 +1240,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://demo.mabsolinfotech.com/hr/admin/index"
@@ -1306,7 +1306,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
@@ -1364,7 +1364,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://demo.mabsolinfotech.com/crm/admin/admin_login.php"
@@ -1450,7 +1450,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://mabsolinfotech.com/crmtest/index.php"
@@ -1507,7 +1507,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://demo.mabsolinfotech.com/institute/admin/"
@@ -1584,7 +1584,7 @@ const Header = () => {
                           animate={{ opacity: 1, maxHeight: 500 }}
                           exit={{ opacity: 0, maxHeight: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className="overflow-hidden bg-sky-blue-900 border-none rounded text-sm mt-2"
+                          className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
                             href="https://sms.mabsolinfotech.com/dashboard/admin/"
@@ -1671,7 +1671,7 @@ const Header = () => {
             >
               <Button
                 type="primary"
-                className="!text-white !bg-blue-900 !py-6 !rounded-none border border-white hover:!bg-white hover:!text-blue-950 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+                className="!text-white !bg-[#0b1d5b] !py-6 !rounded-none border border-white hover:!bg-white hover:!text-[#0b1d5b] hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
                 Contact Us
               </Button>

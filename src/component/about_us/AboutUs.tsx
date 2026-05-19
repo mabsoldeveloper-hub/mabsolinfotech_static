@@ -24,14 +24,6 @@ export default function AboutUs() {
 
                 <div className="relative z-10 text-center text-white">
                     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">About<span className="text-orange-500"> Us</span> </h1>
-                    {/* <Link href="/">
-                        <Button
-                            ghost
-                            size="large"
-                        >
-                            <RightOutlined /> Home
-                        </Button>
-                    </Link> */}
                 </div>
             </section>
 
