@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -16,79 +18,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Mabsol Infotech Private Limited – Empowering Businesses",
+  description:
+    "Specializing in Web Development, Accounting Software, ERP Software, and Payroll Software, we offer tailored services to streamline your operations and drive business growth.",
+
+  metadataBase: new URL("https://mabsolinfotech.com"),
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // 👇 Logic: Hide Header/Footer if route starts with /dashboard
-
   return (
     <html lang="en">
       <head>
-        <title>
-          Mabsol Infotech Pvt.Ltd - Software Company in Chandigarh, Mohali &
-          Panchkula
-        </title>
+        {/* Sirf favicon, schema aur analytics rakho */}
 
-        <meta
-          name="description"
-          content="Mabsol Infotech is a leading software company in Chandigarh, Panchkula & Mohali, offering ERP, CRM, web development, mobile apps, and IT solutions for businesses."
-        />
-        <meta
-          name="keywords"
-          content="Mabsol Infotech, software company Chandigarh, IT solutions, ERP software, Marg ERP partner, Marg software, Marg accounting software, Tally software, Tally ERP, Tally GST, GreytHR software, GreytHR payroll, HRMS software, web development, CRM software, business automation, software development company, mobile app development, digital solutions, IT services, Mohali software company, Panchkula IT solutions, best software company Tricity, business software solutions, customized ERP, online business tools, enterprise software, technology solutions India, IT consulting, software support services, Marg Tally integration, Tally Marg ERP, GreytHR payroll solutions, payroll management software, accounting solutions, Marg GST compliance, Tally ERP solutions, ABM Info Solutions, ABM Infotech, ABM Info ERP, ABM Info Tally, ABM Infotech services, ABM Info CRM, ABM Infotech payroll software, ABM Info web development, ABM Infotech IT solutions, ABM Info Mohali, ABM Infotech Panchkula, ABM Info Tricity software, ABM Infotech IT services"
-        />
-
-        {/* ✅ Open Graph (Facebook, LinkedIn, WhatsApp) */}
-        <meta
-          property="og:title"
-          content="Mabsol Infotech Pvt.Ltd - Leading Software Company"
-        />
-        <meta
-          property="og:description"
-          content="ERP, CRM, Web & Mobile App Development, IT Consulting, and Business Automation Solutions — all under one roof."
-        />
-        <meta property="og:url" content="https://mabsolinfotech.com" />
-        <meta property="og:site_name" content="Mabsol Infotech" />
-        <meta property="og:locale" content="en_IN" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mabsolinfotech.com/images/og-image.jpg"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Mabsol Infotech Software Solutions"
-        />
-
-        {/* ✅ Twitter Card (X) */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Mabsol Infotech Pvt.Ltd - Software & IT Solutions"
-        />
-        <meta
-          name="twitter:description"
-          content="Top Software Company in Chandigarh, Mohali & Panchkula providing ERP, CRM, HRMS & Web Solutions."
-        />
-        <meta
-          name="twitter:image"
-          content="https://mabsolinfotech.com/images/5.jpg"
-        />
-
-        {/* ✅ Robots + Canonical + Favicon */}
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://mabsolinfotech.com" />
         <link rel="icon" href="/favicon.png" />
 
-        {/* ✅ Viewport + Charset (basic SEO setup) */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DH8QFG8B2X"
           strategy="afterInteractive"
@@ -96,11 +45,11 @@ export default function RootLayout({
 
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DH8QFG8B2X');
-  `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DH8QFG8B2X');
+          `}
         </Script>
       </head>
 
@@ -108,7 +57,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
         <LayoutWrapper>{children}</LayoutWrapper>
-
         <FloatingSocialBar />
       </body>
     </html>
