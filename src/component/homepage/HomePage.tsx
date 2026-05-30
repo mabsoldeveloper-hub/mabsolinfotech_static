@@ -54,7 +54,7 @@ export default function HomePage() {
                 }}
               /><br />
               <span className="text-orange-400 drop-shadow">
-                Smarter Business Management
+                {/* Smarter Business Management */}
               </span>
             </motion.h1>
 
