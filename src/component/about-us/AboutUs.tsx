@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -54,19 +54,16 @@ const Counter = ({
 const AboutUs = () => {
   return (
     <>
-      <section className="py-5 px-6 lg:px-20 bg-gray-50 ">
-      <div className="max-w-7xl mx-auto items-center justify-center text-center">
-             {/* HEADING */}
-            <h1 className="text-sm sm:text-2xl lg:text-4xl font-bold text-[#1f4e79] mb-3">
-              Trusted by <span className="text-orange-500">Leading Brands</span>
-            </h1>
-            </div>
+      {/* <section className="py-5 px-6 lg:px-20 bg-gray-50 ">
+        <div className="max-w-7xl mx-auto items-center justify-center text-center">
+          <h1 className="text-sm sm:text-2xl lg:text-4xl font-bold text-[#1f4e79] mb-3">
+            Trusted by <span className="text-orange-500">Leading Brands</span>
+          </h1>
+        </div>
         <div className="w-full overflow-hidden py-10 bg-white">
 
-             {/* LOGO CAROUSEL */}
           <div className="flex w-max animate-scroll gap-16 items-center">
 
-            {/* Logos */}
             {[
               "/logo/Logo-New-NIFSE.jpg",
               "/logo/ManchandaLogo.webp",
@@ -77,9 +74,8 @@ const AboutUs = () => {
               "/logo/SwatikLogo.jpeg",
               "/images/crousel1.png",
               "/images/cmmi-level.png",
-              
 
-              // duplicate for infinite loop
+
               "/logo/Logo-New-NIFSE.jpg",
               "/logo/ManchandaLogo.webp",
               "/logo/saffron.jpg",
@@ -89,7 +85,7 @@ const AboutUs = () => {
               "/logo/SwatikLogo.jpeg",
               "/images/crousel1.png",
               "/images/cmmi-level.png",
-             
+
             ].map((logo, index) => (
               <img
                 key={index}
@@ -115,9 +111,9 @@ const AboutUs = () => {
     }
   `}</style>
         </div>
-      </section>
+      </section> */}
 
-{/* about section */}
+      {/* about section */}
       <section className="grid grid-cols-2 items-center gap-4 sm:gap-8 lg:gap-10 px-3 sm:px-8 lg:px-16  bg-white overflow-hidden">
         {/* LEFT IMAGE */}
         <div className=" sm:flex justify-center">

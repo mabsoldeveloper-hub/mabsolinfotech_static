@@ -1,97 +1,128 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import { Button, Col, Rate, Row } from "antd";
+import { Button, Col, Rate, Row } from 'antd'
+import Image from 'next/image';
+import React, { useState } from 'react'
 import { FcGoogle } from "react-icons/fc";
-import { StoreMallDirectoryOutlined } from "@mui/icons-material";
-import { FaQuoteLeft } from "react-icons/fa";
-import Script from "next/script";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import { StoreMallDirectoryOutlined } from '@mui/icons-material';
+
+const reviews = [
+    {
+        text: "Great experience working with Mabsol Infotech. The team is very professional and supportive.",
+        author_name: "Abhishek prajapati",
+        rating: 5,
+        relative_time_description: "2 weeks ago"
+    },
+    {
+        text: "Excellent service and timely delivery of my project. Highly recommended!",
+        author_name: "shweta Verma",
+        rating: 5,
+        relative_time_description: "1 month ago"
+    },
+    {
+        text: "Very good company. Helpful staff and good environment.",
+        author_name: "manpreet singh",
+        rating: 5,
+        relative_time_description: "3 days ago"
+    },
+    {
+        text: "Very good company. Helpful staff and good environment.",
+        author_name: "Bhag singh",
+        rating: 5,
+        relative_time_description: "3 days ago"
+    }
+
+];
+
 
 const GoogleReview = () => {
-  const [value] = useState(5);
+    const [value, setValue] = useState(5);
+    return (
+        <div className='lg:px-20 px-6 py-6 bg-white'>
+            <div className='text-center pt-20'>
+                <h1 className='text-[#185e9a] text-2xl font-bold underline'>
+                    # Google Reviews
+                </h1>
 
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#f8fbff] via-white to-[#edf6ff] lg:px-20 px-4 py-16">
+                <p className='text-5xl font-bold font-serif py-6 text-black'>
+                    <span className='text-5xl text-[#185e9a]'>What our</span> clients says?
+                </p>
 
-      {/* BACKGROUND BLUR */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-[#185e9a]/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"></div>
-
-      {/* SEO SCHEMA */}
-      <Script
-        id="google-review-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: `{
-            "@context":"https://schema.org",
-            "@type":"Organization",
-            "name":"Mabsol Infotech Pvt.Ltd",
-            "url":"https://mabsolinfotech.cloud/",
-            "logo":"https://mabsolinfotech.cloud/logo.png",
-            "aggregateRating":{
-              "@type":"AggregateRating",
-              "ratingValue":"4.9",
-              "reviewCount":"58"
-            }
-          }`,
-        }}
-      />
-
-      {/* ELFSIGHT SCRIPT */}
-      <Script
-        src="https://elfsightcdn.com/platform.js"
-        strategy="lazyOnload"
-      />
-
-
-      {/* HEADING */}
-      <div className="text-center relative z-10 px-4">
-
-        <span className="inline-block bg-[#185e9a]/10 text-[#185e9a] px-4 py-1.5 rounded-full font-semibold text-[11px] sm:text-sm tracking-wide">
-          GOOGLE REVIEWS
-        </span>
-
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#185e9a] mt-4 leading-snug">
-          Trusted by{" "}
-          <span className="text-orange-500">
-            Happy Clients
-          </span>
-        </h2>
-
-        <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
-          See what our customers say about our software solutions,
-          development services, and support experience.
-        </p>
-
-        <div className="flex justify-center mt-5">
-          <div className="w-20 sm:w-28 h-1.5 rounded-full bg-[#185e9a]"></div>
-        </div>
-
-      </div>
-
-
-      {/* MAIN SECTION */}
-      <Row
-        gutter={[20, 20]}
-        justify="center"
-        className="mt-8 md:mt-10 relative z-10"
-      >
-        {/* FULL WIDTH REVIEWS */}
-        <Col xs={24}>
-          <div className="w-full bg-white/80 backdrop-blur-lg border border-gray-100 rounded-2xl shadow-xl p-3 md:p-5">
-            {/* ELFSIGHT WIDGET */}
-            <div className="overflow-hidden rounded-xl min-h-[250px] md:min-h-[320px]">
-              <div
-                className="elfsight-app-c5fe587d-7bbf-4c08-aaa3-cfd569414b2a"
-                data-elfsight-app-lazy
-              ></div>
+                <div className="pt-4 w-full flex justify-center items-center">
+                    <hr className="w-[15%] border-t-4 border-[#185e9a]" />
+                </div>
             </div>
 
-          </div>
-        </Col>
-      </Row>
-    </section>
-  );
-};
 
-export default GoogleReview;
+            <Row
+                className='lg:py-20'
+                justify="center"
+                align="middle"
+                gutter={[24, 24]}
+            >
+                <Col xs={24} lg={8}>
+                    <div className='flex flex-col lg:flex-row justify-center items-center gap-4'>
+                        <div className='text-3xl !text-[#185e9a]'>
+                            {/* <Image src="/gmlogo.svg" alt='img' height={60} width={60} className=''/> */}
+                            <StoreMallDirectoryOutlined style={{ color: "#185e9a", fontSize:64 }} />
+                        </div>
+                        <div className='flex flex-col justify-center items-center gap-2'>
+                            <h1 className='font-bold text-black'>Mabsol Infotech Pvt.Ltd.</h1>
+                            <div className='text-xl text-yellow-500 font-bold flex gap-2 items-center'>
+                                4.9 <Rate onChange={setValue} value={value} />
+                            </div>
+                            <p className='text-black'>Based on 42 reviews</p>
+                            <p className='text-gray-700'>powered by Google</p>
+                            <Button  className=' !rounded-none !py-4'>
+                                review us on <FcGoogle />
+                            </Button>
+                        </div>
+                    </div>
+                </Col>
+
+                <Col xs={24} lg={16}>
+                    <div className="w-full px-4 py-6">
+                        <h2 className="text-2xl font-bold text-center text-[#185e9a] mb-6">Client Reviews</h2>
+
+                        <Swiper
+                            modules={[Pagination, Autoplay]}
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 2000 }}
+                            spaceBetween={20}
+                            slidesPerView={1}
+                            breakpoints={{
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 },
+                            }}
+                            loop={true}
+                        >
+                            {reviews.map((review, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="bg-white p-6 shadow-lg h-full flex flex-col justify-between">
+                                        <p className="italic text-gray-700 mb-4">{review.text}</p>
+                                        <div>
+                                            <div className="font-semibold text-sm">{review.author_name}</div>
+                                            <div className="text-yellow-500 text-sm mb-1">
+                                                {"⭐".repeat(review.rating)}
+                                            </div>
+                                            <div className="text-xs text-gray-400">{review.relative_time_description}</div>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                </Col>
+            </Row>
+
+
+        </div>
+    )
+}
+
+export default GoogleReview
