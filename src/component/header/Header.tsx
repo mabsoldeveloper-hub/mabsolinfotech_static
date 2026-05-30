@@ -465,7 +465,7 @@ const Header = () => {
         <div className="flex justify-center items-center gap-8 xl:gap-16 min-w-0 overflow-hidden">
           <nav
             data-aos="fade-up"
-            className="lg:flex flex-wrap hidden justify-center gap-4 xl:gap-6 items-center text-white text-sm font-semibold h-14"
+            className="lg:flex flex-wrap hidden justify-center gap-4 xl:gap-6 items-center text-white text-sm font-semibold"
             style={{ fontFamily: "Roboto,sans-serif" }}
           >
             <div>
@@ -511,7 +511,7 @@ const Header = () => {
               <Button
                 type="text"
                 onClick={() => router.push("/service-page")}
-                className="!text-white !text-md !font-extrabold"
+                className="!text-white !text-md font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
