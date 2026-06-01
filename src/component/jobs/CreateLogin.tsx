@@ -72,7 +72,7 @@ export default function CreateLogin() {
           <Form.Item
             name="password"
             label="Password"
-            rules={[{ required: true, message: "Please enter your password" }]}
+            rules={[{ required: true, message: "Please Enter Your Password" }]}
           >
             <Input.Password
               size="large"
