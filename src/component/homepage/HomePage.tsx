@@ -42,7 +42,7 @@ const HomePage = () => {
         <div className="max-w-xl lg:max-w-2xl text-white">
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6">
-            <span className="text-orange-400">Smart Solutions for mab</span> <br />
+            <span className="text-orange-400">Smart Solutions for</span> <br />
             Smarter Business Management
           </h1>
 
