@@ -23,7 +23,6 @@ const Footer = () => {
 
   return (
     <div className="relative bg-[#0b1d5b] text-white py-6 px-4 sm:px-6 lg:px-8 overflow-hidden">
-
       {/* Background */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40"
@@ -32,7 +31,6 @@ const Footer = () => {
 
       {/* Footer Grid */}
       <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-10 z-20">
-
         {/* Logo + About */}
         <div>
           <div className="h-[65px] sm:h-[80px] w-[170px] sm:w-[200px]">
@@ -73,6 +71,7 @@ const Footer = () => {
           <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
             Newsletter mabsol infotech
           </h3>
+          <h3 className="text-red-500 text-4xl">TEST-ABHISHEK-123456</h3>
 
           <p className="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed">
             Stay updated with our latest news and offers.
@@ -97,7 +96,6 @@ const Footer = () => {
 
         {/* Products + Services + Quick Links */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
           {/* Products */}
           <div>
             <h3 className="text-lg font-semibold mb-5 whitespace-nowrap">
@@ -166,19 +164,13 @@ const Footer = () => {
               </li>
 
               <li>
-                <a
-                  href="/erp-software"
-                  className="hover:text-white transition"
-                >
+                <a href="/erp-software" className="hover:text-white transition">
                   ERP Software
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/sfa-software"
-                  className="hover:text-white transition"
-                >
+                <a href="/sfa-software" className="hover:text-white transition">
                   SFA Software
                 </a>
               </li>
@@ -192,7 +184,6 @@ const Footer = () => {
             </h3>
 
             <ul className="space-y-3 text-gray-300 text-sm">
-
               <li>
                 <a
                   href="#"
@@ -267,32 +258,29 @@ const Footer = () => {
                   User Locator
                 </Link>
               </li>
-
             </ul>
           </div>
-
-        </div>{/*grid vala div */}
+        </div>
+        {/*grid vala div */}
         {/* Products + Services + Quick Links end here  */}
-
       </div>
       {/* Footer Bottom Section */}
       <div className="relative border-t border-gray-700 mt-10 pt-5 z-20">
-
         {/* Scroll To Top Button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="absolute right-0 -top-5 sm:-top-6 bg-blue-600 hover:bg-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110">
+          className="absolute right-0 -top-5 sm:-top-6 bg-blue-600 hover:bg-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+        >
           <MdOutlineKeyboardDoubleArrowUp />
         </button>
 
         {/* Copyright */}
         <div className="text-center text-[11px] sm:text-sm text-gray-400">
-          © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED. All Rights Reserved.
+          © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED. All
+          Rights Reserved.
         </div>
-
       </div>
     </div>
-
   );
 };
 
