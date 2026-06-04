@@ -71,7 +71,7 @@ const Footer = () => {
         {/* Newsletter */}
         <div>
           <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-            Newsletter
+            Newsletter mabsol infotech
           </h3>
 
           <p className="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed">
