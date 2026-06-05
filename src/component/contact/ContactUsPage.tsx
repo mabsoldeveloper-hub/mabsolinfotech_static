@@ -111,7 +111,7 @@ export default function ContactUsPage() {
             <p>
               <strong>Phone:</strong>
               <br />
-              +01722575181
+              +919855605181
             </p>
 
             <p>
