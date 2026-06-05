@@ -1,7 +1,7 @@
 
 import { connectDB } from "@/lib/db";
+import { transporter } from "@/lib/nodemailer";
 import UserOtp from "@/models/UserOtp";
-import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   const { email } = await request.json();
@@ -15,16 +15,16 @@ export async function POST(request: Request) {
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
   await UserOtp.create({ email, otp });
 
-  const transporter = nodemailer.createTransport({
-    // host: "smtp.hostinger.com",
-    // port: 465,
-    // secure: true,
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER!,
-      pass: process.env.EMAIL_PASS!,
-    },
-  });
+  // const transporter = nodemailer.createTransport({
+  //   // host: "smtp.hostinger.com",
+  //   // port: 465,
+  //   // secure: true,
+  //   service: "gmail",
+  //   auth: {
+  //     user: process.env.EMAIL_USER!,
+  //     pass: process.env.EMAIL_PASS!,
+  //   },
+  // });
 
   await transporter.sendMail({
     from: `"Mabsol Infotech" <${process.env.EMAIL_USER}>`,
