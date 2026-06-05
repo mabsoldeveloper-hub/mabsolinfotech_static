@@ -14,7 +14,7 @@ import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 const Footer = () => {
   const router = useRouter();
 
-  const handleScroll = (id: any) => {
+  const handleScroll = (id: any) => { 
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -69,9 +69,8 @@ const Footer = () => {
         {/* Newsletter */}
         <div>
           <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-            Newsletter mabsol infotech
+            Newsletter
           </h3>
-          <h3 className="text-red-500 text-4xl">TEST-ABHISHEK-123456</h3>
 
           <p className="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed">
             Stay updated with our latest news and offers.
