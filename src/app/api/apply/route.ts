@@ -4,7 +4,8 @@ import Apply from "@/models/Apply";
 import { writeFile } from "fs/promises";
 import fs from "fs";
 import path from "path";
-import { transporter } from "@/lib/nodemailer";
+import { getTransporter } from "@/lib/nodemailer";
+// import { transporter } from "@/lib/nodemailer";
 export async function POST(req: Request) {
   try {
     await connectDB();
@@ -53,7 +54,7 @@ export async function POST(req: Request) {
       resumeFileType: resume?.type,
     });
 
-const htmlTemplate = `
+    const htmlTemplate = `
   <div style="font-family: 'Segoe UI', Arial, sans-serif; background:#f5f6fa; padding: 30px;">
     <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px; margin:auto; background:#ffffff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
       
@@ -110,10 +111,11 @@ const htmlTemplate = `
     </table>
   </div>
 `;
-
+    const transporter = await getTransporter();
+    await transporter.verify();
     /// SEND EMAIL
     await transporter.sendMail({
-       from: `"Job Portal" <${process.env.EMAIL_USER}>`,
+      from: `"Job Portal" <${process.env.EMAIL_USER}>`,
       to: process.env.ADMIN_EMAIL,
       subject: "New Job Application Received",
       html: htmlTemplate,
@@ -122,13 +124,13 @@ const htmlTemplate = `
 
     return NextResponse.json(
       { message: "Application submitted & email sent successfully!" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (err: any) {
     console.error(err);
     return NextResponse.json(
       { error: "Something went wrong", details: err.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
