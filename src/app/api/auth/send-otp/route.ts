@@ -1,6 +1,6 @@
 
 import { connectDB } from "@/lib/db";
-import { transporter } from "@/lib/nodemailer";
+import { getTransporter} from "@/lib/nodemailer";
 import UserOtp from "@/models/UserOtp";
 
 export async function POST(request: Request) {
@@ -25,6 +25,9 @@ export async function POST(request: Request) {
   //     pass: process.env.EMAIL_PASS!,
   //   },
   // });
+  const transporter = await getTransporter();
+  await transporter.verify();
+  console.log("SMTP VERIFIED");
 
   await transporter.sendMail({
     from: `"Mabsol Infotech" <${process.env.EMAIL_USER}>`,
