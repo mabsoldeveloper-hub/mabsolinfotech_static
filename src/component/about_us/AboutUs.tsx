@@ -93,9 +93,9 @@ export default function AboutUs() {
 
                         <ul className="list-disc list-inside space-y-2 text-blue-800">
                             <li>Best Team of IT professional in one roof</li>
-                            <li>20+ Years of Collective Team Experience</li>
-                            <li>2000+ Happy Deliveries</li>
-                            <li>4000+ Happy & Satisfied Clients</li>
+                            <li>10+ Years of Collective Team Experience</li>
+                            <li>100+ Happy Deliveries</li>
+                            <li>500+ Happy & Satisfied Clients</li>
                         </ul>
                     </div>
 

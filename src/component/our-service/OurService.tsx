@@ -39,8 +39,8 @@ const services = [
   },
   {
     icon: <BsSearch />,
-    title: "Mobile App Development",
-    desc: "Embrace the mobile revolution with our mobile application development team that captivate users across the digital landscape. Invest wisely in sharing your vision with the world, and we'll bring it to life with creativity.",
+    title: "SFA Software",
+    desc: "Empower your sales team with our SFA software that streamlines field operations, automates sales processes, and provides real-time insights. Boost productivity, improve customer engagement, and drive business growth.",
   },
 ];
 
