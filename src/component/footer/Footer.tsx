@@ -14,7 +14,7 @@ import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 const Footer = () => {
   const router = useRouter();
 
-  const handleScroll = (id: any) => { 
+  const handleScroll = (id: any) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -30,7 +30,8 @@ const Footer = () => {
       ></div>
 
       {/* Footer Grid */}
-      <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-10 z-20">
+      <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-10 z-20 px-0 sm:px-4 md:px-14 lg:px-24">
+
         {/* Logo + About */}
         <div>
           <div className="h-[65px] sm:h-[80px] w-[170px] sm:w-[200px]">
@@ -94,7 +95,8 @@ const Footer = () => {
         </div>
 
         {/* Products + Services + Quick Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20 xl:gap-14">
+
           {/* Products */}
           <div>
             <h3 className="text-lg font-semibold mb-5 whitespace-nowrap">
@@ -234,50 +236,75 @@ const Footer = () => {
                 </a>
               </li>
 
-              <li>
-                <a href="/term-condition" className="hover:text-white">
-                  Terms & Conditions
-                </a>
-              </li>
 
-              <li>
-                <a href="/privacy-policy" className="hover:text-white">
-                  Privacy Policy
-                </a>
-              </li>
-
-              <li>
-                <Link href="/jobs-create" className="hover:text-white">
-                  Jobs Create
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/location" className="hover:text-white">
-                  User Locator
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
-        {/*grid vala div */}
-        {/* Products + Services + Quick Links end here  */}
+
       </div>
+
+
       {/* Footer Bottom Section */}
-      <div className="relative border-t border-gray-700 mt-10 pt-5 z-20">
-        {/* Scroll To Top Button */}
+
+      <div className="relative mt-5 border-t border-gray-700 pt-3">
+
+        <div className="text-center">
+          <p className="text-gray-400 text-[9px] sm:text-[11px] md:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
+            © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED. All Rights Reserved.
+          </p>
+
+          <div className="mt-2 flex flex-wrap justify-center gap-x-2 gap-y-2 text-gray-400 text-[9px] sm:text-[11px] md:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
+            <Link href="/term-condition" className="hover:text-white transition">
+              Terms & Conditions
+            </Link>
+
+            <Link href="/privacy-policy" className="hover:text-white transition">
+              Privacy Policy
+            </Link>
+
+            <Link href="/jobs-create" className="hover:text-white transition">
+              Jobs Create
+            </Link>
+
+            <Link href="/location" className="hover:text-white transition">
+              User Locator
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll To Top */}
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="absolute right-0 -top-5 sm:-top-6 bg-blue-600 hover:bg-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            })
+          }
+          className="
+      fixed
+      bottom-4
+      right-4
+      z-50
+      flex
+      h-8
+      w-8
+      items-center
+      justify-center
+      rounded-full
+      bg-blue-600
+      text-white
+      shadow-lg
+      transition-all
+      duration-300
+      hover:scale-110
+      hover:bg-blue-500
+      md:bottom-6
+      md:right-6
+    "
         >
-          <MdOutlineKeyboardDoubleArrowUp />
+          <MdOutlineKeyboardDoubleArrowUp size={22} />
         </button>
 
-        {/* Copyright */}
-        <div className="text-center text-[11px] sm:text-sm text-gray-400">
-          © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED. All
-          Rights Reserved.
-        </div>
       </div>
     </div>
   );
