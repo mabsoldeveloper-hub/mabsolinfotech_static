@@ -82,10 +82,6 @@ const OurProduct = () => {
             {product.title}
           </h2>
 
-          {/* <p className="text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed line-clamp-3 sm:line-clamp-none">
-            {product.para}
-          </p> */}
-
           <p className="text-orange-500 font-semibold mt-3 sm:mt-4 text-sm sm:text-base">
             {product.price}
           </p>
@@ -95,7 +91,7 @@ const OurProduct = () => {
             <Link href={product.link}>
               <Button
                 type="primary"
-                className="w-full !h-10 sm:!h-11 !rounded-lg sm:!rounded-xl !bg-[#1f4e79] !border-[#1f4e79] hover:!bg-[#163d5c] hover:!border-[#163d5c] !font-semibold sm:!font-bold !text-white transition text-sm sm:text-base"
+                className="w-full !h-10 sm:!h-11 !bg-[#1f4e79] !border-[#1f4e79] hover:!bg-[#163d5c] hover:!border-[#163d5c] !font-semibold sm:!font-bold !text-white transition text-sm sm:text-base"
               >
                 View Details →
               </Button>

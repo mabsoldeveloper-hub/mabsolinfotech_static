@@ -8,7 +8,7 @@ import Header from "../component/header/Header";
 import HomePage from "../component/homepage/HomePage";
 import OurProduct from "../component/our-product/OurProduct";
 import OurService from "../component/our-service/OurService";
-import OurTestimonial from "../component/ourtes-timonial/OurTestimonial";
+import OurTestimonial from "../component/ourtestimonial/OurTestimonial";
 import CertificateSection from "../component/certificate/certificate";  
 import Technoogy from "../component/technology/Technoogy";
 
