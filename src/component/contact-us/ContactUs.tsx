@@ -139,8 +139,8 @@ export default function ContactUs() {
 
   const currentTime = currentHour * 60 + currentMinute;
 
-const openingTime = 10 * 60; // 10:00 AM
-const closingTime = 19 * 60; // 7:00 PM
+  const openingTime = 10 * 60; // 10:00 AM
+  const closingTime = 19 * 60; // 7:00 PM
 
   const day = now.getDay();
 
@@ -287,12 +287,13 @@ const closingTime = 19 * 60; // 7:00 PM
                   accentColor="#dc2626"
                   label="Email Address"
                 >
-                  <InfoRow href="mailto:mabsolinfotech@gmail.com">
-                    mabsolinfotech@gmail.com
-                  </InfoRow>
                   <InfoRow href="mailto:support@mabsolinfotech.com">
                     support@mabsolinfotech.com
                   </InfoRow>
+                  <InfoRow href="mailto:mabsolinfotech@gmail.com">
+                    mabsolinfotech@gmail.com
+                  </InfoRow>
+
                 </ContactCard>
 
               </div>

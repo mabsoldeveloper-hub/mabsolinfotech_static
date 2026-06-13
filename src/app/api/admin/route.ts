@@ -23,13 +23,19 @@ export async function POST(req: NextRequest) {
     }
 
     // Compare entered password with hashed password
-    const isPasswordValid = await bcrypt.compare(password, ADMIN_PASSWORD_HASH);
-    if (!isPasswordValid) {
-      return NextResponse.json({ error: "Invalid password" }, { status: 401 });
+    if (password !== ADMIN_PASSWORD) {
+      return NextResponse.json(
+        { error: "Invalid password" },
+        { status: 401 }
+      );
     }
 
     // JWT secret
-    const JWT_SECRET = process.env.NEXTAUTH_SECRET || "defaultsecret";
+    const JWT_SECRET = process.env.NEXTAUTH_SECRET;
+
+    if (!JWT_SECRET) {
+      throw new Error("JWT Secret Missing");
+    }
 
     // Generate JWT
     const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "1d" });

@@ -95,7 +95,7 @@ export default function AboutUs() {
                             <li>Best Team of IT professional in one roof</li>
                             <li>10+ Years of Collective Team Experience</li>
                             <li>100+ Happy Deliveries</li>
-                            <li>500+ Happy & Satisfied Clients</li>
+                            <li>1000+ Happy & Satisfied Clients</li>
                         </ul>
                     </div>
 
