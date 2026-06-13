@@ -20,6 +20,7 @@ import {
 import { Briefcase, MessageSquareText, Plus } from "lucide-react";
 import { Select } from "antd";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const skillOptions = [
   "HTML",
@@ -96,6 +97,8 @@ export default function AdminDashboard() {
 
   const [form] = Form.useForm();
 
+  const router = useRouter()
+
   const fetchApplications = async () => {
     const res = await fetch("/api/apply");
     const data = await res.json();
@@ -116,6 +119,21 @@ export default function AdminDashboard() {
     fetchJobs();
     fetchApplications();
   }, []);
+
+
+  const handleLogout = async () => {
+    const res = await fetch("/api/admin/logout", {
+      method: "POST",
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      toast.error("Logout failed");
+      return;
+    }
+    toast.success(data.message);
+    router.push("/jobs-create");
+  }
+
 
   // CREATE / UPDATE JOB
   const onFinish = async (values: any) => {
@@ -355,9 +373,8 @@ export default function AdminDashboard() {
               <Button
                 size="large"
                 type={activeTab === "jobs" ? "primary" : "default"}
-                className={`h-12 px-6 rounded-xl ${
-                  activeTab === "jobs" ? "bg-[#185e9a]" : ""
-                }`}
+                className={`h-12 px-6 rounded-xl ${activeTab === "jobs" ? "bg-[#185e9a]" : ""
+                  }`}
                 onClick={() => setActiveTab("jobs")}
               >
                 <div className="flex items-center gap-2">
@@ -369,15 +386,18 @@ export default function AdminDashboard() {
               <Button
                 size="large"
                 type={activeTab === "reviews" ? "primary" : "default"}
-                className={`h-12 px-6 rounded-xl ${
-                  activeTab === "reviews" ? "bg-[#185e9a]" : ""
-                }`}
+                className={`h-12 px-6 rounded-xl ${activeTab === "reviews" ? "bg-[#185e9a]" : ""
+                  }`}
                 onClick={() => setActiveTab("reviews")}
               >
                 <div className="flex items-center gap-2">
                   <MessageSquareText size={18} />
                   Reviews
                 </div>
+              </Button>
+
+              <Button type="primary" onClick={handleLogout}>
+                Logout
               </Button>
             </div>
           </div>
