@@ -59,7 +59,7 @@ export default function RootLayout({
       >
         <LayoutWrapper>
           {children}
-          <ToastContainer position="top-center"/>
+          <ToastContainer position="top-center" autoClose={500} hideProgressBar={true}/>
         </LayoutWrapper>
         <FloatingSocialBar />
       </body>

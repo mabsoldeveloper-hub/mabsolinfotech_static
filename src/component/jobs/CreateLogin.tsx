@@ -36,7 +36,7 @@ export default function CreateLogin() {
         return;
       }
       // SUCCESS TOAST
-      toast.success("Login Successful! Redirecting you to dashboard....");
+      toast.success("Login Successful");
       router.push("/admin-jobs-dashboard");
     } catch (error: any) {
       toast.error(error.message || "Error while connecting to server")
