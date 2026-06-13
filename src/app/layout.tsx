@@ -7,6 +7,7 @@ import "./globals.css";
 import LayoutWrapper from "./LayoutWrapper";
 import FloatingSocialBar from "@/component/floating-sidebaar/FloatingSocialBar";
 import Script from "next/script";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +57,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <LayoutWrapper>
+          {children}
+          <ToastContainer position="top-center" autoClose={500} hideProgressBar={true}/>
+        </LayoutWrapper>
         <FloatingSocialBar />
       </body>
     </html>

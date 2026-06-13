@@ -40,8 +40,24 @@ export async function POST(req: NextRequest) {
     // Generate JWT
     const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "1d" });
 
-    return NextResponse.json({ message: "Login successful", token });
+    // return NextResponse.json({ message: "Login successful", token });
+
+    const response = NextResponse.json({
+      message: "Login successful",
+    });
+
+    response.cookies.set("token", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+      maxAge: 60 * 60 * 24,
+    });
+
+    return response;
+
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
+

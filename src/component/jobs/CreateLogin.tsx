@@ -32,20 +32,15 @@ export default function CreateLogin() {
       const data = await res.json();
 
       if (!res.ok) {
-        return toast.error(data.message || "Invalid username or password");
+        toast.error(data.error || "Invalid username or password");
+        return;
       }
-
       // SUCCESS TOAST
-      toast.success("Login Successful! Redirecting you to dashboard....");
-
-      // Save token
-      // if (data.token) {
-      //   localStorage.setItem("token", data.token);
-      // }
+      toast.success("Login Successful");
       router.push("/admin-jobs-dashboard");
-    } catch (error) {
-      message.error("Error while connecting to server");
-      console.error(error);
+    } catch (error: any) {
+      toast.error(error.message || "Error while connecting to server")
+      // message.error("Error while connecting to server");
     }
   };
 
