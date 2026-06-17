@@ -21,6 +21,7 @@ import { Briefcase, MessageSquareText, Plus } from "lucide-react";
 import { Select } from "antd";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import TestForm from "@/component/jobs/FormTestimonal";
 
 const skillOptions = [
   "HTML",
@@ -772,29 +773,7 @@ export default function AdminDashboard() {
 
         {/* REVIEWS SECTION */}
         {activeTab === "reviews" && (
-          <Card className="rounded-3xl border-0 shadow-md">
-            <div className="flex items-center justify-between mb-5">
-              <Title level={4} className="!mb-0 !text-[#185e9a]">
-                Customer Reviews
-              </Title>
-
-              <Tag color="orange">
-                Pending Reviews:{" "}
-                {applications.filter((r) => r.status === "pending").length}
-              </Tag>
-            </div>
-
-            <Table
-              columns={reviewColumns}
-              dataSource={
-                Array.isArray(applications) ? applications : [applications]
-              }
-              rowKey="_id"
-              pagination={{
-                pageSize: 10,
-              }}
-            />
-          </Card>
+          <TestForm />
         )}
       </div>
     </div>
