@@ -87,7 +87,7 @@ const Footer = () => {
 
             <button
               type="submit"
-              className="w-1/2 mt-3 text-center bg-[#1a3c96] hover:bg-[#2550c4] transition-all duration-300 cursor-pointer text-white py-2 text-sm"
+              className="w-3/4 mt-3 text-center bg-[#1a3c96] hover:bg-[#2550c4] transition-all duration-300 cursor-pointer text-white py-2 text-sm"
             >
               Subscribe
             </button>
@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
 
         {/* Products + Services + Quick Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20 xl:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-10 xl:gap-5">
 
           {/* Products */}
           <div>
