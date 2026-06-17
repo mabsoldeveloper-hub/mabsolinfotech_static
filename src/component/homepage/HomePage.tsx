@@ -37,21 +37,47 @@ const HomePage = () => {
       </div>
 
       {/* 🔹 Content */}
-      <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-20">
+      <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-20 text-center">
+        <div className="max-w-2xl lg:max-w-3xl">
 
-        <div className="max-w-xl lg:max-w-2xl text-white">
-
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6">
-            <span className="text-orange-400">Smart Solutions for</span> <br />
-            Smarter Business Management
+          {/* Heading */}
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug mb-4 sm:mb-6">
+            <span className="text-orange-400">Smart Solutions for</span>
+            <br />
+            <span className="text-white">Smarter Business Management</span>
           </h1>
 
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 text-gray-200">
-            Mabsol Infotech empowers businesses with cutting-edge software
-            solutions like Marg, Tally, MR Reporting, and greytHR.
-            From accounting to HR management, we simplify your operations
-            and ensure seamless workflows.
+          {/* Description */}
+          <p className="text-[11px] sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 text-gray-300 max-w-xl mx-auto px-2">
+            Mabsol Infotech empowers businesses with cutting-edge software solutions
+            like Marg, Tally, MR Reporting, and Software development. From accounting to HR
+            management, we simplify your operations and ensure seamless workflows.
           </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 mb-8 sm:mb-10">
+            <Link href="https://demo.mabsolinfotech.com">
+              <button className="sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-5 py-2 transition-colors duration-200">
+               Explore the Platform
+              </button>
+            </Link>
+
+            <Link href="/service-page">
+              <button className="sm:w-auto bg-transparent hover:bg-white/10 text-white font-semibold text-sm px-5 py-2 border border-white/40 transition-colors duration-200">
+                Explore Services
+              </button>
+            </Link>
+          </div>
+
+          {/* Product Badges */}
+          <div className="flex items-center justify-center gap-3 sm:gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide px-2">
+            {["Marg ERP", "Tally Solutions", "Software Development", "MR Reporting"].map((product) => (
+              <div key={product} className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
+                <span className="text-white/70 text-[10px] sm:text-sm whitespace-nowrap">{product}</span>
+              </div>
+            ))}
+          </div>
 
         </div>
       </div>

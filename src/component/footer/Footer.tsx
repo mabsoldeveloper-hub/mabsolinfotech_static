@@ -23,7 +23,6 @@ const Footer = () => {
 
   return (
     <div className="relative bg-[#0b1d5b] text-white py-6 px-4 sm:px-6 lg:px-8 overflow-hidden">
-
       {/* Background */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40"
@@ -31,7 +30,7 @@ const Footer = () => {
       ></div>
 
       {/* Footer Grid */}
-      <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-10 z-20">
+      <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-10 z-20 px-0 sm:px-4 md:px-14 lg:px-24">
 
         {/* Logo + About */}
         <div>
@@ -71,7 +70,7 @@ const Footer = () => {
         {/* Newsletter */}
         <div>
           <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-            Newsletter mabsol infotech
+            Newsletter
           </h3>
 
           <p className="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed">
@@ -96,7 +95,7 @@ const Footer = () => {
         </div>
 
         {/* Products + Services + Quick Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20 xl:gap-14">
 
           {/* Products */}
           <div>
@@ -166,19 +165,13 @@ const Footer = () => {
               </li>
 
               <li>
-                <a
-                  href="/erp-software"
-                  className="hover:text-white transition"
-                >
+                <a href="/erp-software" className="hover:text-white transition">
                   ERP Software
                 </a>
               </li>
 
               <li>
-                <a
-                  href="/sfa-software"
-                  className="hover:text-white transition"
-                >
+                <a href="/sfa-software" className="hover:text-white transition">
                   SFA Software
                 </a>
               </li>
@@ -192,7 +185,6 @@ const Footer = () => {
             </h3>
 
             <ul className="space-y-3 text-gray-300 text-sm">
-
               <li>
                 <a
                   href="#"
@@ -244,55 +236,77 @@ const Footer = () => {
                 </a>
               </li>
 
-              <li>
-                <a href="/term-condition" className="hover:text-white">
-                  Terms & Conditions
-                </a>
-              </li>
-
-              <li>
-                <a href="/privacy-policy" className="hover:text-white">
-                  Privacy Policy
-                </a>
-              </li>
-
-              <li>
-                <Link href="/jobs-create" className="hover:text-white">
-                  Jobs Create
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/location" className="hover:text-white">
-                  User Locator
-                </Link>
-              </li>
 
             </ul>
           </div>
-
-        </div>{/*grid vala div */}
-        {/* Products + Services + Quick Links end here  */}
-
-      </div>
-      {/* Footer Bottom Section */}
-      <div className="relative border-t border-gray-700 mt-10 pt-5 z-20">
-
-        {/* Scroll To Top Button */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="absolute right-0 -top-5 sm:-top-6 bg-blue-600 hover:bg-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110">
-          <MdOutlineKeyboardDoubleArrowUp />
-        </button>
-
-        {/* Copyright */}
-        <div className="text-center text-[11px] sm:text-sm text-gray-400">
-          © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED. All Rights Reserved.
         </div>
 
       </div>
-    </div>
 
+
+      {/* Footer Bottom Section */}
+
+      <div className="relative mt-5 border-t border-gray-700 pt-3">
+
+        <div className="text-center">
+          <p className="text-gray-400 text-[9px] sm:text-[11px] md:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
+            © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED. All Rights Reserved.
+          </p>
+
+          <div className="mt-2 flex flex-wrap justify-center gap-x-2 gap-y-2 text-gray-400 text-[9px] sm:text-[11px] md:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
+            <Link href="/term-condition" className="hover:text-white transition">
+              Terms & Conditions
+            </Link>
+
+            <Link href="/privacy-policy" className="hover:text-white transition">
+              Privacy Policy
+            </Link>
+
+            <Link href="/jobs-create" className="hover:text-white transition">
+              Jobs Create
+            </Link>
+
+            <Link href="/location" className="hover:text-white transition">
+              User Locator
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll To Top */}
+        <button
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            })
+          }
+          className="
+      fixed
+      bottom-4
+      right-4
+      z-50
+      flex
+      h-8
+      w-8
+      items-center
+      justify-center
+      rounded-full
+      bg-blue-600
+      text-white
+      shadow-lg
+      transition-all
+      duration-300
+      hover:scale-110
+      hover:bg-blue-500
+      md:bottom-6
+      md:right-6
+    "
+        >
+          <MdOutlineKeyboardDoubleArrowUp size={22} />
+        </button>
+
+      </div>
+    </div>
   );
 };
 
