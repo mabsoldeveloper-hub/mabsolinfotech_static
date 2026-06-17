@@ -52,6 +52,7 @@ const reviews = [
     author_name: "Saurabh Kumar",
     rating: 4,
     relative_time_description: "2 weeks ago"
+
 }
 
 ];
