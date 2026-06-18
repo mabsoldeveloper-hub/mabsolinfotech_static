@@ -237,13 +237,13 @@ const Header = () => {
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span>DCR</span>
         <a
-          href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
+          href="https://mabsolinfotech.com/crm/employee/employee_register.php"
           className="!text-blue-300 select-none"
         >
           Employee Login
         </a>
         <a
-          href="https://mabsolinfotech.com/crmtest/admin/admin_login.php"
+          href="https://mabsolinfotech.com/crm/admin/admin_login.php"
           className="!text-blue-300 select-none"
         >
           Report
