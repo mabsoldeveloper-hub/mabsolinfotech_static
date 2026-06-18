@@ -472,7 +472,7 @@ const Header = () => {
               <Link href="/">
                 <Button
                   type="link"
-                  className="!text-md !font-extrabold !text-white"
+                  className="!text-sm !font-extrabold !text-white"
                   style={{ fontFamily: "Roboto,sans-serif" }}
                 >
                   Home
@@ -490,7 +490,7 @@ const Header = () => {
               <Button
                 type="text"
                 onClick={() => router.push("/about_us")}
-                className="!text-[#E3ECFF] !text-md !font-extrabold"
+                className="!text-white !text-sm !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -511,7 +511,7 @@ const Header = () => {
               <Button
                 type="text"
                 onClick={() => router.push("/service-page")}
-                className="!text-white !text-md font-extrabold"
+                className="!text-white !text-sm !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -533,7 +533,7 @@ const Header = () => {
               <Button
                 type="text"
                 onClick={() => router.push("/software_product")}
-                className="!text-white !text-md !font-extrabold"
+                className="!text-white !text-sm !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -553,7 +553,7 @@ const Header = () => {
             >
               <Button
                 type="text"
-                className="!text-white !text-md !font-extrabold"
+                className="!text-white !text-sm !font-extrabold"
                 style={{
                   fontFamily: "Roboto,sans-serif",
                   padding: "0px",
@@ -573,7 +573,7 @@ const Header = () => {
             >
               <Button
                 onClick={handleSupportClick}
-                className="!bg-orange-500 hover:!bg-orange-600 !text-white !text-md !font-semibold !px-8 !h-10 !rounded-none !shadow-md hover:!shadow-lg transition-all duration-300"
+                className="!bg-orange-500 hover:!bg-orange-600 !text-white !text-sm !font-semibold !px-8 !h-10 !rounded-none !shadow-md hover:!shadow-lg transition-all duration-300"
 
               >
                 Raise a Support Ticket
@@ -587,7 +587,7 @@ const Header = () => {
             >
               <Button
                 onClick={handleCRMClick}
-                className="!bg-[#34396e] hover:!bg-blue-600 !text-white !text-md !font-semibold !px-8 !h-10 !rounded-none !shadow-md hover:!shadow-lg transition-all duration-300"
+                className="!bg-[#34396e] hover:!bg-blue-600 !text-white !text-sm !font-semibold !px-8 !h-10 !rounded-none !shadow-md hover:!shadow-lg transition-all duration-300"
               >
                 Contact Us
               </Button>
