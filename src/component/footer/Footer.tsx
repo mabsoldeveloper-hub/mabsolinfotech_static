@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
 
         {/* Products + Services + Quick Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-10 xl:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-10 xl:gap-5">
 
           {/* Products */}
           <div>

@@ -105,11 +105,11 @@ const AboutUs = () => {
       {/* CLIENTS */}
       <div className="bg-blue-50 rounded-xl sm:rounded-2xl p-3 sm:p-6 text-center shadow-md hover:shadow-xl transition duration-300">
         <h3 className="text-lg sm:text-3xl lg:text-4xl font-extrabold text-[#1f4e79]">
-          <Counter end={500} suffix="+" />
+          <Counter end={5000} suffix="+" />
         </h3>
 
         <p className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2 font-medium">
-          Clients
+          Users
         </p>
       </div>
 
