@@ -18,13 +18,7 @@ type Testimonial = {
 };
 
 const teamMembers: Testimonial[] = [
-  {
-    name: "K.S Chauhan",
-    role: "BIOMAX BIOTECHNICS PVT. LTD.",
-    image: "/images/company-profile-1.webp",
-    description:
-      "Mabsol Infotech has truly exceeded our expectations. Their support with Busy and Marg software has not only enhanced our productivity but also simplified complex tasks. The professional approach and in-depth knowledge of their products have made a significant impact on our operations. We couldn’t be more pleased with their service.",
-  },
+  
   {
     name: "Shanky Mittal",
     role: "ALCOLABS PVT. LTD.",

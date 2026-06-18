@@ -242,7 +242,7 @@ export default function GoogleReviewsSection() {
         </div>
 
         {/* Stats */}
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {/* <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <StatCard
             icon={<StarFilled />}
             title="4.9 Average Rating"
@@ -268,36 +268,36 @@ export default function GoogleReviewsSection() {
             title="Quality Service"
             subtitle="Our Commitment"
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
 }
 
-function StatCard({
-  icon,
-  title,
-  subtitle,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  subtitle: string;
-}) {
-  return (
-    <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-md">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0b3766] text-xl text-white">
-        {icon}
-      </div>
+// function StatCard({
+//   icon,
+//   title,
+//   subtitle,
+// }: {
+//   icon: React.ReactNode;
+//   title: string;
+//   subtitle: string;
+// }) {
+//   return (
+//     <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-md">
+//       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0b3766] text-xl text-white">
+//         {icon}
+//       </div>
 
-      <div>
-        <h4 className="font-bold text-[#0b3766]">
-          {title}
-        </h4>
+//       <div>
+//         <h4 className="font-bold text-[#0b3766]">
+//           {title}
+//         </h4>
 
-        <p className="text-sm text-slate-500">
-          {subtitle}
-        </p>
-      </div>
-    </div>
-  );
-}
+//         <p className="text-sm text-slate-500">
+//           {subtitle}
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }

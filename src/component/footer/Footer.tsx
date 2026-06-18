@@ -22,7 +22,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="relative bg-[#0b1d5b] text-white py-6 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative bg-[#0b1d5b] text-white  py-6 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40"
