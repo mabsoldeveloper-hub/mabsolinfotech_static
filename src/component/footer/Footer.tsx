@@ -48,22 +48,49 @@ const Footer = () => {
             efficient software solutions.
           </p>
 
-          <div className="flex gap-4 mt-5 text-xl sm:text-2xl text-white flex-wrap">
-            <a href="https://www.facebook.com/people/Mabsol-Infotech-Pvt-Ltd-Haryana/61578120662281/">
+          <div className="flex items-center gap-3 sm:gap-4 mt-5 text-xl sm:text-2xl flex-nowrap">
+
+            <a
+              href="https://www.facebook.com/people/Mabsol-Infotech-Pvt-Ltd-Haryana/61578120662281/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-md 
+    bg-white/10 text-white hover:bg-[#2550c4] 
+    transition-all duration-300"
+            >
               <FacebookFilled />
             </a>
 
-            <a href="https://www.youtube.com/@ABMINFOTECHPanchkula">
+            <a
+              href="https://www.youtube.com/@ABMINFOTECHPanchkula"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-md 
+    bg-white/10 text-white hover:bg-[#2550c4] transition-all duration-300"
+            >
               <YoutubeFilled />
             </a>
 
-            <a href="https://www.instagram.com/mabsol_infotech_pvt_ltd/">
+            <a
+              href="https://www.instagram.com/mabsol_infotech_pvt_ltd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-md 
+    bg-white/10 text-white hover:bg-[#2550c4] transition-all duration-300"
+            >
               <InstagramFilled />
             </a>
 
-            <a href="https://www.linkedin.com/in/mabsol-infotech-pvt-ltd/">
+            <a
+              href="https://www.linkedin.com/in/mabsol-infotech-pvt-ltd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-md 
+    bg-white/10 text-white hover:bg-[#2550c4] transition-all duration-300"
+            >
               <LinkedinFilled />
             </a>
+
           </div>
         </div>
 
@@ -77,12 +104,20 @@ const Footer = () => {
             Stay updated with our latest news and offers.
           </p>
 
-          <form className="w-full">
+          <form className="flex flex-col gap-2 w-full 
+                 max-w-[220px] 
+                 sm:max-w-[240px] 
+                 md:max-w-[260px] 
+                 lg:max-w-[280px]">
+
             <input
               type="email"
               placeholder="Email Address"
               required
-              className="w-3/4 max-w-full px-4 py-2 text-sm rounded-none border bg-white/10 border-gray-300 focus:outline-none focus:ring-1 focus:ring-white"
+              className="w-full px-3 py-2 text-sm rounded-sm
+    border border-gray-400 bg-white/10 text-white
+    placeholder:text-gray-300
+    focus:outline-none focus:ring-1 focus:ring-white"
             />
 
             <button
