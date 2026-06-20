@@ -5,6 +5,9 @@ import Image from "next/image";
 import { Button, Card } from "antd";
 import { RightOutlined } from "@ant-design/icons";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
@@ -107,7 +110,7 @@ export default function WebsiteDevelopment() {
     <div className="bg-white text-gray-800">
       <div className="bg-white text-gray-800">
         <div
-          className="min-h-[40vh] sm:min-h-[45vh] md:min-h-[50vh] lg:min-h-[55vh] flex flex-col justify-center items-center bg-fixed bg-cover bg-center relative"
+          className="h-[60vh] flex flex-col justify-center items-center bg-fixed bg-cover bg-center relative"
           style={{
             backgroundImage:
               "linear-gradient(rgba(0, 44, 95, 0.7), rgba(0, 44, 95, 0.7)), url('/mabsol-images/gallery-bg.avif')",
@@ -186,7 +189,7 @@ export default function WebsiteDevelopment() {
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
-          // navigation={true}
+            // navigation={true}
           >
             {imagesActivities.map((src, i) => (
               <SwiperSlide>
@@ -229,7 +232,7 @@ export default function WebsiteDevelopment() {
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
-          // navigation={true}
+            // navigation={true}
           >
             {mediaImages.map((src, i) => (
               <SwiperSlide>
@@ -272,7 +275,7 @@ export default function WebsiteDevelopment() {
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
-          // navigation={true}
+            // navigation={true}
           >
             {socialImages.map((src, i) => (
               <SwiperSlide>
@@ -318,7 +321,7 @@ export default function WebsiteDevelopment() {
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
-          // navigation={true}
+            // navigation={true}
           >
             {meetingPunchkulaImages.map((src, i) => (
               <SwiperSlide>
@@ -510,7 +513,7 @@ export default function WebsiteDevelopment() {
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
-          // navigation={true}
+            // navigation={true}
           >
             {chandigarhMeetingImages.map((src, i) => (
               <SwiperSlide>
