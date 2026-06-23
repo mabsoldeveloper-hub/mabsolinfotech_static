@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { Trash2 } from "lucide-react";
-import PaymentGetway from "../payment-getway/PaymentGetway";
 import Link from "next/link";
 import { Info } from "lucide-react";
 
@@ -511,115 +510,123 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
       </div>
 
       {/* 🔹 Checkout Modal */}
-<Modal
-  title={null}
-  open={open}
-  onCancel={() => setOpen(false)}
-  footer={null}
-  width={800}
->
-  <div className="bg-white p-4 rounded-xl">
-
-    <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">
-      🧾 Checkout Summary
-    </h2>
-
-    {/* Cart Items */}
-    {cart.map((item, index) => (
-      <div key={index} className="flex justify-between border-b py-3">
-        
-        <div>
-          <div className="font-semibold text-xl text-[#0b3a74]">
-            {item.product.title}
-          </div>
-          <div className="text-md text-gray-700">
-            Qty: {item.qty} •
-            Users: {1 + (item.extraUsers || 0)} •
-            Companies: {1 + (item.extraCompanies || 0)}
-          </div>
-        </div>
-
-        <div className="flex items-center gap-4">
-
-          <Trash2
-            className="text-red-500 cursor-pointer"
-            onClick={() => onDelete(index)}
-          />
-        </div>
-
-      </div>
-    ))}
-
-    {/* 🔹 Order Summary */}
-    <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
-
-      <div className="flex justify-between text-base">
-        <span className="font-medium">
-          Base Subtotal (1 User + 1 Company)
-        </span>
-        <span className="font-semibold">
-          ₹{subtotal.toLocaleString("en-IN")}
-        </span>
-      </div>
-
-      {totalExtraUsers > 0 && (
-        <div className="flex justify-between text-base text-gray-700">
-          <span>Extra Users ({totalExtraUsers} × ₹3000)</span>
-          <span className="font-semibold">
-            ₹{extraUserCost.toLocaleString("en-IN")}
-          </span>
-        </div>
-      )}
-
-      {totalExtraCompanies > 0 && (
-        <div className="flex justify-between text-base text-gray-700">
-          <span>Extra Companies ({totalExtraCompanies} × ₹6500)</span>
-          <span className="font-semibold">
-            ₹{extraCompanyCost.toLocaleString("en-IN")}
-          </span>
-        </div>
-      )}
-
-      <div className="border-t pt-3 flex justify-between text-lg font-semibold">
-        <span>Subtotal (Before GST)</span>
-        <span>₹{subTotalWithExtras.toLocaleString("en-IN")}</span>
-      </div>
-
-      <div className="flex justify-between text-base text-gray-700">
-        <span>GST (18%)</span>
-        <span className="font-semibold">
-          ₹{gst.toLocaleString("en-IN")}
-        </span>
-      </div>
-
-      <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
-        <span>Grand Total</span>
-        <span>₹{grandTotal.toLocaleString("en-IN")}</span>
-      </div>
-
-    </div>
-
-    {/* Buttons */}
-    <div className="mt-6 flex justify-end gap-3">
-      <Button
-        onClick={() => setOpen(false)}
-        className="py-4 rounded-lg border"
+      <Modal
+        title={null}
+        open={open}
+        onCancel={() => setOpen(false)}
+        footer={null}
+        width={800}
       >
-        Cancel
-      </Button>
+        <div className="bg-white p-4 rounded-xl">
 
-      <PaymentGetway
+          <h2 className="text-3xl font-bold text-[#0b3a74] mb-5">
+            🧾 Checkout Summary
+          </h2>
+
+          {/* Cart Items */}
+          {cart.map((item, index) => (
+            <div key={index} className="flex justify-between border-b py-3">
+
+              <div>
+                <div className="font-semibold text-xl text-[#0b3a74]">
+                  {item.product.title}
+                </div>
+                <div className="text-md text-gray-700">
+                  Qty: {item.qty} •
+                  Users: {1 + (item.extraUsers || 0)} •
+                  Companies: {1 + (item.extraCompanies || 0)}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+
+                <Trash2
+                  className="text-red-500 cursor-pointer"
+                  onClick={() => onDelete(index)}
+                />
+              </div>
+
+            </div>
+          ))}
+
+          {/* 🔹 Order Summary */}
+          <div className="mt-6 space-y-3 bg-gray-50 p-6 rounded-xl border">
+
+            <div className="flex justify-between text-base">
+              <span className="font-medium">
+                Base Subtotal (1 User + 1 Company)
+              </span>
+              <span className="font-semibold">
+                ₹{subtotal.toLocaleString("en-IN")}
+              </span>
+            </div>
+
+            {totalExtraUsers > 0 && (
+              <div className="flex justify-between text-base text-gray-700">
+                <span>Extra Users ({totalExtraUsers} × ₹3000)</span>
+                <span className="font-semibold">
+                  ₹{extraUserCost.toLocaleString("en-IN")}
+                </span>
+              </div>
+            )}
+
+            {totalExtraCompanies > 0 && (
+              <div className="flex justify-between text-base text-gray-700">
+                <span>Extra Companies ({totalExtraCompanies} × ₹6500)</span>
+                <span className="font-semibold">
+                  ₹{extraCompanyCost.toLocaleString("en-IN")}
+                </span>
+              </div>
+            )}
+
+            <div className="border-t pt-3 flex justify-between text-lg font-semibold">
+              <span>Subtotal (Before GST)</span>
+              <span>₹{subTotalWithExtras.toLocaleString("en-IN")}</span>
+            </div>
+
+            <div className="flex justify-between text-base text-gray-700">
+              <span>GST (18%)</span>
+              <span className="font-semibold">
+                ₹{gst.toLocaleString("en-IN")}
+              </span>
+            </div>
+
+            <div className="border-t pt-4 flex justify-between text-2xl font-bold text-[#0b3a74]">
+              <span>Grand Total</span>
+              <span>₹{grandTotal.toLocaleString("en-IN")}</span>
+            </div>
+
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-6 flex justify-end gap-3">
+            <Button
+              onClick={() => setOpen(false)}
+              className="py-4 rounded-lg border"
+            >
+              Cancel
+            </Button>
+
+            {/* <PaymentGetway
         totalPrice={grandTotal}
         user={{
           name: "User",
           email: "user@example.com",
           company: "My Company",
         }}
-      />
-    </div>
+      /> */}
 
-  </div>
-</Modal>
+            <Button
+              onClick={() => setOpen(false)}
+              className="bg-green-600 text-white py-4 rounded-lg"
+            >
+              Place Order
+            </Button>
+
+          </div>
+
+        </div>
+      </Modal>
     </>
   );
 

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ShoppingCart, ShieldCheck, Cloud, FileText } from "lucide-react";
 import { Button, Modal } from "antd";
-import PaymentGetway from "../payment-getway/PaymentGetway";
 
 export default function MRReportingPage() {
   // PRODUCTS
@@ -265,174 +264,174 @@ export default function MRReportingPage() {
 
       {/* PRODUCTS SECTION */}
       <section className="w-full bg-[#f6f9ff]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-10">
-        {/* HEADING */}
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center text-[#0b3a74] mb-8 sm:mb-12">
-          Buy MR Reporting Software - <span className="text-orange-600">Cloud Edition</span>  
-        </h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-10">
+          {/* HEADING */}
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-center text-[#0b3a74] mb-8 sm:mb-12">
+            Buy MR Reporting Software - <span className="text-orange-600">Cloud Edition</span>
+          </h2>
 
-        <div className="flex flex-col gap-8 sm:gap-16">
-          {products.map((p) => (
-            <div
-              key={p.id}
-              className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col md:flex-row"
-            >
+          <div className="flex flex-col gap-8 sm:gap-16">
+            {products.map((p) => (
+              <div
+                key={p.id}
+                className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col md:flex-row"
+              >
 
-              {/* IMAGE */}
-              <div className="md:w-1/2 bg-white flex justify-center items-center p-4 sm:p-6">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full max-h-36 sm:max-h-96 object-contain"
-                />
+                {/* IMAGE */}
+                <div className="md:w-1/2 bg-white flex justify-center items-center p-4 sm:p-6">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full max-h-36 sm:max-h-96 object-contain"
+                  />
+                </div>
+
+                {/* DETAILS */}
+                <div className="md:w-1/2 p-5 sm:p-8">
+
+                  {/* TITLE + PRICE */}
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-lg sm:text-3xl font-semibold">
+                        {p.title}
+                      </h3>
+                      <p className="text-xs sm:text-base text-gray-500">
+                        {p.tag} Edition
+                      </p>
+                    </div>
+
+                    <div className="text-right">
+                      <div className="text-lg sm:text-2xl font-bold">
+                        ₹
+                        {p.price.toLocaleString("en-IN", {
+                          minimumFractionDigits: 2,
+                        })}
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-gray-500">
+                        One-time
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* FEATURES LIST */}
+                  <ul className="bg-blue-50/40 p-4 sm:p-5 rounded-xl space-y-1 sm:space-y-2 text-sm">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex gap-2 items-start">
+                        <span className="text-green-600 text-sm">✔</span>
+                        <span className="text-gray-700 text-xs sm:text-sm">
+                          {b}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* BUTTONS */}
+                  <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <Button
+                      onClick={() => addToCart(Number(p.id))}
+                      className="!bg-[#185e9a] !text-white px-4 py-4 rounded-lg flex items-center justify-center gap-2 !text-lg"
+                    >
+                      <ShoppingCart className="w-4 h-4" />
+                      Add to cart
+                    </Button>
+
+                    <Button className="px-4 py-4 rounded-lg border text-lg">
+                      Buy now
+                    </Button>
+                  </div>
+
+                  {/* FOOTER */}
+                  <div className="mt-3 text-[10px] sm:text-xs text-gray-500">
+                    SKU:27705 • Support: 1 year
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+          {/* CART SUMMARY */}
+          <div className="w-full max-w-7xl mt-5 sm:mt-8 bg-white rounded-2xl p-4 sm:p-6 shadow-md">
 
-              {/* DETAILS */}
-              <div className="md:w-1/2 p-5 sm:p-8">
-
-                {/* TITLE + PRICE */}
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-lg sm:text-3xl font-semibold">
-                      {p.title}
-                    </h3>
-                    <p className="text-xs sm:text-base text-gray-500">
-                      {p.tag} Edition
-                    </p>
-                  </div>
-
-                  <div className="text-right">
-                    <div className="text-lg sm:text-2xl font-bold">
-                      ₹
-                      {p.price.toLocaleString("en-IN", {
-                        minimumFractionDigits: 2,
-                      })}
-                    </div>
-                    <div className="text-[10px] sm:text-xs text-gray-500">
-                      One-time
-                    </div>
-                  </div>
-                </div>
-
-                {/* FEATURES LIST */}
-                <ul className="bg-blue-50/40 p-4 sm:p-5 rounded-xl space-y-1 sm:space-y-2 text-sm">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="flex gap-2 items-start">
-                      <span className="text-green-600 text-sm">✔</span>
-                      <span className="text-gray-700 text-xs sm:text-sm">
-                        {b}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* BUTTONS */}
-                <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <Button
-                    onClick={() => addToCart(Number(p.id))}
-                    className="!bg-[#185e9a] !text-white px-4 py-4 rounded-lg flex items-center justify-center gap-2 !text-lg"
-                  >
-                    <ShoppingCart className="w-4 h-4" />
-                    Add to cart
-                  </Button>
-
-                  <Button className="px-4 py-4 rounded-lg border text-lg">
-                    Buy now
-                  </Button>
-                </div>
-
-                {/* FOOTER */}
-                <div className="mt-3 text-[10px] sm:text-xs text-gray-500">
-                  SKU:27705 • Support: 1 year
-                </div>
+            {/* HEADER */}
+            <div className="flex justify-between items-center">
+              <div className="font-medium text-sm sm:text-base">
+                Cart Summary
+              </div>
+              <div className="font-semibold text-sm sm:text-base">
+                {totalItems} item(s)
               </div>
             </div>
-          ))}
-        </div>
-              {/* CART SUMMARY */}
-      <div className="w-full max-w-7xl mt-5 sm:mt-8 bg-white rounded-2xl p-4 sm:p-6 shadow-md">
 
-        {/* HEADER */}
-        <div className="flex justify-between items-center">
-          <div className="font-medium text-sm sm:text-base">
-            Cart Summary
-          </div>
-          <div className="font-semibold text-sm sm:text-base">
-            {totalItems} item(s)
-          </div>
-        </div>
-
-        {/* ITEMS */}
-        <div className="mt-4 space-y-3">
-          {cart.length === 0 ? (
-            <div className="text-gray-500 text-center py-3 text-sm">
-              Your cart is empty.
-            </div>
-          ) : (
-            cart.map((c) => {
-              const prod = products.find((x) => x.id === String(c.id));
-              if (!prod) return null;
-
-              return (
-                <div
-                  key={c.id}
-                  className="flex justify-between items-start pb-2 border-b last:border-b-0"
-                >
-                  <div>
-                    <div className="font-medium text-sm sm:text-base">
-                      {prod.title}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      Qty: {c.qty}
-                    </div>
-                  </div>
-
-                  <div className="font-semibold text-sm sm:text-base">
-                    ₹{(prod.price * c.qty).toLocaleString("en-IN")}
-                  </div>
+            {/* ITEMS */}
+            <div className="mt-4 space-y-3">
+              {cart.length === 0 ? (
+                <div className="text-gray-500 text-center py-3 text-sm">
+                  Your cart is empty.
                 </div>
-              );
-            })
-          )}
-        </div>
+              ) : (
+                cart.map((c) => {
+                  const prod = products.find((x) => x.id === String(c.id));
+                  if (!prod) return null;
 
-        {/* TOTAL */}
-        <div className="mt-4 flex justify-between items-center border-t pt-4">
-          <div className="text-gray-600 text-sm sm:text-base">
-            Total
+                  return (
+                    <div
+                      key={c.id}
+                      className="flex justify-between items-start pb-2 border-b last:border-b-0"
+                    >
+                      <div>
+                        <div className="font-medium text-sm sm:text-base">
+                          {prod.title}
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          Qty: {c.qty}
+                        </div>
+                      </div>
+
+                      <div className="font-semibold text-sm sm:text-base">
+                        ₹{(prod.price * c.qty).toLocaleString("en-IN")}
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+
+            {/* TOTAL */}
+            <div className="mt-4 flex justify-between items-center border-t pt-4">
+              <div className="text-gray-600 text-sm sm:text-base">
+                Total
+              </div>
+              <div className="text-base sm:text-lg font-bold">
+                ₹{totalPrice.toLocaleString("en-IN")}
+              </div>
+            </div>
+
+            {/* ACTION BUTTONS */}
+            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+              {/* CLEAR BUTTON */}
+              <Button
+                onClick={() => setCart([])}
+                className="py-3 sm:py-4 rounded-lg border text-sm"
+              >
+                Clear Cart
+              </Button>
+
+              {/* CHECKOUT BUTTON */}
+              <Button
+                disabled={cart.length === 0}
+                className={`py-3 sm:py-4 rounded-lg text-sm ${cart.length === 0
+                  ? "bg-gray-200! text-gray-400!"
+                  : "bg-[#339933]! text-white!"
+                  }`}
+                onClick={showLoading}
+              >
+                Checkout
+              </Button>
+            </div>
+
           </div>
-          <div className="text-base sm:text-lg font-bold">
-            ₹{totalPrice.toLocaleString("en-IN")}
-          </div>
+
         </div>
-
-        {/* ACTION BUTTONS */}
-        <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
-
-          {/* CLEAR BUTTON */}
-          <Button
-            onClick={() => setCart([])}
-            className="py-3 sm:py-4 rounded-lg border text-sm"
-          >
-            Clear Cart
-          </Button>
-
-          {/* CHECKOUT BUTTON */}
-          <Button
-            disabled={cart.length === 0}
-            className={`py-3 sm:py-4 rounded-lg text-sm ${cart.length === 0
-              ? "bg-gray-200! text-gray-400!"
-              : "bg-[#339933]! text-white!"
-              }`}
-            onClick={showLoading}
-          >
-            Checkout
-          </Button>
-        </div>
-
-      </div>
-      
-      </div>
       </section>
 
 
@@ -489,7 +488,16 @@ export default function MRReportingPage() {
           <>
             <Button onClick={() => setOpen(false)}>Cancel</Button>
             {/* PaymentGetway ke handler ko call karenge */}
-            <PaymentGetway totalPrice={totalPrice} user={user} />
+            {/* <PaymentGetway totalPrice={totalPrice} user={user} /> */}
+            <Button
+              type="primary"
+              onClick={() => {
+                setOpen(false);
+                alert("Order placed successfully!");
+              }}
+            >
+              Place Order
+            </Button>
           </>
         }
         open={open}

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import { Trash2 } from "lucide-react";
-import PaymentGetway from "../payment-getway/PaymentGetway";
 import Link from "next/link";
 
 
@@ -715,14 +714,20 @@ function CartSummary({ cart, setCart }: CartSummaryProps) {
               Cancel
             </Button>
 
-            <PaymentGetway
+            {/* <PaymentGetway
               totalPrice={grandTotal}
               user={{
                 name: "User",
                 email: "user@example.com",
                 company: "My Company",
               }}
-            />
+            /> */}
+            <Button
+              onClick={() => setOpen(false)}
+              className="bg-green-600 text-white py-4 rounded-lg"
+            >
+              Place Order
+            </Button>
           </div>
 
         </div>

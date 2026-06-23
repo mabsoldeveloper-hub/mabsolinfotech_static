@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ShoppingCart, ShieldCheck, Cloud, FileText } from "lucide-react";
 import { Button, Modal } from "antd";
-import PaymentGetway from "../payment-getway/PaymentGetway";
 
 // Modern responsive TallyPrime product showcase
 // Next.js + Tailwind styling (single-file React component preview)
@@ -110,9 +109,9 @@ export default function TallyPage() {
 
           <div className="flex items-center gap-4">
             <Link href="/contact">
-            <button className="hidden md:inline text-sm px-4 py-2 rounded-lg border">
-              Support
-            </button></Link>
+              <button className="hidden md:inline text-sm px-4 py-2 rounded-lg border">
+                Support
+              </button></Link>
             {/* CART BUTTON WITH MODAL OPEN */}
             <button
               onClick={() => setIsCartOpen(true)}
@@ -140,9 +139,9 @@ export default function TallyPage() {
 
           <div className="mt-6 flex gap-3">
             <Link href="/contact">
-            <button className="px-5 py-3 bg-[#0b3a74] text-white rounded-lg font-medium">
-              Contact Sales
-            </button>
+              <button className="px-5 py-3 bg-[#0b3a74] text-white rounded-lg font-medium">
+                Contact Sales
+              </button>
             </Link>
             {/* <Link href="/tally-comparison">
             <button className="px-5 py-3 border rounded-lg">
@@ -681,7 +680,16 @@ export default function TallyPage() {
             <Button onClick={() => setOpen(false)}>Cancel</Button>
 
             {/* Final amount gateway ko bhejna chahiye */}
-            <PaymentGetway totalPrice={grandTotal} user={user} />
+            {/* <PaymentGetway totalPrice={grandTotal} user={user} /> */}
+            <Button
+              type="primary"
+              onClick={() => {
+                setOpen(false);
+                alert("Order placed successfully!");
+              }}
+            >
+              Place Order
+            </Button>
           </>
         }
         open={open}
