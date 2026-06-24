@@ -5,13 +5,7 @@ import { useEffect, useRef } from "react";
 import Link from 'next/link';
 
 const Marg = () => {
-    const features = [
-        "GST Billing",
-        "Inventory Management",
-        "Barcode Scanning",
-        "Accounting Reports",
-        "Multi-branch Sync",
-    ];
+   
 
     const advantages = [
         {

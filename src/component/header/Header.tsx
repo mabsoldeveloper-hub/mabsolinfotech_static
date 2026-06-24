@@ -78,7 +78,7 @@ const Header = () => {
           HR Payroll Portal
         </a>
         <a
-          href="https://mabsolinfotech.in/crm-demo.php"
+          href="https://mabsolinfotech.in/crmtest-demo.php"
           className="!text-blue-300 hover:!text-[#fff] select-none"
         >
           DCR Portal
@@ -185,13 +185,13 @@ const Header = () => {
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span className="">Employee</span>
         <a
-          href="https://mabsolinfotech.com/crm/employee/employee_register.php"
+          href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
           className="!text-blue-300  select-none"
         >
           Employee Attendance
         </a>
         <a
-          href="https://mabsolinfotech.com/crm/employee/employee_register.php"
+          href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
           className="!text-blue-300 select-none"
         >
           Employee Login
@@ -237,13 +237,13 @@ const Header = () => {
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span>DCR</span>
         <a
-          href="https://mabsolinfotech.com/crm/employee/employee_register.php"
+          href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
           className="!text-blue-300 select-none"
         >
           Employee Login
         </a>
         <a
-          href="https://mabsolinfotech.com/crm/admin/admin_login.php"
+          href="https://mabsolinfotech.com/crmtest/admin/admin_login.php"
           className="!text-blue-300 select-none"
         >
           Report
@@ -254,31 +254,31 @@ const Header = () => {
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span>DCR Demo</span>
         <a
-          href="https://demo.mabsolinfotech.com/crm/admin/admin_login.php"
+          href="https://demo.mabsolinfotech.com/crmtest/admin/admin_login.php"
           className="!text-blue-300 select-none"
         >
           Admin Portal
         </a>
         <a
-          href="https://demo.mabsolinfotech.com/crm/employee/employee_register.php"
+          href="https://demo.mabsolinfotech.com/crmtest/employee/employee_register.php"
           className="!text-blue-300 select-none"
         >
           Employee Portal
         </a>
         <a
-          href="https://demo.mabsolinfotech.com/crm/"
+          href="https://demo.mabsolinfotech.com/crmtest/"
           className="!text-blue-300 select-none"
         >
           Users Portal
         </a>
         <a
-          href="https://mabsolinfotech.in/crm-demo.php"
+          href="https://mabsolinfotech.in/crmtest-demo.php"
           className="!text-blue-300 select-none"
         >
           Get DCR Demo
         </a>
         <a
-          href="https://mabsolinfotech.com/crm/pricing_contacts.php"
+          href="https://mabsolinfotech.com/crmtest/pricing_contacts.php"
           className="!text-blue-300 select-none"
         >
           Get Demo Or Pricing Detail
@@ -287,13 +287,13 @@ const Header = () => {
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span>Customer Portal</span>
         <a
-          href="https://mabsolinfotech.com/crm/index.php"
+          href="https://mabsolinfotech.com/crmtest/index.php"
           className="!text-blue-300 select-none"
         >
           Raise A Ticket
         </a>
         <a
-          href="https://mabsolinfotech.com/crm/admin/admin_login.php"
+          href="https://mabsolinfotech.com/crmtest/admin/admin_login.php"
           className="!text-blue-300 select-none"
         >
           Report
@@ -303,13 +303,13 @@ const Header = () => {
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span>Testing Portal</span>
         <a
-          href="https://mabsolinfotech.in/crm-demo.php"
+          href="https://mabsolinfotech.in/crmtest-demo.php"
           className="!text-blue-300 select-none"
         >
           DCR Portal
         </a>
         <a
-          href="https://mabsolinfotech.com/crm/admin/admin_login.php"
+          href="https://mabsolinfotech.com/crmtest/admin/admin_login.php"
           className="!text-blue-300 select-none"
         >
           Customer Portal
@@ -344,7 +344,7 @@ const Header = () => {
           Student Portal
         </a>
         <a
-          href="https://mabsolinfotech.com/crm/demo_contact.php"
+          href="https://mabsolinfotech.com/crmtest/demo_contact.php"
           className="!text-blue-300 select-none"
         >
           Get Demo
@@ -387,7 +387,7 @@ const Header = () => {
       <div className="text-sm font-bold flex flex-col gap-3 font-serif">
         <span>Wallet Recharge</span>
         <a
-          href="https://mabsolinfotech.com/crm/wallet_recharge.php"
+          href="https://mabsolinfotech.com/crmtest/wallet_recharge.php"
           className="!text-blue-300 select-none"
         >
           Wallet Recharge
@@ -444,10 +444,10 @@ const Header = () => {
   const toggleSchoolSubmenu = () => setIsSchoolSubOpen(!isSchoolSubOpen);
 
   const handleSupportClick = () => {
-    router.push("https://mabsolinfotech.com/crm/index.php");
+    router.push("https://mabsolinfotech.com/crmtest/index.php");
   };
 
-  const handleCRMClick = () => {
+  const handlecrmtestClick = () => {
     router.push("/contact");
   };
 
@@ -586,7 +586,7 @@ const Header = () => {
               data-aos-duration="700"
             >
               <Button
-                onClick={handleCRMClick}
+                onClick={handlecrmtestClick}
                 className="!bg-[#34396e] hover:!bg-blue-600 !text-white !text-sm !font-semibold !px-8 !h-10 !rounded-none !shadow-md hover:!shadow-lg transition-all duration-300"
               >
                 Contact Us
@@ -961,7 +961,7 @@ const Header = () => {
                     </div>
                   </a>
                   <a
-                    href="https://mabsolinfotech.in/crm-demo.php"
+                    href="https://mabsolinfotech.in/crmtest-demo.php"
                     className="block hover:border-b hover:border-gray-300 p-2 !text-[#D7E2F5] hover:!text-[#00C16E]"
                   >
                     <div className="flex justify-start items-center gap-1">
@@ -1031,7 +1031,7 @@ const Header = () => {
                   className="bg-[#0b1d5b]  border-none rounded pb-4 text-sm"
                 >
                   <a
-                    href="https://mabsolinfotech.com/crm/employee/employee_register.php"
+                    href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
                     className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                   >
                     <div className="flex justify-start items-center gap-1">
@@ -1046,7 +1046,7 @@ const Header = () => {
                   <div className=" w-full">
                     {/* wallet recharge */}
                     <a
-                      href="https://mabsolinfotech.com/crm/wallet_recharge.php"
+                      href="https://mabsolinfotech.com/crmtest/wallet_recharge.php"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cursor-pointer font-medium !text-white"
@@ -1109,7 +1109,7 @@ const Header = () => {
                           className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
-                            href="https://demo.mabsolinfotech.com/crm/admin/admin_login.php"
+                            href="https://demo.mabsolinfotech.com/crmtest/admin/admin_login.php"
                             className="block hover:border-b hover:border-gray-300 p-2 pt-0 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1118,7 +1118,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://demo.mabsolinfotech.com/crm/employee/employee_register.php"
+                            href="https://demo.mabsolinfotech.com/crmtest/employee/employee_register.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1127,7 +1127,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://demo.mabsolinfotech.com/crm/"
+                            href="https://demo.mabsolinfotech.com/crmtest/"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1136,7 +1136,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://mabsolinfotech.com/crm/pricing_contacts.php"
+                            href="https://mabsolinfotech.com/crmtest/pricing_contacts.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1309,7 +1309,7 @@ const Header = () => {
                           className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
-                            href="https://mabsolinfotech.com/crm/employee/employee_register.php"
+                            href="https://mabsolinfotech.com/crmtest/employee/employee_register.php"
                             className="block hover:border-b hover:border-gray-300 p-2 pt-0 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1318,7 +1318,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://mabsolinfotech.com/crm/admin/admin_login.php"
+                            href="https://mabsolinfotech.com/crmtest/admin/admin_login.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1367,7 +1367,7 @@ const Header = () => {
                           className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
-                            href="https://demo.mabsolinfotech.com/crm/admin/admin_login.php"
+                            href="https://demo.mabsolinfotech.com/crmtest/admin/admin_login.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1376,7 +1376,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://demo.mabsolinfotech.com/crm/employee/employee_register.php"
+                            href="https://demo.mabsolinfotech.com/crmtest/employee/employee_register.php"
                             className="block hover:border-b hover:border-gray-300 p-2 pt-0 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1385,7 +1385,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://demo.mabsolinfotech.com/crm/"
+                            href="https://demo.mabsolinfotech.com/crmtest/"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1395,7 +1395,7 @@ const Header = () => {
                           </a>
 
                           <a
-                            href="https://mabsolinfotech.in/crm-demo.php"
+                            href="https://mabsolinfotech.in/crmtest-demo.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1405,7 +1405,7 @@ const Header = () => {
                           </a>
 
                           <a
-                            href="https://mabsolinfotech.com/crm/pricing_contacts.php"
+                            href="https://mabsolinfotech.com/crmtest/pricing_contacts.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1453,7 +1453,7 @@ const Header = () => {
                           className="overflow-hidden bg-[#0b1d5b] border-none rounded text-sm mt-2"
                         >
                           <a
-                            href="https://mabsolinfotech.com/crm/index.php"
+                            href="https://mabsolinfotech.com/crmtest/index.php"
                             className="block hover:border-b hover:border-gray-300 p-2 pt-0 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1462,7 +1462,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://mabsolinfotech.com/crm/admin/admin_login.php"
+                            href="https://mabsolinfotech.com/crmtest/admin/admin_login.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1632,7 +1632,7 @@ const Header = () => {
                             </div>
                           </a>
                           <a
-                            href="https://mabsolinfotech.com/crm/pricing_contacts.php"
+                            href="https://mabsolinfotech.com/crmtest/pricing_contacts.php"
                             className="block hover:border-b hover:border-gray-300 p-2 !text-white"
                           >
                             <div className="flex justify-start items-center gap-1">
@@ -1651,7 +1651,7 @@ const Header = () => {
           </div>
         </nav>
         <div className="flex justify-center items-center pt-10 gap-6 ">
-          <Link href="https://mabsolinfotech.com/crm/index.php">
+          <Link href="https://mabsolinfotech.com/crmtest/index.php">
             <div
               data-aos="fade-down"
               data-aos-easing="linear"
