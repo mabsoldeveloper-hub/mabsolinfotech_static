@@ -325,7 +325,7 @@ export default function ContactUs() {
                   >
                     SCO-76, 2nd Floor, Sector 19,
                     <br />
-                    Panchkula, Haryana – 134109
+                    Panchkula, Haryana – 134113
                   </span>
                 </Link>
               </ContactCard>
