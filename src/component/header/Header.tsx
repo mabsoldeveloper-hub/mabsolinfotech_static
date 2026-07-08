@@ -95,7 +95,7 @@ const Header = () => {
         >
           School Portal
         </a>
-        <a href="https://hotel.mabsolinfotech.cloud/" className="!text-blue-300 hover:!text-[#fff] select-none">
+        <a href="https://mabsolinfotech.cloud/" className="!text-blue-300 hover:!text-[#fff] select-none">
           Hotel Portal
         </a>
       </div>
