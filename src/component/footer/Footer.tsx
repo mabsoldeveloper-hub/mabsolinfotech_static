@@ -30,7 +30,7 @@ const Footer = () => {
       ></div>
 
       {/* Footer Grid */}
-      <div className="relative grid grid-cols-2 lg:grid-cols-3 gap-10 z-20 px-0 sm:px-4 md:px-14 lg:px-24">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 z-20 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24">
 
         {/* Logo + About */}
         <div>
@@ -104,8 +104,7 @@ const Footer = () => {
             Stay updated with our latest news and offers.
           </p>
 
-          <form className="flex flex-col gap-2 w-full 
-                 max-w-[220px] 
+          <form className="flex flex-col gap-3 w-full 
                  sm:max-w-[240px] 
                  md:max-w-[260px] 
                  lg:max-w-[280px]">
@@ -122,7 +121,10 @@ const Footer = () => {
 
             <button
               type="submit"
-              className="w-full mt-3 text-center bg-[#1a3c96] hover:bg-[#2550c4] transition-all duration-300 cursor-pointer text-white py-2 text-sm"
+              className="w-full py-2 text-sm font-medium
+    bg-[#1a3c96] hover:bg-[#2550c4]  
+    transition-all duration-300
+    rounded-sm text-white"
             >
               Subscribe
             </button>
@@ -130,7 +132,7 @@ const Footer = () => {
         </div>
 
         {/* Products + Services + Quick Links */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-10 xl:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 lg:gap-10 xl:gap-5">
 
           {/* Products */}
           <div>
@@ -281,7 +283,7 @@ const Footer = () => {
 
       {/* Footer Bottom Section */}
 
-      <div className="relative mt-5 border-t border-gray-700 pt-3">
+      <div className="relative mt-5 border-t border-white/50 pt-3">
 
         <div className="text-center">
           <p className="text-gray-400 text-[9px] sm:text-[11px] md:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
