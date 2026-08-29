@@ -48,50 +48,7 @@ const Footer = () => {
             efficient software solutions.
           </p>
 
-          <div className="flex items-center gap-3 sm:gap-4 mt-5 text-xl sm:text-2xl flex-nowrap">
 
-            <a
-              href="https://www.facebook.com/people/Mabsol-Infotech-Pvt-Ltd-Haryana/61578120662281/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-md 
-    bg-white/10 text-white hover:bg-[#2550c4] 
-    transition-all duration-300"
-            >
-              <FacebookFilled />
-            </a>
-
-            <a
-              href="https://www.youtube.com/@ABMINFOTECHPanchkula"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-md 
-    bg-white/10 text-white hover:bg-[#2550c4] transition-all duration-300"
-            >
-              <YoutubeFilled />
-            </a>
-
-            <a
-              href="https://www.instagram.com/mabsol_infotech_pvt_ltd/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-md 
-    bg-white/10 text-white hover:bg-[#2550c4] transition-all duration-300"
-            >
-              <InstagramFilled />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/mabsol-infotech-pvt-ltd/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-md 
-    bg-white/10 text-white hover:bg-[#2550c4] transition-all duration-300"
-            >
-              <LinkedinFilled />
-            </a>
-
-          </div>
         </div>
 
         {/* Newsletter */}
@@ -283,34 +240,154 @@ const Footer = () => {
 
       {/* Footer Bottom Section */}
 
-      <div className="relative mt-5 border-t border-white/50 pt-3">
+      <div className="relative mt-6 border-t border-white/20 pt-5 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24">
+        <div
+          className="
+      flex flex-col gap-5
+      sm:flex-row sm:items-center sm:justify-between
+    "
+        >
+          {/* Social Icons */}
+          <div className="flex items-center justify-center gap-2.5 sm:justify-start sm:gap-3">
+            <a
+              href="https://www.facebook.com/people/Mabsol-Infotech-Pvt-Ltd-Haryana/61578120662281/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="
+          flex h-9 w-9 items-center justify-center rounded-full
+          bg-white/10 text-lg text-white
+          transition-all duration-300
+          hover:-translate-y-1 hover:bg-[#2550c4]
+          hover:shadow-md hover:shadow-blue-900/30
+          sm:h-10 sm:w-10 sm:text-xl
+        "
+            >
+              <FacebookFilled />
+            </a>
 
-        <div className="text-center">
-          <p className="text-gray-400 text-[9px] sm:text-[11px] md:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
-            © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED. All Rights Reserved.
-          </p>
+            <a
+              href="https://www.youtube.com/@ABMINFOTECHPanchkula"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="
+          flex h-9 w-9 items-center justify-center rounded-full
+          bg-white/10 text-lg text-white
+          transition-all duration-300
+          hover:-translate-y-1 hover:bg-[#ff0000]
+          hover:shadow-md hover:shadow-red-900/30
+          sm:h-10 sm:w-10 sm:text-xl
+        "
+            >
+              <YoutubeFilled />
+            </a>
 
-          <div className="mt-2 flex flex-wrap justify-center gap-x-2 gap-y-2 text-gray-400 text-[9px] sm:text-[11px] md:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis">
-            <Link href="/term-condition" className="hover:text-white transition">
-              Terms & Conditions
-            </Link>
+            <a
+              href="https://www.instagram.com/mabsol_infotech_pvt_ltd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="
+          flex h-9 w-9 items-center justify-center rounded-full
+          bg-white/10 text-lg text-white
+          transition-all duration-300
+          hover:-translate-y-1 hover:bg-[#e1306c]
+          hover:shadow-md hover:shadow-pink-900/30
+          sm:h-10 sm:w-10 sm:text-xl
+        "
+            >
+              <InstagramFilled />
+            </a>
 
-            <Link href="/privacy-policy" className="hover:text-white transition">
-              Privacy Policy
-            </Link>
-
-            <Link href="/jobs-create" className="hover:text-white transition">
-              Jobs Create
-            </Link>
-
-            <Link href="/location" className="hover:text-white transition">
-              User Locator
-            </Link>
+            <a
+              href="https://www.linkedin.com/in/mabsol-infotech-pvt-ltd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="
+          flex h-9 w-9 items-center justify-center rounded-full
+          bg-white/10 text-lg text-white
+          transition-all duration-300
+          hover:-translate-y-1 hover:bg-[#0a66c2]
+          hover:shadow-md hover:shadow-blue-900/30
+          sm:h-10 sm:w-10 sm:text-xl
+        "
+            >
+              <LinkedinFilled />
+            </a>
           </div>
+
+          {/* Copyright + Links */}
+          <div className="flex flex-1 flex-col items-center text-center sm:ml-5">
+            <p
+              className="
+          w-full
+          text-[9px] leading-4 text-gray-400
+          sm:text-[11px] sm:leading-5
+          md:text-xs
+          lg:text-sm
+        "
+            >
+              © {new Date().getFullYear()} MABSOL INFOTECH PRIVATE LIMITED.
+              <span className="hidden sm:inline"> All Rights Reserved.</span>
+            </p>
+
+            {/* Footer Links */}
+            <div
+              className="
+          mt-2 flex w-full flex-wrap items-center justify-center
+          gap-x-3 gap-y-1.5
+          text-[9px] text-gray-400
+          sm:gap-x-4 sm:text-[11px]
+          md:text-xs
+          lg:text-sm
+        "
+            >
+              <Link
+                href="/term-condition"
+                className="transition-colors duration-200 hover:text-white"
+              >
+                Terms & Conditions
+              </Link>
+
+              <span className="text-white/20">|</span>
+
+              <Link
+                href="/privacy-policy"
+                className="transition-colors duration-200 hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+
+              <span className="text-white/20">|</span>
+
+              <Link
+                href="/jobs-create"
+                className="transition-colors duration-200 hover:text-white"
+              >
+                Jobs Create
+              </Link>
+
+              <span className="text-white/20">|</span>
+
+              <Link
+                href="/location"
+                className="transition-colors duration-200 hover:text-white"
+              >
+                User Locator
+              </Link>
+            </div>
+          </div>
+
+          {/* Empty spacer on desktop for balanced layout */}
+          <div className="hidden w-[152px] sm:block" />
         </div>
 
         {/* Scroll To Top */}
         <button
+          type="button"
+          aria-label="Scroll to top"
           onClick={() =>
             window.scrollTo({
               top: 0,
@@ -318,30 +395,24 @@ const Footer = () => {
             })
           }
           className="
-      fixed
-      bottom-4
-      right-4
-      z-50
-      flex
-      h-8
-      w-8
-      items-center
-      justify-center
+      fixed bottom-4 right-4 z-50
+      flex h-9 w-9 items-center justify-center
       rounded-full
-      bg-blue-600
-      text-white
-      shadow-lg
-      transition-all
-      duration-300
-      hover:scale-110
+      bg-blue-600 text-white
+      shadow-lg shadow-blue-900/30
+      transition-all duration-300
+      hover:-translate-y-1 hover:scale-110
       hover:bg-blue-500
-      md:bottom-6
-      md:right-6
+      focus:outline-none focus:ring-2
+      focus:ring-blue-400 focus:ring-offset-2
+      focus:ring-offset-[#0b1d5b]
+      sm:bottom-5 sm:right-5
+      sm:h-10 sm:w-10
+      md:bottom-6 md:right-6
     "
         >
-          <MdOutlineKeyboardDoubleArrowUp size={22} />
+          <MdOutlineKeyboardDoubleArrowUp size={21} />
         </button>
-
       </div>
     </div>
   );
