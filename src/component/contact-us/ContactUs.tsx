@@ -388,16 +388,7 @@ export default function ContactUs() {
               min-h-[320px] lg:min-h-0"
           >
             {/* Map label badge */}
-            <div
-              className="absolute top-4 left-4 z-10 flex items-center gap-2
-                bg-white/95 backdrop-blur-sm border border-slate-100
-                rounded-xl px-3 py-2 shadow-sm"
-            >
-              <IoLocationSharp className="text-[#0b3a74] text-base" />
-              <span className="text-[12px] font-bold text-[#0b3a74]">
-                Mabsol Infotech, Panchkula
-              </span>
-            </div>
+           
 
             <iframe
               className="w-full h-full absolute inset-0"
