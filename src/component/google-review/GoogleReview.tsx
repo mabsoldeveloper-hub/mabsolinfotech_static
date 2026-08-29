@@ -143,7 +143,7 @@ export default function GoogleReviewsSection() {
               <p className="mt-4 text-slate-500">
                 Based on{" "}
                 <span className="font-semibold text-[#0b3766]">
-                  83 reviews
+                  92 reviews
                 </span>
               </p>
 
