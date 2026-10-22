@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
+  compiler: {
+    removeConsole: true,
+  },
 
   images: {
     unoptimized: true,
