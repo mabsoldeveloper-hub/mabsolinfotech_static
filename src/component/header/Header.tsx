@@ -99,7 +99,7 @@ const Header = () => {
           Hotel Portal
         </a>
          <a href="https://phcrm.mabsolinfotech.cloud/" className="!text-blue-300 hover:!text-[#fff] select-none">
-          CRM Portal
+          Pharma CRM Portal
         </a>
       </div>
     </div>
@@ -1005,7 +1005,7 @@ const Header = () => {
                   >
                     <div className="flex justify-start items-center gap-1">
                       <AiOutlineTeam />
-                      CRM Portal
+                      Pharma CRM Portal
                     </div>
                   </Link>
                 </motion.div>
