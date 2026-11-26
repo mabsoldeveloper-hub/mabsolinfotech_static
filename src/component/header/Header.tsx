@@ -98,6 +98,9 @@ const Header = () => {
         <a href="https://mabsolinfotech.cloud/" className="!text-blue-300 hover:!text-[#fff] select-none">
           Hotel Portal
         </a>
+         <a href="https://phcrm.mabsolinfotech.cloud/" className="!text-blue-300 hover:!text-[#fff] select-none">
+          CRM Portal
+        </a>
       </div>
     </div>
   );
@@ -994,6 +997,15 @@ const Header = () => {
                     <div className="flex justify-start items-center gap-1">
                       <ExperimentOutlined />
                       Hotel Portal
+                    </div>
+                  </Link>
+                   <Link
+                    href="https://phcrm.mabsolinfotech.cloud/"
+                    className="block hover:border-b hover:border-gray-300 p-2 !text-[#D7E2F5] hover:!text-[#00C16E]"
+                  >
+                    <div className="flex justify-start items-center gap-1">
+                      <AiOutlineTeam />
+                      CRM Portal
                     </div>
                   </Link>
                 </motion.div>
